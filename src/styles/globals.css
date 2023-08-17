@@ -211,6 +211,13 @@
     --leading-primary-6: 1.25rem; /* 20px */
   }
 
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   html,
   body {
     width: 100%;
@@ -220,6 +227,15 @@
   #__next {
     display: flex;
     flex-direction: column;
+  }
+  body {
+    color-scheme: light dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
   #__next {
     width: 100%;
