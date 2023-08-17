@@ -235,7 +235,7 @@ export default function Home() {
               </p>
               <Link
                 href="#"
-                className="leading-7s text-center text-sm font-normal text-zinc-800 underline"
+                className="explore leading-7s text-center text-sm font-normal text-zinc-800 underline"
               >
                 Read more about our story
               </Link>
