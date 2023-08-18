@@ -13,10 +13,13 @@ const config = {
    *
    * @see https://github.com/vercel/next.js/issues/41980
    */
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
+  i18n:
+    process.env.NODE_ENV === "development"
+      ? undefined
+      : {
+          locales: ["en"],
+          defaultLocale: "en",
+        },
 };
 
 export default config;
