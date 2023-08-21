@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 type ImageProps = Parameters<typeof Image>[0];
 
@@ -14,72 +14,83 @@ export interface ICustomNextImageProps extends Omit<ImageProps, "alt"> {
   isAnimated?: boolean;
 }
 
-export default function CustomNextImage({
-  className = "",
-  unoptimized = true,
-  weservNlOptimized = true,
-  src,
-  alt = "",
-  placeholder = "empty",
-  blurDataURL,
-  isAnimated = true,
-  ...props
-}: ICustomNextImageProps) {
-  const [isWeservNlOptimized, setIsWeservNlOptimized] = useState(
-    // process.env.NODE_ENV === 'production' ? weservNlOptimized : false,
-    weservNlOptimized
-  );
-  const [_src, setSrc] = useState(src);
-  const [isLoaded, setIsLoaded] = useState(false);
+forwardRef;
 
-  useEffect(() => {
-    if (src !== _src) {
-      setSrc(src);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [src]);
+const CustomNextImage = forwardRef<HTMLImageElement, ICustomNextImageProps>(
+  (
+    {
+      className = "",
+      unoptimized = true,
+      weservNlOptimized = true,
+      src,
+      alt = "",
+      placeholder = "empty",
+      blurDataURL,
+      isAnimated = true,
+      ...props
+    },
+    ref
+  ) => {
+    const [isWeservNlOptimized, setIsWeservNlOptimized] = useState(
+      // process.env.NODE_ENV === 'production' ? weservNlOptimized : false,
+      weservNlOptimized
+    );
+    const [_src, setSrc] = useState(src);
+    const [isLoaded, setIsLoaded] = useState(false);
 
-  function handleImageProps() {
-    const imageProps: Omit<ICustomNextImageProps, "alt"> & { alt: string } = {
-      onError: () => {
-        if (isWeservNlOptimized) {
+    useEffect(() => {
+      if (src !== _src) {
+        setSrc(src);
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [src]);
+
+    function handleImageProps() {
+      const imageProps: Omit<ICustomNextImageProps, "alt"> & { alt: string } = {
+        onError: () => {
+          if (isWeservNlOptimized) {
+            setIsLoaded(true);
+            setIsWeservNlOptimized(false);
+            return;
+          }
+
           setIsLoaded(true);
-          setIsWeservNlOptimized(false);
-          return;
-        }
+          setSrc(
+            // '/images/image-error.png'
+            "/svgs/bbblurry.svg"
+          );
+        },
+        src:
+          isWeservNlOptimized && typeof _src === "string"
+            ? `//images.weserv.nl/?url=${encodeURIComponent(
+                _src.startsWith("/") ? `${websiteBasePath}${_src}` : _src
+              )}&w=${props.width}${props.height ? `&h=${props.height}` : ""}${
+                isAnimated ? "&n=-1" : ""
+              }&q=${props.quality ? props.quality : 95}&&output=webp`
+            : _src,
+        unoptimized,
+        placeholder,
+        className: `${className} ${isLoaded ? "" : "no-content"}`,
+        alt,
+        onLoadingComplete: () => {
+          setIsLoaded(true);
+        },
+        ...props,
+      };
 
-        setIsLoaded(true);
-        setSrc(
-          // '/images/image-error.png'
-          "/svgs/bbblurry.svg"
-        );
-      },
-      src:
-        isWeservNlOptimized && typeof _src === "string"
-          ? `//images.weserv.nl/?url=${encodeURIComponent(
-              _src.startsWith("/") ? `${websiteBasePath}${_src}` : _src
-            )}&w=${props.width}${props.height ? `&h=${props.height}` : ""}${
-              isAnimated ? "&n=-1" : ""
-            }&q=${props.quality ? props.quality : 95}&&output=webp`
-          : _src,
-      unoptimized,
-      placeholder,
-      className: `${className} ${isLoaded ? "" : "no-content"}`,
-      alt,
-      onLoadingComplete: () => {
-        setIsLoaded(true);
-      },
-      ...props,
-    };
+      if (placeholder !== "empty") {
+        if (blurDataURL) imageProps.blurDataURL = blurDataURL;
+        else if (src && typeof src === "string") imageProps.blurDataURL = src;
+      }
 
-    if (placeholder !== "empty") {
-      if (blurDataURL) imageProps.blurDataURL = blurDataURL;
-      else if (src && typeof src === "string") imageProps.blurDataURL = src;
+      return imageProps;
     }
 
-    return imageProps;
+    // eslint-disable-next-line jsx-a11y/alt-text
+    return <Image ref={ref} {...handleImageProps()} />;
   }
+);
 
-  // eslint-disable-next-line jsx-a11y/alt-text
-  return <Image {...handleImageProps()} />;
-}
+CustomNextImage.displayName = "CustomNextImage";
+
+export default CustomNextImage;

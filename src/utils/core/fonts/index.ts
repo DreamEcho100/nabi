@@ -113,4 +113,17 @@ export const AnticDidoneFont = localFont({
   display: "swap",
 });
 
-export const fontsClasses = `${WorkSansFont.variable} ${AnticDidoneFont.variable}  font-sans`;
+export const allRoundGothicW01XLigFont = localFont({
+  src: [
+    {
+      path: "./All Round Gothic W01 XLig/All Round Gothic W01 XLig/All Round Gothic W01 XLig.ttf",
+      weight: "400",
+      style: "regular",
+    },
+  ],
+  variable: "--font-all-round-gothic-w01-xlig",
+  fallback: ["antic-didone, sans-serif"],
+  display: "swap",
+});
+
+export const fontsClasses = `${WorkSansFont.variable} ${AnticDidoneFont.variable} ${allRoundGothicW01XLigFont.variable}`;

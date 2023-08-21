@@ -15,6 +15,11 @@ export default function Document() {
         // style={{ fontFamily: "'Raleway', sans-serif" }}
       >
         <Main />
+        {/* <div>
+          Icons made from{" "}
+          <a href="https://www.onlinewebfonts.com/icon">svg icons</a>is licensed
+          by CC BY 4.0
+        </div> */}
         <NextScript />
       </body>
     </Html>

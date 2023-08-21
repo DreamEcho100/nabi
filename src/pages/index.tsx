@@ -1,12 +1,78 @@
-import { cx } from "class-variance-authority";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
-import { fontsClasses } from "~/utils/core/fonts";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 import ImageMagnifier from "~/components/shared/common/ImageMagnifier";
+import CustomNextImage from "~/components/shared/common/CustomNextImage";
+import { useIntersectionObserver } from "~/utils/common/hooks";
+import { useEffect } from "react";
+import { cx } from "class-variance-authority";
+
+const intersectionObserverCB: IntersectionObserverCallback = (entries) => {
+  let entry: IntersectionObserverEntry;
+  for (entry of entries) {
+    if (entry.isIntersecting) {
+      if (entry.target.classList.contains("intersect-show-up-container")) {
+        entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
+          elem.classList.remove("translate-y-full", "opacity-0");
+        });
+      } else if (entry.target.classList.contains("intersect-show-from-right")) {
+        entry.target.classList.remove(
+          "opacity-0",
+          entry.target.classList.contains("double")
+            ? "translate-x-[200%]"
+            : "translate-x-full"
+        );
+      } else if (entry.target.classList.contains("intersect-show-from-left")) {
+        entry.target.classList.remove(
+          "opacity-0",
+          entry.target.classList.contains("double")
+            ? "-translate-x-[200%]"
+            : "-translate-x-full"
+        );
+      } else if (entry.target.classList.contains("intersect-show")) {
+        entry.target.classList.remove("opacity-0");
+      } else if (entry.target.classList.contains("intersect-scale-base-from-150")) {
+        entry.target.classList.remove("scale-150");
+      }
+    }
+  }
+};
+
+const intersectionObserverOptions: IntersectionObserverInit = {
+  threshold: 0.1,
+};
 
 export default function Home() {
+  const intersectionObserver = useIntersectionObserver(
+    intersectionObserverCB,
+    intersectionObserverOptions
+  );
+
+  useEffect(() => {
+    if (!intersectionObserver.isClient) return;
+
+    const intersectElements: Element[] = [];
+
+    document
+      .querySelectorAll(".intersect-elem,.intersect-show-up-container")
+      .forEach((elem) => intersectElements.push(elem));
+
+    let elem: Element;
+    for (elem of intersectElements) {
+      intersectionObserver.intersectionObserver.observe(elem);
+    }
+
+    return () => {
+      let elem: Element;
+      for (elem of intersectElements) {
+        intersectionObserver.intersectionObserver.unobserve(elem);
+      }
+    };
+  }, [
+    intersectionObserver.intersectionObserver,
+    intersectionObserver.isClient,
+  ]);
+
   return (
     <>
       <Head>
@@ -15,32 +81,58 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="max-h-fit min-h-fit bg-special-primary-500">
+      <section className="h-screen max-h-[100rem] min-h-fit bg-special-primary-500">
         <video
-          className="h-full w-full"
+          className="h-full w-full object-cover"
           autoPlay
           muted
           loop
           poster="/images/3eda340496860c533c866c4a3619cc26.jpg"
           width={500}
           height={800}
+          playsInline
         >
           <source
-            src="https://assets.frame.io/encode/d1ff8fc8-ad1a-4cae-ac9c-2fe0dea01c24/h264_1080_best.mp4?x-amz-meta-project_id=dcbbdb01-35eb-4f03-8bdf-8569deabfadb&amp;x-amz-meta-request_id=F3wbwITB1lMvreoIvn6E&amp;x-amz-meta-project_id=dcbbdb01-35eb-4f03-8bdf-8569deabfadb&amp;x-amz-meta-resource_type=asset&amp;x-amz-meta-resource_id=d1ff8fc8-ad1a-4cae-ac9c-2fe0dea01c24&amp;Expires=1692316800&amp;Signature=g1hlpLJgkFGStbi90NdEK9cupe4ne8tWzixSDbgqOdcGEuVNuzNox0tPQjuXjZqG4UO7o4UQnbD~mwq6sSrAdE5m~dY-yIxwFHo7iRxBI7tGH1fBrQEs3XUPX9Y-AB4pRe72ybwN0l5ViabKbGMkfn4~Ju5h~pikXWHJOQhkNQ3ta6vw9UISyhnjuPfgw-4KgGWqIdB~RcHUP4rcL6-6BUsIzLFTjFNq~v9v~IaHwa~PzPh2vK2WVlSJp7sQPxjfGGZSa76w~xZxQUgWj716lLIwL2W4DY51D54n38HGoRwctJrcAtPJ~akq8VnXnIdGakmtRPLfGDSmNQicaD~o8g__&amp;Key-Pair-Id=K1XW5DOJMY1ET9"
+            src="https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/Nabi.mp4"
             type="video/mp4"
           />
         </video>
       </section>
       <section className="bg-special-primary-300">
         <div
-          className={`${getSectionInnerContainerClassNames()} flex min-h-[36rem] flex-col items-center justify-center gap-8 px-8 py-36 text-center`}
+          className={cx(
+            `${getSectionInnerContainerClassNames()} flex min-h-[36rem] flex-col items-center justify-center gap-4 px-8 py-36 text-center`,
+            "intersect-show-up-container"
+          )}
         >
-          <p className="max-w-[1024px] font-antic-didone text-3xl leading-10">
+          <p
+            className={cx(
+              "max-w-[1024px] font-all-round-gothic-w01-xlig text-3xl leading-10",
+              "intersect-show-up",
+              "translate-y-full opacity-0",
+              "transition-all delay-[0.5s] duration-1000"
+            )}
+          >
             Nabi is a luxury brand for babies and toddlers. We only use organic
             Merino wool and fine silk for our products. This sublime combination
             of fabrics is one that was carefully chosen.
           </p>
-          <p className="text-center font-work-sans text-sm font-normal leading-tight text-zinc-800">
+          <div
+            className={cx(
+              "h-20 w-[0.125rem] bg-special-primary-900",
+              "intersect-show-up",
+              "translate-y-full opacity-0",
+              "transition-all delay-[0.5s] duration-[1.25s]"
+            )}
+          />
+          <p
+            className={cx(
+              "text-center text-sm font-normal leading-tight text-zinc-800",
+              "intersect-show-up",
+              "translate-y-full opacity-0",
+              "transition-all delay-[0.5s] duration-[1.5s]"
+            )}
+          >
             Scroll to discover <br />
             more about us
           </p>
@@ -53,40 +145,67 @@ export default function Home() {
             w: "",
           })} lg:text-align-initial flex min-h-[36rem] flex-col-reverse justify-center text-center lg:flex-row`}
         >
-          <div className="max-w-[928px] flex-grow py-10">
-            <Image
-              className="w-1/2"
+          <div className="max-w-[928px] flex-grow overflow-hidden py-10">
+            <CustomNextImage
+              className={cx(
+                "w-1/2",
+                "intersect-elem intersect-show",
+                "opacity-0",
+                "transition-all delay-[0.5s] duration-1000"
+              )}
               src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
               width={400}
               height={600}
               alt=""
             />
             <div className="flex h-[40rem] max-w-full md:w-1/2">
-              <Image
-                className="h-[22rem] w-2/5 flex-grow translate-y-[85%] object-cover sm:translate-y-[80%] sm:pl-20 md:w-full"
+              <CustomNextImage
+                className={cx(
+                  "h-[22rem] w-2/5 flex-grow translate-y-[85%] object-cover sm:translate-y-[80%] sm:pl-20 md:w-full",
+                  "intersect-elem intersect-show-from-right",
+                  "translate-x-full opacity-0",
+                  "transition-all delay-[0.5s] duration-1000"
+                )}
                 src="/images/eee0eb8f09076922a7b0589c159d306e.jpg"
                 width={400}
                 alt=""
                 height={600}
               />
-              <Image
-                className="h-[24rem] w-3/5 flex-grow object-cover"
+              <CustomNextImage
+                className={cx(
+                  "h-[24rem] w-3/5 flex-grow object-cover",
+                  "intersect-elem intersect-show-from-left",
+                  "-translate-x-full opacity-0",
+                  "transition-all delay-[0.5s] duration-1000"
+                )}
                 src="/images/c526acafcc73a8ac425680a2e7b404f9.jpg"
                 width={400}
                 height={600}
                 alt=""
               />
             </div>
-            <Image
-              className="h-[25rem] w-3/5 translate-x-[50%] object-cover sm:w-1/2 sm:translate-x-full"
+            <CustomNextImage
+              className={cx(
+                "h-[25rem] w-3/5 translate-x-[50%] object-cover sm:w-1/2",
+                "intersect-elem intersect-show-from-right",
+                "translate-x-full opacity-0",
+                "transition-all delay-[0.5s] duration-1000"
+              )}
               src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
               width={328}
               height={328}
               alt=""
             />
           </div>
-          <div className="max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:pb-36 sm:pt-36">
-            <h2 className="font-antic-didone text-5xl font-normal capitalize">
+          <div className="intersect-show-up-container relative max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:pb-36 sm:pt-36">
+            <h2
+              className={cx(
+                "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig text-[2.75rem] font-normal capitalize",
+                "intersect-elem intersect-show-up",
+                "translate-y-full opacity-0",
+                "transition-all delay-[0.5s] duration-1000"
+              )}
+            >
               <span className="leading-relaxed">
                 Home to beautiful <br />
                 pieces and delicate <br /> fabrics
@@ -100,20 +219,32 @@ export default function Home() {
           className={`${getSectionInnerContainerClassNames()} flex flex-col gap-16 px-8 py-4`}
         >
           <div className="mx-auto flex max-w-[1024px] flex-col gap-4 sm:flex-row">
-            <Image
+						<div className="flex-grow sm:w-1/2 h-[50rem] overflow-hidden">
+            <CustomNextImage
               src="/images/895cda6c8300cb3d38a0b002fea06b76.jpg"
               width={600}
               height={800}
               alt=""
-              className="flex-grow object-cover sm:w-1/2"
-            />
-            <Image
+              className={cx(
+                "w-full h-full object-cover",
+                "intersect-elem intersect-scale-base-from-150",
+                "scale-150",
+                "transition-all delay-[0.5s] duration-1000"
+              )}
+            /></div>
+						<div className="flex-grow sm:w-1/2 h-[50rem] overflow-hidden">
+            <CustomNextImage
               src="/images/2dda775e04b7ae48e51400ca48accc49.jpg"
               width={600}
               height={800}
               alt=""
-              className="flex-grow object-cover sm:w-1/2"
-            />
+              className={cx(
+                "w-full h-full object-cover",
+                "intersect-elem intersect-scale-base-from-150",
+                "scale-150",
+                "transition-all delay-[0.5s] duration-1000"
+              )}
+            /></div>
           </div>
           <div className="flex flex-col items-center justify-center gap-8 text-center">
             <p className="text-center text-base font-normal leading-loose text-zinc-800">
@@ -144,11 +275,20 @@ export default function Home() {
             "max-w": "max-w-[1088px]",
           })} flex flex-col gap-8 px-8 py-36`}
         >
-          <p className="text-sm font-semibold leading-7 text-white">
-            @nabibabystore
-          </p>
+          <div className="intersect-show-up-container">
+            <p
+              className={cx(
+                "text-sm font-semibold leading-7 text-white",
+                "intersect-show-up",
+                "translate-y-full opacity-0",
+                "transition-all delay-[0.5s] duration-1000"
+              )}
+            >
+              @nabibabystore
+            </p>
+          </div>
           <div className="flex flex-col gap-8">
-            <Image
+            <CustomNextImage
               src="/svgs/instagram.svg"
               width={950}
               height={135}
@@ -156,48 +296,24 @@ export default function Home() {
               priority
             />
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <ImageMagnifier
-                src="/images/78eacc02985eb7a8aa652f499f4754d5.jpg"
-                width={612}
-                height={448}
-                className="aspect-video w-full object-cover sm:aspect-auto sm:h-28 sm:w-32"
-              />
-              <ImageMagnifier
-                src="/images/d0b95d5a13d371f41e106dfbfd9de762.jpg"
-                width={612}
-                height={448}
-                className="aspect-video w-full object-cover sm:aspect-auto sm:h-28 sm:w-32"
-              />
-              <ImageMagnifier
-                src="/images/62d09421965a6fb97df8b7b773cfdd13.jpg"
-                width={612}
-                height={448}
-                className="aspect-video w-full object-cover sm:aspect-auto sm:h-28 sm:w-32"
-              />
-              <ImageMagnifier
-                src="/images/6f325a7e91cb0694e0c4961085b802d0.jpg"
-                width={612}
-                height={448}
-                className="aspect-video w-full object-cover sm:aspect-auto sm:h-28 sm:w-32"
-              />
-              <ImageMagnifier
-                src="/images/7439c368bf94e43b57734d9c6957c2cd.jpg"
-                width={612}
-                height={448}
-                className="aspect-video w-full object-cover sm:aspect-auto sm:h-28 sm:w-32"
-              />
-              <ImageMagnifier
-                src="/images/ae79344fcdb51aa3f86edc0cf2c95359.jpg"
-                width={612}
-                height={448}
-                className="aspect-video w-full object-cover sm:aspect-auto sm:h-28 sm:w-32"
-              />
-              <ImageMagnifier
-                src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
-                width={612}
-                height={448}
-                className="aspect-video w-full object-cover sm:aspect-auto sm:h-28 sm:w-32"
-              />
+              {[
+                { src: "/images/78eacc02985eb7a8aa652f499f4754d5.jpg" },
+                { src: "/images/d0b95d5a13d371f41e106dfbfd9de762.jpg" },
+                { src: "/images/62d09421965a6fb97df8b7b773cfdd13.jpg" },
+                { src: "/images/6f325a7e91cb0694e0c4961085b802d0.jpg" },
+                { src: "/images/7439c368bf94e43b57734d9c6957c2cd.jpg" },
+                { src: "/images/ae79344fcdb51aa3f86edc0cf2c95359.jpg" },
+                { src: "/images/c0c5b84f937a87be25263de9c2689dce.jpg" },
+              ].map((item) => (
+                <ImageMagnifier
+                  key={item.src}
+                  src={item.src}
+                  width={612}
+                  height={448}
+                  className="aspect-video h-full w-full object-cover sm:aspect-auto"
+                  containerProps={{ className: "w-full sm:h-28 sm:w-32" }}
+                />
+              ))}
             </div>
           </div>
         </div>
