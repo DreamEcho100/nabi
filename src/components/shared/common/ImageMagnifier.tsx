@@ -74,6 +74,7 @@ function ImageMagnifier({
         style={{
           display: showMagnifier ? "" : "none",
           position: "absolute",
+          zIndex: "1",
 
           // prevent magnifier blocks the Pointermove event of img
           pointerEvents: "none",
@@ -85,7 +86,7 @@ function ImageMagnifier({
           left: `${x - magnifieWidth / 2}px`,
           opacity: "1", // reduce opacity so you can verify position
           border: "1px solid lightgray",
-          backgroundColor: "white",
+          backgroundColor: "gray",
           backgroundImage: `url('${src}')`,
           backgroundRepeat: "no-repeat",
 

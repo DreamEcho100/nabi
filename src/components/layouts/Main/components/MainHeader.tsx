@@ -34,7 +34,7 @@ const NavElementsOnGtLgScreens = () => {
           width={500}
           height={500}
           alt="logo"
-          className="logo h-8 w-16 object-contain"
+          className="logo h-10 w-20 object-contain"
         />
       </Link>
 
@@ -60,7 +60,7 @@ const NavElementsOnLtLgScreens = () => {
           width={500}
           height={500}
           alt="logo"
-          className="logo h-8 w-16 object-contain"
+          className="logo h-10 w-20 object-contain"
         />
       </Link>
       <div className="block lg:hidden">
@@ -72,10 +72,12 @@ const NavElementsOnLtLgScreens = () => {
 
 export default function MainHeader() {
   return (
+    // left-0 right-0 top-0 isolate
     <header
       id="main-header"
       className={cx(
-        "fixed left-0 right-0 top-0 isolate z-[2] flex h-main-header-h flex-col backdrop-blur-sm transition-all duration-300",
+        "relative isolate z-[2] flex h-main-header-h flex-col backdrop-blur-[1px] transition-all duration-300",
+        "-mb-main-header-h",
         fontsClasses
       )}
       style={{

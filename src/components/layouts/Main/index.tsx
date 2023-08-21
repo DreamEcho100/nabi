@@ -46,9 +46,9 @@ const MainLayout = (props: PropsWithChildren) => {
       onPointerOver={(event) => activeCursor(event, cursorElemRef.current!)}
     >
       <div className="intro-animation fixed inset-0 z-[999] flex items-center justify-center bg-special-primary-400">
-        <div className="relative flex h-96 w-96 items-center justify-center rounded-full bg-special-primary-200 p-8">
+        <div className="relative flex h-96 w-96 items-center justify-center rounded-full bg-special-primary-200/80 p-8">
           <div
-            className="absolute inset-0 -z-[1] animate-ping rounded-full bg-special-primary-200 opacity-20"
+            className="absolute inset-0 -z-[1] animate-ping rounded-full bg-special-primary-200/80 opacity-20"
             style={{ animationDuration: "0.75s" }}
           />
           <CustomNextImage
@@ -57,14 +57,14 @@ const MainLayout = (props: PropsWithChildren) => {
             height={250}
             alt="logo"
             className="w-11/12 animate-pulse"
-            style={{ animationDuration: "1s" }}
+            style={{ animationDuration: "1.5s" }}
             priority
           />
         </div>
       </div>
       <style jsx>{`
         .intro-animation {
-          animation: fadeAnimation 2s cubic-bezier(0, 0, 0.2, 1) 2s forwards;
+          animation: fadeAnimation 2s cubic-bezier(0, 0, 0.2, 1) 3s forwards;
         }
         @keyframes fadeAnimation {
           50% {

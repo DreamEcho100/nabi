@@ -121,7 +121,7 @@ export default function Home() {
           </p>
           <div
             className={cx(
-              "h-20 w-[0.125rem] bg-special-primary-900",
+              "h-20 w-[0.0625rem] bg-special-primary-900",
               "intersect-show-up",
               "translate-y-full opacity-0",
               "transition-all delay-[0.5s] duration-[1.25s]"
@@ -148,24 +148,26 @@ export default function Home() {
           })} lg:text-align-initial flex min-h-[36rem] flex-col-reverse justify-center text-center lg:flex-row`}
         >
           <div className="max-w-[928px] flex-grow overflow-hidden py-10">
-            <CustomNextImage
-              className={cx(
-                "w-1/2",
-                "intersect-elem intersect-show",
-                "opacity-0",
-                "transition-all delay-[0.5s] duration-1000"
-              )}
-              src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
-              width={400}
-              height={600}
-              alt=""
-            />
-            <div className="flex h-[40rem] max-w-full md:w-1/2">
+            <div className="intersect-show-up-container w-1/2">
+              <CustomNextImage
+                className={cx(
+                  "w-full",
+                  "intersect-show-up",
+                  "translate-y-full opacity-0",
+                  "transition-all delay-[0.5s] duration-1000"
+                )}
+                src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
+                width={400}
+                height={600}
+                alt=""
+              />
+            </div>
+            <div className="intersect-show-up-container flex h-[40rem] max-w-full md:w-1/2">
               <CustomNextImage
                 className={cx(
                   "h-[22rem] w-2/5 flex-grow translate-y-[85%] object-cover sm:translate-y-[80%] sm:pl-20 md:w-full",
-                  "intersect-elem intersect-show-from-right",
-                  "translate-x-full opacity-0",
+                  "intersect-show-up",
+                  "translate-y-full opacity-0",
                   "transition-all delay-[0.5s] duration-1000"
                 )}
                 src="/images/eee0eb8f09076922a7b0589c159d306e.jpg"
@@ -176,9 +178,9 @@ export default function Home() {
               <CustomNextImage
                 className={cx(
                   "h-[24rem] w-3/5 flex-grow object-cover",
-                  "intersect-elem intersect-show-from-left",
-                  "-translate-x-full opacity-0",
-                  "transition-all delay-[0.5s] duration-1000"
+                  "intersect-show-up",
+                  "translate-y-full opacity-0",
+                  "transition-all delay-[0.75s] duration-1000"
                 )}
                 src="/images/c526acafcc73a8ac425680a2e7b404f9.jpg"
                 width={400}
@@ -186,29 +188,31 @@ export default function Home() {
                 alt=""
               />
             </div>
-            <CustomNextImage
-              className={cx(
-                "h-[25rem] w-3/5 translate-x-[50%] object-cover sm:w-1/2",
-                "intersect-elem intersect-show-from-right",
-                "translate-x-full opacity-0",
-                "transition-all delay-[0.5s] duration-1000"
-              )}
-              src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
-              width={328}
-              height={328}
-              alt=""
-            />
+            <div className="intersect-show-up-container h-[25rem] w-3/5 translate-x-[50%] object-cover sm:w-1/2">
+              <CustomNextImage
+                className={cx(
+                  "h-full w-full object-cover",
+                  "intersect-show-up",
+                  "translate-y-full opacity-0",
+                  "transition-all delay-[0.5s] duration-1000"
+                )}
+                src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
+                width={328}
+                height={328}
+                alt=""
+              />
+            </div>
           </div>
-          <div className="intersect-show-up-container relative max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:pb-36 sm:pt-36">
+          <div className="intersect-show-up-container relative max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:-translate-x-[5rem] sm:pb-36 sm:pt-36">
             <h2
               className={cx(
-                "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig text-[2.75rem] font-normal capitalize",
+                "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig text-[2.5rem] font-normal capitalize",
                 "intersect-elem intersect-show-up",
                 "translate-y-full opacity-0",
                 "transition-all delay-[0.5s] duration-1000"
               )}
             >
-              <span className="leading-relaxed">
+              <span className="leading-relaxed sm:whitespace-nowrap">
                 Home to beautiful <br />
                 pieces and delicate <br /> fabrics
               </span>
@@ -233,7 +237,7 @@ export default function Home() {
                   "scale-150",
                   "transition-all delay-[0.5s] duration-1000"
                 )}
-								priority
+                priority
               />
             </div>
             <div className="h-[50rem] flex-grow overflow-hidden sm:w-1/2">
@@ -248,7 +252,7 @@ export default function Home() {
                   "scale-150",
                   "transition-all delay-[0.5s] duration-1000"
                 )}
-								priority
+                priority
               />
             </div>
           </div>
@@ -311,13 +315,12 @@ export default function Home() {
                 { src: "/images/ae79344fcdb51aa3f86edc0cf2c95359.jpg" },
                 { src: "/images/c0c5b84f937a87be25263de9c2689dce.jpg" },
               ].map((item) => (
-                <ImageMagnifier
+                <CustomNextImage
                   key={item.src}
                   src={item.src}
                   width={612}
                   height={448}
-                  className="aspect-video h-full w-full object-cover sm:aspect-auto"
-                  containerProps={{ className: "w-full sm:h-28 sm:w-32" }}
+                  className="aspect-video w-full object-cover sm:aspect-auto sm:h-28 sm:w-32"
                 />
               ))}
             </div>
