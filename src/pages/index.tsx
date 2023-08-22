@@ -331,5 +331,5 @@ export default function Home() {
 }
 
 export const config = {
-  runtime: "edge", // or "nodejs"
+  runtime: "experimental-edge", // or "nodejs"
 };
