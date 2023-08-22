@@ -165,7 +165,7 @@ export default function Home() {
             <div className="intersect-show-up-container flex h-[40rem] max-w-full md:w-1/2">
               <CustomNextImage
                 className={cx(
-                  "h-[22rem] w-2/5 flex-grow translate-y-[85%] object-cover sm:translate-y-[80%] sm:pl-20 md:w-full",
+                  "h-[22rem] w-2/5 flex-grow translate-y-[85%] object-cover sm:translate-y-[82%] sm:pl-20 md:w-full",
                   "intersect-show-up",
                   "translate-y-full opacity-0",
                   "transition-all delay-[0.5s] duration-1000"
@@ -203,7 +203,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="intersect-show-up-container relative max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:-translate-x-[5rem] sm:pb-36 sm:pt-36">
+          <div className="intersect-show-up-container relative max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:pb-36 sm:pt-36 lg:-translate-x-[5rem]">
             <h2
               className={cx(
                 "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig text-[2.5rem] font-normal capitalize",
@@ -222,7 +222,7 @@ export default function Home() {
       </section>
       <section className="bg-special-primary-200">
         <div
-          className={`${getSectionInnerContainerClassNames()} flex flex-col gap-16 px-8 py-4`}
+          className={`${getSectionInnerContainerClassNames()} flex flex-col gap-16 px-8 pt-4 pb-8`}
         >
           <div className="mx-auto flex max-w-[1024px] flex-col gap-4 sm:flex-row">
             <div className="h-[50rem] flex-grow overflow-hidden sm:w-1/2">
@@ -257,11 +257,11 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col items-center justify-center gap-8 text-center">
-            <p className="text-center text-base font-normal leading-loose text-zinc-800">
+            {/* <p className="text-center text-base font-normal leading-loose text-zinc-800">
               Silk has an incredibly soft, smooth, and light texture that feels
               wonderful against your baby&apos;s skin. It is also naturally
               hypoallergenic.
-            </p>
+            </p> */}
             <p className="text-center text-sm font-normal leading-7 text-zinc-800">
               Merino wool has the ability to create a microclimate around your
               baby. <br />
