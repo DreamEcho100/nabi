@@ -261,7 +261,7 @@ export default function Home() {
               wonderful against your baby&apos;s skin. It is also naturally
               hypoallergenic.
             </p> */}
-            <p className="text-center text-sm font-normal leading-7 text-zinc-800">
+            <p className="text-center text-base font-normal leading-7 text-zinc-800">
               Merino wool has the ability to create a microclimate around your
               baby. <br />
               Meaning it will regulate body temperature, keeping your baby
