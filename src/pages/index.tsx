@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
-import ImageMagnifier from "~/components/shared/common/ImageMagnifier";
 import CustomNextImage from "~/components/shared/common/CustomNextImage";
 import { useIntersectionObserver } from "~/utils/common/hooks";
 import { useEffect } from "react";
@@ -222,7 +221,7 @@ export default function Home() {
       </section>
       <section className="bg-special-primary-200">
         <div
-          className={`${getSectionInnerContainerClassNames()} flex flex-col gap-16 px-8 pt-4 pb-10`}
+          className={`${getSectionInnerContainerClassNames()} flex flex-col gap-16 px-8 pb-10 pt-4`}
         >
           <div className="mx-auto flex max-w-[1024px] flex-col gap-4 sm:flex-row">
             <div className="h-[50rem] flex-grow overflow-hidden sm:w-1/2">
@@ -330,3 +329,7 @@ export default function Home() {
     </>
   );
 }
+
+export const config = {
+  runtime: "edge", // or "nodejs"
+};
