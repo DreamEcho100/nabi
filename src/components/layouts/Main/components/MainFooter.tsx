@@ -48,14 +48,14 @@ export default function MainFooter() {
         </div>
       </section>
       <section className="flex flex-wrap justify-center gap-8 bg-[#DBC9E3] px-8 py-12 text-white">
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-4 uppercase">
           {footerLinks.slice(0, 3).map((item) => (
             <Link key={item.name} href={item.href}>
               {item.name}
             </Link>
           ))}
         </ul>
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-4 uppercase">
           {footerLinks.slice(3).map((item) => (
             <Link key={item.name} href={item.href}>
               {item.name}
