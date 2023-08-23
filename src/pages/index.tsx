@@ -5,6 +5,7 @@ import CustomNextImage from "~/components/shared/common/CustomNextImage";
 import { useIntersectionObserver } from "~/utils/common/hooks";
 import { useEffect } from "react";
 import { cx } from "class-variance-authority";
+import animationClasses from "~/styles/animation.module.css";
 
 const intersectionObserverCB: IntersectionObserverCallback = (entries) => {
   let entry: IntersectionObserverEntry;
@@ -14,6 +15,11 @@ const intersectionObserverCB: IntersectionObserverCallback = (entries) => {
         entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
           elem.classList.remove("translate-y-full", "opacity-0");
         });
+        entry.target
+          .querySelectorAll(`.${animationClasses["intersect-show-up"]}`)
+          .forEach((elem) => {
+            elem.classList.add(animationClasses.animate!);
+          });
       } else if (entry.target.classList.contains("intersect-show-from-right")) {
         entry.target.classList.remove(
           "opacity-0",
@@ -147,12 +153,13 @@ export default function Home() {
           })} lg:text-align-initial flex min-h-[36rem] flex-col-reverse justify-center text-center lg:flex-row`}
         >
           <div className="max-w-[928px] flex-grow overflow-hidden py-10">
-            <div className="intersect-show-up-container w-1/2">
+            <div className="intersect-show-up-container w-3/4 sm:w-1/2">
               <CustomNextImage
                 className={cx(
                   "w-full",
-                  "intersect-show-up",
-                  "translate-y-full opacity-0",
+                  // "intersect-show-up",
+                  // "translate-y-full opacity-0",
+                  animationClasses["intersect-show-up"],
                   "transition-all delay-[0.5s] duration-1000"
                 )}
                 src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
@@ -161,14 +168,27 @@ export default function Home() {
                 alt=""
               />
             </div>
-            <div className="intersect-show-up-container flex h-[40rem] max-w-full md:w-1/2">
+            <div
+              className="intersect-show-up-container flex h-[40rem] max-w-full sm:w-3/4"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "2fr 1fr",
+                gridTemplateRows: "1fr 1fr",
+              }}
+            >
               <CustomNextImage
                 className={cx(
-                  "h-[22rem] w-2/5 flex-grow translate-y-[85%] object-cover sm:translate-y-[82%] sm:pl-20 md:w-full",
-                  "intersect-show-up",
-                  "translate-y-full opacity-0",
-                  "transition-all delay-[0.5s] duration-1000"
+                  "h-full w-full flex-grow object-cover sm:pl-20",
+                  // "intersect-show-up",
+                  // "translate-y-full opacity-0",
+                  animationClasses["intersect-show-up"],
+                  "transition-all delay-[0.75s] duration-1000"
                 )}
+                style={{
+                  gridColumn: "1/2",
+                  gridRow: "2/3",
+                  justifySelf: "end",
+                }}
                 src="/images/eee0eb8f09076922a7b0589c159d306e.jpg"
                 width={400}
                 alt=""
@@ -176,23 +196,29 @@ export default function Home() {
               />
               <CustomNextImage
                 className={cx(
-                  "h-[24rem] w-3/5 flex-grow object-cover",
-                  "intersect-show-up",
-                  "translate-y-full opacity-0",
-                  "transition-all delay-[0.75s] duration-1000"
+                  "h-full w-full flex-grow object-cover",
+                  // "intersect-show-up", mt-[43.8%] sm:pl-20
+                  // "translate-y-full opacity-0",
+                  animationClasses["intersect-show-up"],
+                  "transition-all delay-[0.5s] duration-1000"
                 )}
+                style={{
+                  gridColumn: "2/3",
+                  gridRow: "1/2",
+                }}
                 src="/images/c526acafcc73a8ac425680a2e7b404f9.jpg"
                 width={400}
                 height={600}
                 alt=""
               />
             </div>
-            <div className="intersect-show-up-container h-[25rem] w-3/5 translate-x-[50%] object-cover sm:w-1/2">
+            <div className="intersect-show-up-container h-[25rem] w-3/4  translate-x-[25%] object-cover sm:w-1/2 sm:translate-x-[100%]">
               <CustomNextImage
                 className={cx(
                   "h-full w-full object-cover",
-                  "intersect-show-up",
-                  "translate-y-full opacity-0",
+                  // "intersect-show-up",
+                  // "translate-y-full opacity-0",
+                  animationClasses["intersect-show-up"],
                   "transition-all delay-[0.5s] duration-1000"
                 )}
                 src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
