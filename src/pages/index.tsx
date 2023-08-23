@@ -7,14 +7,17 @@ import { useEffect } from "react";
 import { cx } from "class-variance-authority";
 import animationClasses from "~/styles/animation.module.css";
 
-const intersectionObserverCB: IntersectionObserverCallback = (entries) => {
+const intersectionObserverCB: IntersectionObserverCallback = (
+  entries,
+  observer
+) => {
   let entry: IntersectionObserverEntry;
   for (entry of entries) {
     if (entry.isIntersecting) {
       if (entry.target.classList.contains("intersect-show-up-container")) {
-        entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
-          elem.classList.remove("translate-y-full", "opacity-0");
-        });
+        // entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
+        //   elem.classList.remove("translate-y-full", "opacity-0");
+        // });
         entry.target
           .querySelectorAll(`.${animationClasses["intersect-show-up"]}`)
           .forEach((elem) => {
@@ -41,13 +44,15 @@ const intersectionObserverCB: IntersectionObserverCallback = (entries) => {
       ) {
         entry.target.classList.remove("scale-150");
       }
-    } else {
-			if (!entry.target.classList.contains("retry-intersect-animation")) return
 
+      if (!entry.target.classList.contains("retry-intersect-animation")) {
+        return observer.unobserve(entry.target);
+      }
+    } else {
       if (entry.target.classList.contains("intersect-show-up-container")) {
-        entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
-          elem.classList.add("translate-y-full", "opacity-0");
-        });
+        // entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
+        //   elem.classList.add("translate-y-full", "opacity-0");
+        // });
         entry.target
           .querySelectorAll(`.${animationClasses["intersect-show-up"]}`)
           .forEach((elem) => {
@@ -148,10 +153,17 @@ export default function Home() {
           <p
             className={cx(
               "max-w-[1024px] font-all-round-gothic-w01-xlig text-3xl leading-10",
-              "intersect-show-up",
-              "translate-y-full opacity-0",
+              animationClasses["intersect-show-up"],
               "transition-all delay-[0.5s] duration-1000"
             )}
+            // style={
+            //   {
+            //     "--transform-duration": "1.25s",
+            //     "--transform-delay": "0.5s",
+            //     "--opacity-duration": "0.75s",
+            //     "--opacity-delay": "0.5s",
+            //   } as CSSProperties
+            // }
           >
             Nabi is a luxury brand for babies and toddlers. We only use organic
             Merino wool and fine silk for our products. This sublime combination
@@ -160,16 +172,14 @@ export default function Home() {
           <div
             className={cx(
               "h-20 w-[0.0625rem] bg-special-primary-900",
-              "intersect-show-up",
-              "translate-y-full opacity-0",
+              animationClasses["intersect-show-up"],
               "transition-all delay-[0.5s] duration-[1.25s]"
             )}
           />
           <p
             className={cx(
               "text-center text-sm font-normal leading-tight text-zinc-800",
-              "intersect-show-up",
-              "translate-y-full opacity-0",
+              animationClasses["intersect-show-up"],
               "transition-all delay-[0.5s] duration-[1.5s]"
             )}
           >
@@ -186,13 +196,10 @@ export default function Home() {
           })} lg:text-align-initial flex min-h-[36rem] flex-col-reverse justify-center text-center lg:flex-row`}
         >
           <div className="max-w-[928px] flex-grow overflow-hidden py-10">
-            <div className="intersect-show-up-container w-3/4 sm:w-1/2">
+            <div className="intersect-show-up-container retry-intersect-animation w-3/4 sm:w-1/2">
               <CustomNextImage
                 className={cx(
                   "w-full",
-                  // "intersect-show-up",
-                  // "translate-y-full opacity-0",
-									'retry-intersect-animation',
                   animationClasses["intersect-show-up"],
                   "transition-all delay-[0.5s] duration-1000"
                 )}
@@ -203,7 +210,7 @@ export default function Home() {
               />
             </div>
             <div
-              className="intersect-show-up-container flex h-[40rem] max-w-full sm:w-3/4"
+              className="intersect-show-up-container retry-intersect-animation flex h-[40rem] max-w-full sm:w-3/4"
               style={{
                 display: "grid",
                 gridTemplateColumns: "2fr 1fr",
@@ -213,9 +220,6 @@ export default function Home() {
               <CustomNextImage
                 className={cx(
                   "h-full w-full flex-grow object-cover sm:pl-20",
-                  // "intersect-show-up",
-                  // "translate-y-full opacity-0",
-									'retry-intersect-animation',
                   animationClasses["intersect-show-up"],
                   "transition-all delay-[0.75s] duration-1000"
                 )}
@@ -232,9 +236,7 @@ export default function Home() {
               <CustomNextImage
                 className={cx(
                   "h-full w-full flex-grow object-cover",
-                  // "intersect-show-up", mt-[43.8%] sm:pl-20
-                  // "translate-y-full opacity-0",
-									'retry-intersect-animation',
+                  "retry-intersect-animation",
                   animationClasses["intersect-show-up"],
                   "transition-all delay-[0.5s] duration-1000"
                 )}
@@ -248,13 +250,10 @@ export default function Home() {
                 alt=""
               />
             </div>
-            <div className="intersect-show-up-container h-[25rem] w-3/4  translate-x-[25%] object-cover sm:w-1/2 sm:translate-x-[100%]">
+            <div className="intersect-show-up-container retry-intersect-animation h-[25rem] w-3/4  translate-x-[25%] object-cover sm:w-1/2 sm:translate-x-[100%]">
               <CustomNextImage
                 className={cx(
                   "h-full w-full object-cover",
-                  // "intersect-show-up",
-                  // "translate-y-full opacity-0",
-									'retry-intersect-animation',
                   animationClasses["intersect-show-up"],
                   "transition-all delay-[0.5s] duration-1000"
                 )}
@@ -265,12 +264,12 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="intersect-show-up-container relative max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:pb-36 sm:pt-36 lg:-translate-x-[5rem]">
+          <div className="intersect-show-up-container retry-intersect-animation relative max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:pb-36 sm:pt-36 lg:-translate-x-[5rem]">
             <h2
               className={cx(
                 "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig text-[2.5rem] font-normal capitalize",
-                "intersect-elem intersect-show-up",
-                "translate-y-full opacity-0",
+                // "intersect-elem intersect-show-up",
+                animationClasses["intersect-show-up"],
                 "transition-all delay-[0.5s] duration-1000"
               )}
             >
@@ -351,8 +350,7 @@ export default function Home() {
             <p
               className={cx(
                 "text-sm font-semibold leading-7 text-white",
-                "intersect-show-up",
-                "translate-y-full opacity-0",
+                animationClasses["intersect-show-up"],
                 "transition-all delay-[0.5s] duration-1000"
               )}
             >
