@@ -295,7 +295,8 @@
     /* transform-origin: 75% 75%; */
     transform-origin: right bottom;
     z-index: 99;
-    background: rgb(var(--color-special-primary-700));
+    background: white;
+    /* rgb(var(--color-special-primary-700)); */
   }
 
   #cursor.nav-active {

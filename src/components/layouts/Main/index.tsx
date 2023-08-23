@@ -15,13 +15,18 @@ function activeCursor(
 
   if (item.classList?.contains("logo") || item.classList?.contains("burger")) {
     cursorElem.classList.add("nav-active");
-    cursorElem.style.mixBlendMode = "color-burn";
+    cursorElem.style.mixBlendMode = "difference";
   } else if (item.classList.contains("explore")) {
     cursorElem.classList.add("explore-active");
-    cursorElem.style.mixBlendMode = "screen";
+    cursorElem.style.mixBlendMode = "difference";
+  } else if (["IMG", "VIDEO"].includes(item.tagName)) {
+    cursorElem.classList.remove("nav-active", "explore-active");
+    cursorElem.style.mixBlendMode = "hard-light";
+    cursorElem.style.background = "rgb(var(--color-special-primary-700))";
   } else {
     cursorElem.classList.remove("nav-active", "explore-active");
-    cursorElem.style.mixBlendMode = "color-burn";
+    cursorElem.style.mixBlendMode = "difference";
+    cursorElem.style.background = "white";
   }
 }
 function cursor(
@@ -36,11 +41,14 @@ function cursor(
 const MainLayout = (props: PropsWithChildren) => {
   const cursorElemRef = useRef<HTMLDivElement>(null);
 
+  // useEffect(() => {}, [])
+
   return (
     <div
       className={cx(
         "flex flex-grow flex-col font-all-round-gothic-w01-xlig",
-        fontsClasses
+        fontsClasses,
+        "cursor-none"
       )}
       onPointerMove={(event) => cursor(event, cursorElemRef.current!)}
       onPointerOver={(event) => activeCursor(event, cursorElemRef.current!)}

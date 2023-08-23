@@ -138,7 +138,7 @@ export default function Home() {
           playsInline
         >
           <source
-            src="https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/Nabi.mp4"
+            src="https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/Nabi_30_v2_1.mp4"
             type="video/mp4"
           />
         </video>
