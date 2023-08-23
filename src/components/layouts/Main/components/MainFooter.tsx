@@ -3,92 +3,129 @@ import Link from "next/link";
 import CustomNextImage from "~/components/shared/common/CustomNextImage";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 
-const footerLinks = [
-  { name: "collection", href: "#" },
-  { name: "privacy policy", href: "#" },
-  { name: "the brand", href: "#" },
-  { name: "cookie policy", href: "#" },
-  { name: "contacts", href: "#" },
-  { name: "refund policy", href: "#" },
+const footerLinksGroups = [
+  {
+    name: "corporate",
+    links: [
+      { name: "about us", href: "#" },
+      { name: "collection", href: "#" },
+      { name: "gift card", href: "#" },
+      { name: "contact", href: "#" },
+    ],
+  },
+  {
+    name: "customer service",
+    links: [
+      { name: "privacy policy", href: "#" },
+      { name: "return & exchange", href: "#" },
+      { name: "terms and conditions", href: "#" },
+      { name: "sales contract", href: "#" },
+      { name: "secure shopping", href: "#" },
+    ],
+  },
+  {
+    name: "collection",
+    links: [
+      { name: "rompers", href: "#" },
+      { name: "onesies", href: "#" },
+    ],
+  },
+  {
+    name: "social media",
+    links: [
+      { name: "instagram", href: "#" },
+      { name: "facebook", href: "#" },
+      { name: "twitter", href: "#" },
+      { name: "pinterest", href: "#" },
+      { name: "youTube", href: "#" },
+      { name: "linkedIn", href: "#" },
+    ],
+  },
 ];
 
 export default function MainFooter() {
   return (
     <footer className="">
-      <section className="bg-special-primary-700/70">
+      <section className="bg-special-primary-800/60 text-zinc-800">
         <div
           className={cx(
-            getSectionInnerContainerClassNames({ "max-w": "max-w-[1150px]" }),
-            "flex items-end justify-center gap-8  px-8 py-12 lg:gap-4",
-            "flex-wrap lg:flex-row lg:flex-nowrap"
+            getSectionInnerContainerClassNames(),
+            "flex flex-col gap-8 px-8 pb-20 pt-28 lg:gap-4"
           )}
         >
-          <div className="flex grow flex-col items-center justify-between gap-x-4 gap-y-6 sm:flex-row sm:items-end">
-            <h2 className="text-4xl font-normal leading-10 text-white">
-              Newsletter
-            </h2>
+          <div className="flex flex-wrap justify-between gap-6 font-extralight">
+            <div className="flex flex-col gap-6">
+              <Link href="/">
+                <CustomNextImage
+                  className="explore h-12 w-24 object-contain"
+                  src="/images/58c85845d0b5fdf1d0621d1a7cfafb4b.png"
+                  width={240}
+                  height={160}
+                  alt="logo"
+                />
+              </Link>
+              <p className="text-sm">İletişim</p>
+              <div className="text-sm">
+                <p>Kemankeş Karamustafa Mah. Necatibey Cad.</p>
+                <p>Gökçe Han No: 16 Kat: 4 Beyoğlu, İstanbul</p>
+              </div>
+              <div className="text-sm">
+                <p>+90 534 799 0864</p>
+                <p>info@seamlesstance.com</p>
+              </div>
+              <form className="relative h-28 w-80 max-w-full">
+                <label className="text-lg capitalize" htmlFor="email">
+                  subscribe
+                </label>
 
-            <form className="inline-flex grow flex-wrap gap-4 sm:flex-nowrap">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="flex-shrink-0 grow basis-0 border-b border-neutral-200 bg-transparent px-2 text-base font-normal text-white outline-none"
+                <div className="flex items-center">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="email"
+                    className="inline-flex w-48 flex-grow items-start justify-start rounded-l border border-zinc-800 bg-transparent px-4 py-2.5 text-xs font-normal text-neutral-600 outline-none placeholder:capitalize placeholder:text-neutral-600"
+                  />
+                  <button className="inline-flex items-center justify-center gap-3 rounded-r rounded-tr border border-zinc-800 bg-zinc-800 px-8 py-2.5 text-sm font-normal leading-tight text-white">
+                    Send
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div className="flex flex-col gap-6 lg:items-end">
+              <div className="flex flex-wrap gap-x-12 gap-y-6 text-sm font-extralight">
+                {footerLinksGroups.map((linksGroup) => (
+                  <ul
+                    key={linksGroup.name}
+                    className="flex flex-col gap-4 capitalize"
+                  >
+                    <li>{linksGroup.name}</li>
+                    <li>
+                      <ul className="flex flex-col gap-1 capitalize">
+                        {linksGroup.links.map((link) => (
+                          <li key={link.name}>
+                            <Link className="explore" href={link.href}>
+                              {link.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  </ul>
+                ))}
+              </div>
+
+              <CustomNextImage
+                className="object-contain"
+                src="/images/44c105f51dff021ca8d973aa5908ebd3.png"
+                width={400}
+                height={80}
               />
-              <button className="flex flex-grow items-center justify-center border border-white p-10 py-2 text-center text-base font-semibold uppercase leading-tight text-white sm:flex-grow-0">
-                Subscribe
-              </button>
-            </form>
+            </div>
           </div>
-
-          <div className="text-right text-sm font-normal leading-relaxed text-white">
-            Subscribe to our newsletter to receive latest news and product
-            updates
-          </div>
-        </div>
-      </section>
-      <section className="flex flex-wrap justify-center gap-8 bg-[#DBC9E3] px-8 py-12 text-white">
-        <ul className="flex flex-col gap-4 uppercase">
-          {footerLinks.slice(0, 3).map((item) => (
-            <Link key={item.name} href={item.href}>
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-        <ul className="flex flex-col gap-4 uppercase">
-          {footerLinks.slice(3).map((item) => (
-            <Link key={item.name} href={item.href}>
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </section>
-
-      <section
-        style={{
-          // backgroundAttachment: "fixed",
-          backgroundImage: "url(/images/2dda775e04b7ae48e51400ca48accc49.jpg)",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-        className="text-white"
-      >
-        <div
-          className={cx(
-            getSectionInnerContainerClassNames({ "max-w": "max-w-[1150px]" }),
-            "flex items-center justify-between gap-8  px-8 py-12 lg:gap-4",
-            "flex-wrap lg:flex-row lg:flex-nowrap"
-          )}
-        >
-          <CustomNextImage
-            className="h-10 w-16 object-contain"
-            src="/images/58c85845d0b5fdf1d0621d1a7cfafb4b.png"
-            width={120}
-            height={80}
-          />
-          <p>&copy; 2023 A.K. Nabi Baby Ltd. All rights reserved</p>
-          <p>Created by Nabi agency</p>
+          <small className="mt-20 text-xs font-normal text-zinc-800">
+            Nabi &copy; 2023 | All Rights Reserved.
+          </small>
         </div>
       </section>
     </footer>
