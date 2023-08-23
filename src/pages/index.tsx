@@ -42,6 +42,8 @@ const intersectionObserverCB: IntersectionObserverCallback = (entries) => {
         entry.target.classList.remove("scale-150");
       }
     } else {
+			if (!entry.target.classList.contains("retry-intersect-animation")) return
+
       if (entry.target.classList.contains("intersect-show-up-container")) {
         entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
           elem.classList.add("translate-y-full", "opacity-0");
@@ -190,6 +192,7 @@ export default function Home() {
                   "w-full",
                   // "intersect-show-up",
                   // "translate-y-full opacity-0",
+									'retry-intersect-animation',
                   animationClasses["intersect-show-up"],
                   "transition-all delay-[0.5s] duration-1000"
                 )}
@@ -212,6 +215,7 @@ export default function Home() {
                   "h-full w-full flex-grow object-cover sm:pl-20",
                   // "intersect-show-up",
                   // "translate-y-full opacity-0",
+									'retry-intersect-animation',
                   animationClasses["intersect-show-up"],
                   "transition-all delay-[0.75s] duration-1000"
                 )}
@@ -230,6 +234,7 @@ export default function Home() {
                   "h-full w-full flex-grow object-cover",
                   // "intersect-show-up", mt-[43.8%] sm:pl-20
                   // "translate-y-full opacity-0",
+									'retry-intersect-animation',
                   animationClasses["intersect-show-up"],
                   "transition-all delay-[0.5s] duration-1000"
                 )}
@@ -249,6 +254,7 @@ export default function Home() {
                   "h-full w-full object-cover",
                   // "intersect-show-up",
                   // "translate-y-full opacity-0",
+									'retry-intersect-animation',
                   animationClasses["intersect-show-up"],
                   "transition-all delay-[0.5s] duration-1000"
                 )}
