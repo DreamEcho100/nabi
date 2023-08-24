@@ -1,7 +1,6 @@
 import { cx } from "class-variance-authority";
 import Image from "next/image";
 import Link from "next/link";
-import { fontsClasses } from "~/utils/core/fonts";
 
 const headerLinks = [
   { name: "Our story", href: "#" },
@@ -77,8 +76,7 @@ export default function MainHeader() {
       id="main-header"
       className={cx(
         "relative isolate z-[2] flex h-main-header-h flex-col backdrop-blur-[1px] transition-all duration-300",
-        "-mb-main-header-h",
-        fontsClasses
+        "-mb-main-header-h"
       )}
       style={{
         backgroundImage:

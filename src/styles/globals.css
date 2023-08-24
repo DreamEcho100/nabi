@@ -237,7 +237,7 @@
     -webkit-text-size-adjust: 100%;
 
     color-scheme: dark;
-    font-family: var(--font-all-round-gothic-w01-xlig), sans-serif;
+    font-family: var(--font-mont), sans-serif;
   }
   #__next {
     width: 100%;

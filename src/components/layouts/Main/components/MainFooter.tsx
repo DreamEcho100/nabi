@@ -53,7 +53,7 @@ export default function MainFooter() {
             "flex flex-col gap-8 px-8 pb-20 pt-28 lg:gap-4"
           )}
         >
-          <div className="flex flex-wrap justify-between gap-6 font-extralight">
+          <div className="flex flex-wrap justify-between gap-6">
             <div className="flex flex-col gap-6">
               <Link href="/">
                 <CustomNextImage
@@ -84,16 +84,16 @@ export default function MainFooter() {
                     name="email"
                     id="email"
                     placeholder="email"
-                    className="inline-flex w-48 flex-grow items-start justify-start rounded-l border border-zinc-800 bg-transparent px-4 py-2.5 text-xs font-normal text-neutral-600 outline-none placeholder:capitalize placeholder:text-neutral-600"
+                    className="inline-flex w-48 flex-grow items-start justify-start rounded-l border border-zinc-800 bg-transparent px-4 py-2.5 text-xs text-neutral-600 outline-none placeholder:capitalize placeholder:text-neutral-600"
                   />
-                  <button className="inline-flex items-center justify-center gap-3 rounded-r rounded-tr border border-zinc-800 bg-zinc-800 px-8 py-2.5 text-sm font-normal leading-tight text-white">
+                  <button className="inline-flex items-center justify-center gap-3 rounded-r rounded-tr border border-zinc-800 bg-zinc-800 px-8 py-2.5 text-sm leading-tight text-white">
                     Send
                   </button>
                 </div>
               </form>
             </div>
             <div className="flex flex-col gap-6 lg:items-end">
-              <div className="flex flex-wrap gap-x-12 gap-y-6 text-sm font-extralight">
+              <div className="flex flex-wrap gap-x-12 gap-y-6 text-sm">
                 {footerLinksGroups.map((linksGroup) => (
                   <ul
                     key={linksGroup.name}
@@ -123,7 +123,7 @@ export default function MainFooter() {
               />
             </div>
           </div>
-          <small className="mt-20 text-xs font-normal text-zinc-800">
+          <small className="mt-20 text-xs text-zinc-800">
             Nabi &copy; 2023 | All Rights Reserved.
           </small>
         </div>

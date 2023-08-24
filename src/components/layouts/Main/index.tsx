@@ -1,7 +1,6 @@
 import { type PropsWithChildren, type PointerEvent, useRef } from "react";
 import MainHeader from "./components/MainHeader";
 import MainFooter from "./components/MainFooter";
-import { fontsClasses } from "~/utils/core/fonts";
 import { cx } from "class-variance-authority";
 import CustomNextImage from "~/components/shared/common/CustomNextImage";
 
@@ -46,8 +45,7 @@ const MainLayout = (props: PropsWithChildren) => {
   return (
     <div
       className={cx(
-        "flex flex-grow flex-col font-all-round-gothic-w01-xlig",
-        fontsClasses,
+        "font-all-round-gothic-w01-xlig flex flex-grow flex-col",
         "cursor-none"
       )}
       onPointerMove={(event) => cursor(event, cursorElemRef.current!)}
@@ -89,12 +87,7 @@ const MainLayout = (props: PropsWithChildren) => {
       `}</style>
 
       <MainHeader />
-      <main
-        className={cx(
-          "flex flex-grow flex-col bg-special-primary-200",
-          fontsClasses
-        )}
-      >
+      <main className={cx("flex flex-grow flex-col bg-special-primary-200")}>
         {props.children}
       </main>
       <MainFooter />

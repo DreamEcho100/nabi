@@ -113,7 +113,6 @@ export const AnticDidoneFont = localFont({
   fallback: ["sans-serif"],
   display: "swap",
 });
-*/
 
 export const allRoundGothicW01XLigFont = localFont({
   src: [
@@ -212,5 +211,102 @@ export const allRoundGothicW01XLigFont = localFont({
   fallback: ["antic-didone, sans-serif"],
   display: "swap",
 });
+*/
 
-export const fontsClasses = allRoundGothicW01XLigFont.variable; // `${WorkSansFont.variable} ${AnticDidoneFont.variable} ${allRoundGothicW01XLigFont.variable}`;
+export const MontFont = localFont({
+  src: [
+    {
+      path: "./Mont/Mont-Hairline.otf",
+      weight: "100",
+      style: "italic",
+    },
+    {
+      path: "./Mont/Mont-HairlineItalic.otf",
+      weight: "100",
+      style: "thin",
+    },
+    {
+      path: "./Mont/Mont-Thin.otf",
+      weight: "200",
+      style: "light",
+    },
+    {
+      path: "./Mont/Mont-ThinItalic.otf",
+      weight: "200",
+      style: "italic",
+    },
+    {
+      path: "./Mont/Mont-ExtraLight.otf",
+      weight: "300",
+      style: "extra-light",
+    },
+    {
+      path: "./Mont/Mont-ExtraLightItalic.otf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "./Mont/Mont-Light.otf",
+      weight: "400",
+      style: "regular",
+    },
+    {
+      path: "./Mont/Mont-LightItalic.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./Mont/Mont-Book.otf",
+      weight: "500",
+      style: "medium",
+    },
+    {
+      path: "./Mont/Mont-BookItalic.otf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "./Mont/Mont-SemiBold.otf",
+      weight: "600",
+      style: "semi-bold",
+    },
+    {
+      path: "./Mont/Mont-SemiBoldItalic.otf",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "./Mont/Mont-BoldItalic.otf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "./Mont/Mont-Bold.otf",
+      weight: "700",
+      style: "bold",
+    },
+    {
+      path: "./Mont/Mont-Heavy.otf",
+      weight: "800",
+      style: "extra-bold",
+    },
+    {
+      path: "./Mont/Mont-HeavyItalic.otf",
+      weight: "800",
+      style: "italic",
+    },
+    {
+      path: "./Mont/Mont-Black.otf",
+      weight: "900",
+      style: "black",
+    },
+    {
+      path: "./Mont/Mont-BlackItalic.otf",
+      weight: "900",
+      style: "italic",
+    },
+  ],
+  variable: "--font-mont",
+  fallback: ["sans-serif"],
+  display: "swap",
+});

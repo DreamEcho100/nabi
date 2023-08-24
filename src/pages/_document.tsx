@@ -1,4 +1,6 @@
+import { cx } from "class-variance-authority";
 import { Html, Head, Main, NextScript } from "next/document";
+import { MontFont } from "~/utils/core/fonts";
 
 export default function Document() {
   return (
@@ -7,19 +9,12 @@ export default function Document() {
         <meta charSet="UTF-8" />
       </Head>
       <body
-        className="dark"
-        // className={cx(
-        // 	'light bg-bg-primary-500 text-text-primary-500',
-        // 	ralewayFont.className
-        // )}
-        // style={{ fontFamily: "'Raleway', sans-serif" }}
+        className={cx(
+          "dark", // bg-bg-primary-500 text-text-primary-500',
+          MontFont.className
+        )}
       >
         <Main />
-        {/* <div>
-          Icons made from{" "}
-          <a href="https://www.onlinewebfonts.com/icon">svg icons</a>is licensed
-          by CC BY 4.0
-        </div> */}
         <NextScript />
       </body>
     </Html>
