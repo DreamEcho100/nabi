@@ -6,7 +6,8 @@ import {
 } from "./utils/hooks";
 import { generalAnimationIntersectionObserverCB } from "./utils";
 import CustomNextImage from "../shared/common/CustomNextImage";
-import GenericHeroSection from "./components/GeircHeroSection";
+import GenericHeroSection from "./components/GenericHeroSection";
+import GenericAboveFooterSliderSection from "./components/GenericAboveFooterSliderSection";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0.1,
@@ -87,6 +88,7 @@ export default function OurStoryScreen() {
           </div>
         </div>
       </section>
+      <GenericAboveFooterSliderSection />
     </>
   );
 }
