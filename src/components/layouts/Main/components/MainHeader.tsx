@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const headerLinks = [
-  { name: "Our story", href: "#" },
+  { name: "Our story", href: "/our-story" },
   { name: "Services", href: "#" },
   { name: "Meet the team", href: "#" },
   { name: "Career", href: "#" },
@@ -27,7 +27,7 @@ const NavElementsOnGtLgScreens = () => {
         ))}
       </ul>
 
-      <Link href="#" className="hidden flex-shrink-0 lg:block">
+      <Link href="/" className="hidden flex-shrink-0 lg:block">
         <Image
           src="/images/2ef897a2406c34255a69b2b3b8c42337.png"
           width={500}

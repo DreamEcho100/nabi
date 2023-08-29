@@ -1,16 +1,16 @@
 import Head from "next/head";
-import HomeScreen from "~/components/screens/Home";
+import OurStoryScreen from "~/components/screens/OurStory";
 
-export default function Home() {
+export default function OurStoryPage() {
   return (
     <>
       <Head>
-        <title>Nabi</title>
+        <title>Our Story</title>
         <meta name="description" content="Nabi" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomeScreen />
+      <OurStoryScreen />
     </>
   );
 }

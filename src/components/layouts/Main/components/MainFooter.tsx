@@ -45,89 +45,87 @@ const footerLinksGroups = [
 
 export default function MainFooter() {
   return (
-    <footer className="">
-      <section className="bg-special-primary-800/60 text-zinc-800">
-        <div
-          className={cx(
-            getSectionInnerContainerClassNames(),
-            "flex flex-col gap-8 px-8 pb-20 pt-28 lg:gap-4"
-          )}
-        >
-          <div className="flex flex-wrap justify-between gap-6">
-            <div className="flex flex-col gap-6">
-              <Link href="/">
-                <CustomNextImage
-                  className="explore h-12 w-24 object-contain"
-                  src="/images/58c85845d0b5fdf1d0621d1a7cfafb4b.png"
-                  width={240}
-                  height={160}
-                  alt="logo"
-                />
-              </Link>
-              <p className="text-sm">İletişim</p>
-              <div className="text-sm">
-                <p>Kemankeş Karamustafa Mah. Necatibey Cad.</p>
-                <p>Gökçe Han No: 16 Kat: 4 Beyoğlu, İstanbul</p>
-              </div>
-              <div className="text-sm">
-                <p>+90 534 799 0864</p>
-                <p>info@seamlesstance.com</p>
-              </div>
-              <form className="relative h-28 w-80 max-w-full">
-                <label className="text-lg capitalize" htmlFor="email">
-                  subscribe
-                </label>
-
-                <div className="flex items-center">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="email"
-                    className="inline-flex w-48 flex-grow items-start justify-start rounded-l border border-zinc-800 bg-transparent px-4 py-2.5 text-xs text-neutral-600 outline-none placeholder:capitalize placeholder:text-neutral-600"
-                  />
-                  <button className="inline-flex items-center justify-center gap-3 rounded-r rounded-tr border border-zinc-800 bg-zinc-800 px-8 py-2.5 text-sm leading-tight text-white">
-                    Send
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div className="flex flex-col gap-6 lg:items-end">
-              <div className="flex flex-wrap gap-x-12 gap-y-6 text-sm">
-                {footerLinksGroups.map((linksGroup) => (
-                  <ul
-                    key={linksGroup.name}
-                    className="flex flex-col gap-4 capitalize"
-                  >
-                    <li>{linksGroup.name}</li>
-                    <li>
-                      <ul className="flex flex-col gap-1 capitalize">
-                        {linksGroup.links.map((link) => (
-                          <li key={link.name}>
-                            <Link className="explore" href={link.href}>
-                              {link.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  </ul>
-                ))}
-              </div>
-
+    <footer className="bg-special-primary-800/60 text-zinc-800">
+      <div
+        className={cx(
+          getSectionInnerContainerClassNames(),
+          "flex flex-col gap-8 px-8 py-20 sm:px-16 lg:gap-4"
+        )}
+      >
+        <div className="flex flex-wrap justify-between gap-2">
+          <div className="flex flex-col gap-2">
+            <Link href="/">
               <CustomNextImage
-                className="object-contain"
-                src="/images/44c105f51dff021ca8d973aa5908ebd3.png"
-                width={400}
-                height={80}
+                className="explore h-12 w-24 object-contain"
+                src="/images/58c85845d0b5fdf1d0621d1a7cfafb4b.png"
+                width={240}
+                height={160}
+                alt="logo"
               />
+            </Link>
+            <p className="text-sm">İletişim</p>
+            <div className="text-sm">
+              <p>Kemankeş Karamustafa Mah. Necatibey Cad.</p>
+              <p>Gökçe Han No: 16 Kat: 4 Beyoğlu, İstanbul</p>
             </div>
+            <div className="text-sm">
+              <p>+90 534 799 0864</p>
+              <p>info@seamlesstance.com</p>
+            </div>
+            <form className="relative flex h-28 w-80 max-w-full flex-col gap-2">
+              <label className="text-lg font-medium capitalize" htmlFor="email">
+                subscribe
+              </label>
+
+              <div className="flex items-center">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="email"
+                  className="inline-flex w-48 flex-grow items-start justify-start rounded-l border-[0.0625rem] border-zinc-800 bg-transparent px-4 py-2.5 text-xs text-neutral-600 outline-none placeholder:capitalize placeholder:text-neutral-600"
+                />
+                <button className="inline-flex items-center justify-center gap-3 rounded-r rounded-tr border-[0.0625rem] border-zinc-800 bg-zinc-800 px-8 py-2.5 text-sm leading-tight text-white">
+                  Send
+                </button>
+              </div>
+            </form>
           </div>
-          <small className="mt-20 text-xs text-zinc-800">
-            Nabi &copy; 2023 | All Rights Reserved.
-          </small>
+          <div className="flex flex-col gap-6 lg:items-end">
+            <div className="flex flex-wrap gap-x-12 gap-y-6 text-sm">
+              {footerLinksGroups.map((linksGroup) => (
+                <ul
+                  key={linksGroup.name}
+                  className="flex flex-col gap-4 capitalize"
+                >
+                  <li>{linksGroup.name}</li>
+                  <li>
+                    <ul className="flex flex-col gap-1 capitalize">
+                      {linksGroup.links.map((link) => (
+                        <li key={link.name}>
+                          <Link className="explore" href={link.href}>
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                </ul>
+              ))}
+            </div>
+
+            <CustomNextImage
+              className="object-contain"
+              src="/images/44c105f51dff021ca8d973aa5908ebd3.png"
+              width={400}
+              height={80}
+            />
+          </div>
         </div>
-      </section>
+        <small className="mt-4 text-xs text-zinc-800">
+          Nabi &copy; 2023 | All Rights Reserved.
+        </small>
+      </div>
     </footer>
   );
 }
