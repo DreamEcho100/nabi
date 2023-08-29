@@ -113,6 +113,7 @@ export const AnticDidoneFont = localFont({
   fallback: ["sans-serif"],
   display: "swap",
 });
+*/
 
 export const allRoundGothicW01XLigFont = localFont({
   src: [
@@ -208,10 +209,9 @@ export const allRoundGothicW01XLigFont = localFont({
     },
   ],
   variable: "--font-all-round-gothic-w01-xlig",
-  fallback: ["antic-didone, sans-serif"],
+  fallback: ["mont, sans-serif"],
   display: "swap",
 });
-*/
 
 export const MontFont = localFont({
   src: [

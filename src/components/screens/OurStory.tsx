@@ -24,11 +24,11 @@ export default function OurStoryScreen() {
   return (
     <>
       <GenericHeroSection headerText="our story" />
-      <section>
+      <section className="bg-special-primary-100">
         <div
           className={cx(
             getSectionInnerContainerClassNames(),
-            "flex flex-col gap-16 pb-20 pt-12"
+            "flex flex-col gap-16 px-8 pb-20  pt-12 sm:px-16"
           )}
         >
           <div className="flex flex-col sm:flex-row">
@@ -64,7 +64,7 @@ export default function OurStoryScreen() {
             ))}
           </div>
 
-          <div className="mx-auto max-w-[1300px] px-8 text-center text-base font-semibold leading-[27px] text-zinc-800">
+          <div className="mx-auto max-w-[1300px] text-center text-base font-semibold leading-[27px] text-zinc-800">
             Nabi is a luxury brand for babies and toddlers. We only use organic
             Merino wool and fine silk for our products. <br />
             This sublime combination of fabrics is one that was carefully

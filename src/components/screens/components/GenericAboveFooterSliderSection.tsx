@@ -1,4 +1,5 @@
 import { cx } from "class-variance-authority";
+import { allRoundGothicW01XLigFont } from "~/utils/core/fonts";
 
 export default function GenericAboveFooterSliderSection() {
   return (
@@ -6,7 +7,8 @@ export default function GenericAboveFooterSliderSection() {
       <div
         className={cx(
           // getSectionInnerContainerClassNames(),
-          "slider max-w-full justify-start overflow-hidden bg-special-primary-700 bg-opacity-[0.3] py-2"
+          allRoundGothicW01XLigFont.className,
+          "slider max-w-full justify-start overflow-hidden bg-special-primary-700 bg-opacity-[0.3] py-2 font-all-round-gothic-w01-xlig text-zinc-700"
         )}
       >
         <p className="container flex gap-4 whitespace-nowrap">
@@ -23,7 +25,7 @@ export default function GenericAboveFooterSliderSection() {
       <style jsx>{`
         .slider > .container {
           transform: translate3d(0, 0, 0);
-          animation: sliderAnimation 50s infinite;
+          animation: sliderAnimation 60s infinite;
         }
         @keyframes sliderAnimation {
           100% {

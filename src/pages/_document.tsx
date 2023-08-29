@@ -1,6 +1,6 @@
 import { cx } from "class-variance-authority";
 import { Html, Head, Main, NextScript } from "next/document";
-import { MontFont } from "~/utils/core/fonts";
+import { MontFont, allRoundGothicW01XLigFont } from "~/utils/core/fonts";
 
 export default function Document() {
   return (
@@ -11,7 +11,8 @@ export default function Document() {
       <body
         className={cx(
           "dark", // bg-bg-primary-500 text-text-primary-500',
-          MontFont.className
+          MontFont.className,
+					allRoundGothicW01XLigFont.className
         )}
       >
         <Main />

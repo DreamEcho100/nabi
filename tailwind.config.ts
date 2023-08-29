@@ -126,10 +126,10 @@ export default {
       fontFamily: {
         // "work-sans": ["var(--font-work-sans)", ...fontFamily.sans],
         // "antic-didone": ["var(--font-antic-didone)", ...fontFamily.sans],
-        // "all-round-gothic-w01-xlig": [
-        //   "var(--font-all-round-gothic-w01-xlig)",
-        //   ...fontFamily.sans,
-        // ],
+        "all-round-gothic-w01-xlig": [
+          "var(--font-all-round-gothic-w01-xlig)",
+          ...fontFamily.sans,
+        ],
         mont: ["var(--font-mont)", ...fontFamily.sans],
       },
       spacing: {

@@ -3,6 +3,7 @@ import MainHeader from "./components/MainHeader";
 import MainFooter from "./components/MainFooter";
 import { cx } from "class-variance-authority";
 import CustomNextImage from "~/components/shared/common/CustomNextImage";
+import { MontFont } from "~/utils/core/fonts";
 
 function activeCursor(
   event: PointerEvent<HTMLDivElement>,
@@ -45,8 +46,10 @@ const MainLayout = (props: PropsWithChildren) => {
   return (
     <div
       className={cx(
-        "font-all-round-gothic-w01-xlig flex flex-grow flex-col",
-        "cursor-none"
+        "flex flex-grow flex-col font-mont",
+        "cursor-none",
+        "dark", // bg-bg-primary-500 text-text-primary-500',
+        MontFont.className
       )}
       onPointerMove={(event) => cursor(event, cursorElemRef.current!)}
       onPointerOver={(event) => activeCursor(event, cursorElemRef.current!)}
