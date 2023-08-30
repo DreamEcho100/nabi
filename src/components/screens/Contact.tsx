@@ -41,7 +41,7 @@ export default function ContactScreen() {
           className={cx(
             getSectionInnerContainerClassNames(),
             "flex gap-16 px-8 sm:px-16",
-            "flex-col py-32 lg:flex-row"
+            "flex-col py-40 lg:flex-row"
           )}
         >
           <div className="flex flex-col gap-8">
