@@ -1,14 +1,14 @@
 import Head from "next/head";
-import HomeScreen from "~/components/screens/Home";
+import ContactScreen from "~/components/screens/Contact";
 
-export default function Home() {
+export default function ContactPage() {
   return (
     <>
       <Head>
-        <title>Nabi</title>
+        <title>Contact</title>
       </Head>
 
-      <HomeScreen />
+      <ContactScreen />
     </>
   );
 }

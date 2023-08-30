@@ -46,7 +46,7 @@ const MainLayout = (props: PropsWithChildren) => {
   return (
     <div
       className={cx(
-        "flex flex-grow flex-col font-mont",
+        "flex flex-col font-mont",
         "cursor-none",
         "dark", // bg-bg-primary-500 text-text-primary-500',
         MontFont.className

@@ -3,14 +3,18 @@ import Link from "next/link";
 import CustomNextImage from "~/components/shared/common/CustomNextImage";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 
-const footerLinksGroups = [
+const footerLinksGroups: {
+  name: string;
+  links: { name: string; href: string }[];
+  href?: string;
+}[] = [
   {
     name: "corporate",
     links: [
       { name: "about us", href: "#" },
       { name: "collection", href: "#" },
       { name: "gift card", href: "#" },
-      { name: "contact", href: "#" },
+      { name: "contact", href: "/contact" },
     ],
   },
   {
@@ -25,6 +29,7 @@ const footerLinksGroups = [
   },
   {
     name: "collection",
+    href: "/collection",
     links: [
       { name: "rompers", href: "#" },
       { name: "onesies", href: "#" },
@@ -98,7 +103,15 @@ export default function MainFooter() {
                   key={linksGroup.name}
                   className="flex flex-col gap-4 capitalize"
                 >
-                  <li>{linksGroup.name}</li>
+                  <li>
+                    {linksGroup.href ? (
+                      <Link className="explore" href={linksGroup.href}>
+                        {linksGroup.name}
+                      </Link>
+                    ) : (
+                      linksGroup.name
+                    )}
+                  </li>
                   <li>
                     <ul className="flex flex-col gap-1 capitalize">
                       {linksGroup.links.map((link) => (

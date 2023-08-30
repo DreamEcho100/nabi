@@ -53,7 +53,7 @@ const NavElementsOnGtLgScreens = () => {
 const NavElementsOnLtLgScreens = () => {
   return (
     <>
-      <Link href="#" className="block flex-shrink-0 lg:hidden">
+      <Link href="/" className="block flex-shrink-0 lg:hidden">
         <Image
           src="/images/2ef897a2406c34255a69b2b3b8c42337.png"
           width={500}
