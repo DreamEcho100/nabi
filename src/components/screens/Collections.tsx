@@ -9,8 +9,12 @@ import CustomNextImage from "../shared/common/CustomNextImage";
 import GenericHeroSection from "./components/GenericHeroSection";
 import GenericAboveFooterSliderSection from "./components/GenericAboveFooterSliderSection";
 
+import animationClasses from "~/styles/animation.module.css";
+
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0.1,
+  threshold: 0,
+  // trackVisibility: true,
+  // delay: 100,
 };
 
 export default function CollectionScreen() {
@@ -32,51 +36,114 @@ export default function CollectionScreen() {
           )}
         >
           <div className="flex flex-wrap justify-start gap-16">
-            <div className="flex flex-col gap-4">
-              <CustomNextImage
-                src="/images/d6bbcebc00531220f00ff5a40a6af1ad.jpg"
-                alt=""
-                width={495}
-                height={675}
-                className="h-[28rem] w-[21rem] object-cover"
-              />
-              <p className="text-2xl capitalize">rompers</p>
-              <small className="-mt-2 text-base">€450</small>
-            </div>
-            <div className="flex flex-col gap-4">
-              <CustomNextImage
-                src="/images/c526acafcc73a8ac425680a2e7b404f9.jpg"
-                alt=""
-                width={495}
-                height={675}
-                className="h-[28rem] w-[21rem] object-cover"
-              />
-              <p className="text-2xl capitalize">onesies</p>
-              <small className="-mt-2 text-base">€180</small>
-            </div>
+            {[
+              {
+                image: {
+                  src: "/images/d6bbcebc00531220f00ff5a40a6af1ad.jpg",
+                  altText: "",
+                  width: 495,
+                  height: 675,
+                },
+                title: "rompers",
+                price: "€450",
+              },
+              {
+                image: {
+                  src: "/images/c526acafcc73a8ac425680a2e7b404f9.jpg",
+                  altText: "",
+                  width: 495,
+                  height: 675,
+                },
+                title: "onesies",
+                price: "€180",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="intersect-show-up-container flex flex-col gap-4"
+              >
+                <CustomNextImage
+                  src={item.image.src}
+                  alt={item.image.altText}
+                  width={item.image.width}
+                  height={item.image.height}
+                  className={cx(
+                    "h-[28rem] w-[21rem] object-cover",
+                    animationClasses["intersect-show-up"],
+                    "transition-all duration-[0.75s]"
+                  )}
+                />
+                <p
+                  className={cx(
+                    "text-2xl capitalize",
+                    animationClasses["intersect-show-up"],
+                    "transition-all duration-[1.5]"
+                  )}
+                >
+                  {item.title}
+                </p>
+                <small
+                  className={cx(
+                    "-mt-2 text-base",
+                    animationClasses["intersect-show-up"],
+                    "transition-all duration-[1.5]"
+                  )}
+                >
+                  {item.price}
+                </small>
+              </div>
+            ))}
           </div>
           <div className="flex flex-col gap-4">
-            <div className="flex flex-wrap">
+            <div className="intersect-show-up-container flex flex-wrap overflow-hidden md:flex-nowrap">
               <CustomNextImage
                 src="/images/d0b95d5a13d371f41e106dfbfd9de762.jpg"
                 alt=""
                 width={700}
                 height={450}
-                className="h-[28rem] w-[44rem] flex-grow object-cover"
+                className={cx(
+                  "h-[28rem] w-2/5 flex-grow object-cover",
+                  animationClasses["intersect-show-up"],
+                  "transition-all duration-[0.75]"
+                )}
               />
               <div className="flex flex-grow flex-col items-start justify-center gap-8 bg-special-primary-100 p-8">
                 <div className="bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
                   About Product
                 </div>
-                <p className="text-[23px] font-medium leading-[49px] text-gray-800">
+                <p
+                  className={cx(
+                    "text-[23px] font-medium leading-[49px] text-gray-800",
+                    animationClasses["intersect-show-up"],
+                    "transition-all duration-[1.5]"
+                  )}
+                >
                   Silk has an incredibly soft, smooth, and light <br />
                   texture that feels wonderful against your baby&apos;s skin.
                   <br /> It is also naturally hypoallergenic.
                 </p>
               </div>
             </div>
-            <p className="text-2xl capitalize">full collection</p>
-            <small className="-mt-2 text-base">€600</small>
+            <div className="intersect-show-up-container flex flex-col gap-4">
+              <p
+                className={cx(
+                  "text-2xl capitalize",
+                  animationClasses["intersect-show-up"],
+                  "transition-all duration-[1.5]"
+                )}
+              >
+                full collection
+              </p>
+              <small
+                className={cx(
+                  "-mt-2 text-base",
+                  animationClasses["intersect-show-up"],
+                  "transition-all duration-[1.5]"
+                )}
+              >
+                €600
+              </small>
+            </div>
           </div>
         </div>
       </section>

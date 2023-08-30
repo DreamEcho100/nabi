@@ -4,6 +4,7 @@ import MainFooter from "./components/MainFooter";
 import { cx } from "class-variance-authority";
 import CustomNextImage from "~/components/shared/common/CustomNextImage";
 import { MontFont } from "~/utils/core/fonts";
+import { globalStore } from "~/components/utils/store";
 
 function activeCursor(
   event: PointerEvent<HTMLDivElement>,
@@ -54,7 +55,18 @@ const MainLayout = (props: PropsWithChildren) => {
       onPointerMove={(event) => cursor(event, cursorElemRef.current!)}
       onPointerOver={(event) => activeCursor(event, cursorElemRef.current!)}
     >
-      <div className="intro-animation fixed inset-0 z-[999] flex items-center justify-center bg-special-primary-400">
+      <div
+        className="intro-animation fixed inset-0 z-[999] flex items-center justify-center bg-special-primary-400"
+        onAnimationStartCapture={(event) => {
+          event.stopPropagation();
+          setTimeout(() => {
+            globalStore.getState().utils.setHasIntroAnimationEnded(true);
+          }, 500);
+        }}
+        // onAnimationIteration={(event) => {
+        //   event.stopPropagation();
+        // }}
+      >
         <div className="relative flex h-96 w-96 items-center justify-center rounded-full bg-special-primary-200/80 p-8">
           <div
             className="absolute inset-0 -z-[1] animate-ping rounded-full bg-special-primary-200/80 opacity-20"

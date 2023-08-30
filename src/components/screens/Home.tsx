@@ -49,9 +49,9 @@ export default function HomeScreen() {
         >
           <p
             className={cx(
-              "font-all-round-gothic-w01-xlig max-w-[1024px] text-3xl leading-10",
+              "max-w-[1024px] font-all-round-gothic-w01-xlig text-3xl leading-10",
               animationClasses["intersect-show-up"],
-              "transition-all delay-[0.5s] duration-1000"
+              "transition-all duration-1000"
             )}
             // style={
             //   {
@@ -70,14 +70,14 @@ export default function HomeScreen() {
             className={cx(
               "h-20 w-[0.0625rem] bg-special-primary-900",
               animationClasses["intersect-show-up"],
-              "transition-all delay-[0.5s] duration-[1.25s]"
+              "transition-all duration-[1.25s]"
             )}
           />
           <p
             className={cx(
               "text-center text-sm font-normal leading-tight text-zinc-800",
               animationClasses["intersect-show-up"],
-              "transition-all delay-[0.5s] duration-[1.5s]"
+              "transition-all duration-[1.5s]"
             )}
           >
             Scroll to discover <br />
@@ -98,7 +98,7 @@ export default function HomeScreen() {
                 className={cx(
                   "w-full",
                   animationClasses["intersect-show-up"],
-                  "transition-all delay-[0.5s] duration-1000"
+                  "transition-all duration-1000"
                 )}
                 src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
                 width={400}
@@ -135,7 +135,7 @@ export default function HomeScreen() {
                   "h-full w-full flex-grow object-cover",
                   "retry-intersect-animation",
                   animationClasses["intersect-show-up"],
-                  "transition-all delay-[0.5s] duration-1000"
+                  "transition-all duration-1000"
                 )}
                 style={{
                   gridColumn: "2/3",
@@ -152,7 +152,7 @@ export default function HomeScreen() {
                 className={cx(
                   "h-full w-full object-cover",
                   animationClasses["intersect-show-up"],
-                  "transition-all delay-[0.5s] duration-1000"
+                  "transition-all duration-1000"
                 )}
                 src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
                 width={328}
@@ -164,10 +164,10 @@ export default function HomeScreen() {
           <div className="intersect-show-up-container retry-intersect-animation relative max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:pb-36 sm:pt-36 lg:-translate-x-[5rem]">
             <h2
               className={cx(
-                "font-all-round-gothic-w01-xlig sticky top-[var(--main-header-h)] flex justify-center text-[2.5rem] font-normal capitalize",
+                "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig text-[2.5rem] font-normal capitalize",
                 // "intersect-elem intersect-show-up",
                 animationClasses["intersect-show-up"],
-                "transition-all delay-[0.5s] duration-1000"
+                "transition-all duration-1000"
               )}
             >
               <span className="leading-relaxed sm:whitespace-nowrap">
@@ -193,7 +193,7 @@ export default function HomeScreen() {
                   "h-full w-full object-cover",
                   "intersect-elem intersect-scale-base-from-150",
                   "scale-150",
-                  "transition-all delay-[0.5s] duration-1000"
+                  "transition-all duration-1000"
                 )}
                 priority
               />
@@ -208,7 +208,7 @@ export default function HomeScreen() {
                   "h-full w-full object-cover",
                   "intersect-elem intersect-scale-base-from-150",
                   "scale-150",
-                  "transition-all delay-[0.5s] duration-1000"
+                  "transition-all duration-1000"
                 )}
                 priority
               />
@@ -248,7 +248,7 @@ export default function HomeScreen() {
               className={cx(
                 "text-sm font-semibold leading-7 text-white",
                 animationClasses["intersect-show-up"],
-                "transition-all delay-[0.5s] duration-1000"
+                "transition-all duration-1000"
               )}
             >
               @nabibabystore

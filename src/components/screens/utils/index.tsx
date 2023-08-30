@@ -41,7 +41,9 @@ export const generalAnimationIntersectionObserverCB: IntersectionObserverCallbac
         }
 
         if (!entry.target.classList.contains("retry-intersect-animation")) {
-          return observer.unobserve(entry.target);
+          observer.unobserve(entry.target);
+
+          continue;
         }
       } else {
         if (entry.target.classList.contains("intersect-show-up-container")) {

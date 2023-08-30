@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useStore } from "zustand";
+import { globalStore } from "~/components/utils/store";
 
 export function useIntersectionObserver(
   callback: IntersectionObserverCallback,
@@ -32,8 +34,13 @@ export function useIntersectionObserver(
 export const useInitGeneralAnimationIntersectionObserver = (
   intersectionObserver: ReturnType<typeof useIntersectionObserver>
 ) => {
+  const hasIntroAnimationEnded = useStore(
+    globalStore,
+    (store) => store.hasIntroAnimationEnded
+  );
+
   useEffect(() => {
-    if (!intersectionObserver.isClient) return;
+    if (!intersectionObserver.isClient || !hasIntroAnimationEnded) return;
 
     const intersectElements: Element[] = [];
 
@@ -55,5 +62,6 @@ export const useInitGeneralAnimationIntersectionObserver = (
   }, [
     intersectionObserver.intersectionObserver,
     intersectionObserver.isClient,
+    hasIntroAnimationEnded,
   ]);
 };

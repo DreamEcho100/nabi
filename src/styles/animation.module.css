@@ -2,9 +2,9 @@
   transform: translateY(100%);
   opacity: 0;
   transition: transform var(--transform-duration, 1.25s)
-      cubic-bezier(0.4, 0, 0.2, 1) var(--transform-delay, 0.25s),
-    opacity var(--transform-duration, 1s) cubic-bezier(0.4, 0, 0.2, 1)
-      var(--transform-delay, 0.25s);
+      cubic-bezier(0.4, 0, 0.2, 1) var(--transform-delay, 0s),
+    opacity var(--transform-duration, 0.8s) cubic-bezier(0.4, 0, 0.2, 1)
+      var(--transform-delay, 0s);
 }
 .intersect-show-up.animate {
   transform: translateY(0%);
