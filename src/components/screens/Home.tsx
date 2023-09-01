@@ -161,7 +161,7 @@ export default function HomeScreen() {
               />
             </div>
           </div>
-          <div className="intersect-show-up-container retry-intersect-animation relative max-w-[928px] flex-grow px-8 pb-16 pt-28 text-white sm:pb-36 sm:pt-36 lg:-translate-x-[5rem]">
+          <div className="intersect-show-up-container retry-intersect-animation relative max-w-[928px] flex-grow pb-16 pt-28 text-white sm:pb-36 sm:pt-36 lg:pe-16 lg:ps-8">
             <h2
               className={cx(
                 "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig text-[2.5rem] font-normal capitalize",

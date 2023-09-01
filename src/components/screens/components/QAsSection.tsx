@@ -19,7 +19,7 @@ export default function QAsSection(props: Props) {
         )}
       >
         {props.QAsList.map((item) => (
-          <article key={item.q} className="flex flex-col gap-1 text-[2rem]">
+          <article key={item.q} className="flex flex-col gap-1 text-base">
             <h2 className="font-semibold leading-10 text-black">{item.q}</h2>
             <p className="leading-relaxed text-black">{item.a}</p>
           </article>
