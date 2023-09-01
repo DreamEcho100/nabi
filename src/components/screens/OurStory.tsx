@@ -78,7 +78,7 @@ export default function OurStoryScreen() {
             ))}
           </div>
 
-          <div className="mx-auto max-w-[1300px] text-center text-base font-medium leading-[2.25rem]">
+          <div className="text-balance mx-auto max-w-[1300px] text-center text-lg font-medium leading-[2rem]">
             <div className="intersect-show-up-container">
               <p
                 className={cx(
@@ -90,7 +90,6 @@ export default function OurStoryScreen() {
                 organic Merino wool and fine silk for our products.
               </p>
             </div>
-            <br />
             <div className="intersect-show-up-container">
               <p
                 className={cx(
@@ -102,7 +101,6 @@ export default function OurStoryScreen() {
                 chosen:
               </p>
             </div>
-            <br />
             <div className="intersect-show-up-container">
               <p
                 className={cx(
@@ -117,7 +115,6 @@ export default function OurStoryScreen() {
                 provide warmth.
               </p>
             </div>
-            <br />
             <div className="intersect-show-up-container">
               <p
                 className={cx(
@@ -130,7 +127,6 @@ export default function OurStoryScreen() {
                 naturally hypoallergenic.
               </p>
             </div>
-            <br />
             <div className="intersect-show-up-container">
               <p
                 className={cx(
@@ -141,7 +137,6 @@ export default function OurStoryScreen() {
                 Together, silk and Merino wool are just a dream.
               </p>
             </div>
-            <br />
             <div className="intersect-show-up-container">
               <p
                 className={cx(

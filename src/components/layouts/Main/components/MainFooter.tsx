@@ -103,7 +103,7 @@ export default function MainFooter() {
                   placeholder="email"
                   className="inline-flex w-48 flex-grow items-start justify-start rounded-l border-[0.0625rem] border-zinc-800 bg-transparent px-4 py-2.5 text-sm text-neutral-600 outline-none placeholder:capitalize placeholder:text-neutral-600"
                 />
-                <button className="inline-flex items-center justify-center gap-3 rounded-r rounded-tr border-[0.0625rem] border-zinc-800 bg-zinc-800 px-8 py-2.5 text-sm leading-tight text-white">
+                <button className="inline-flex items-center justify-center gap-3 rounded-r rounded-tr border-[0.0625rem] border-zinc-800 bg-zinc-800 px-8 py-[0.7rem] text-sm leading-tight text-white">
                   Send
                 </button>
               </div>
