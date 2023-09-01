@@ -13,8 +13,6 @@ import animationClasses from "~/styles/animation.module.css";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0,
-  // trackVisibility: true,
-  // delay: 100,
 };
 
 export default function CollectionScreen() {

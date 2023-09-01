@@ -21,7 +21,7 @@ const footerLinksGroups: {
     name: "customer service",
     links: [
       { name: "privacy policy", href: "#" },
-      { name: "return & exchange", href: "#" },
+      { name: "return & exchange", href: "/policies/return" },
       { name: "terms and conditions", href: "#" },
       { name: "sales contract", href: "#" },
       { name: "secure shopping", href: "#" },
@@ -110,7 +110,7 @@ export default function MainFooter() {
             </form>
           </div>
           <div className="flex flex-col gap-6 lg:items-end">
-            <div className="flex flex-wrap gap-x-12 gap-y-6 text-right text-sm">
+            <div className="flex flex-wrap justify-end gap-x-12 gap-y-6 text-right text-sm">
               {footerLinksGroups.map((linksGroup) => (
                 <ul
                   key={linksGroup.name}
