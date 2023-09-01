@@ -54,7 +54,7 @@ export default function MainFooter() {
       <div
         className={cx(
           getSectionInnerContainerClassNames(),
-          "flex flex-col gap-8 px-8 py-20 sm:px-16 lg:gap-4"
+          "flex flex-col gap-8 px-8 py-20 font-medium sm:px-16 lg:gap-4"
         )}
       >
         <div className="flex flex-wrap justify-between gap-4">
@@ -71,7 +71,7 @@ export default function MainFooter() {
             <p className="text-sm">Contact</p>
             <div className="text-sm">
               <p>Kemankeş Karamustafa Mah. Necatibey Cad.</p>
-              <p>Gökçe Han No: 16 Kat: 4 Beyoğlu, İstanbul</p>
+              <p>Gökçe Han No: 16 Kat: 4 Beyoğlu</p>
             </div>
             <div className="text-sm">
               <a
@@ -91,7 +91,7 @@ export default function MainFooter() {
               </a>
             </div>
             <form className="relative flex h-28 w-80 max-w-full flex-col gap-2">
-              <label className="text-lg font-medium capitalize" htmlFor="email">
+              <label className="text-lg capitalize" htmlFor="email">
                 subscribe
               </label>
 
