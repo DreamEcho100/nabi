@@ -141,7 +141,7 @@ export default function MainFooter() {
             </div>
 
             <CustomNextImage
-              className="h-[3.5rem] w-[25rem]"
+              className="h-[3rem] w-[25rem]"
               src="/images/44c105f51dff021ca8d973aa5908ebd3.png"
               width={400}
               height={56}
