@@ -68,7 +68,7 @@ export default function MainFooter() {
                 alt="logo"
               />
             </Link>
-            <p className="text-sm">İletişim</p>
+            <p className="text-sm">Contact</p>
             <div className="text-sm">
               <p>Kemankeş Karamustafa Mah. Necatibey Cad.</p>
               <p>Gökçe Han No: 16 Kat: 4 Beyoğlu, İstanbul</p>
@@ -81,6 +81,7 @@ export default function MainFooter() {
               >
                 +90 534 799 0864
               </a>
+              <br />
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -89,7 +90,7 @@ export default function MainFooter() {
                 info@seamlesstance.com
               </a>
             </div>
-            <form className="relative flex h-28 w-80 max-w-full flex-col gap-4">
+            <form className="relative flex h-28 w-80 max-w-full flex-col gap-2">
               <label className="text-lg font-medium capitalize" htmlFor="email">
                 subscribe
               </label>
