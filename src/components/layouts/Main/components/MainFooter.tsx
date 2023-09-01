@@ -101,7 +101,7 @@ export default function MainFooter() {
                   name="email"
                   id="email"
                   placeholder="email"
-                  className="inline-flex w-48 flex-grow items-start justify-start rounded-l border-[0.0625rem] border-zinc-800 bg-transparent px-4 py-2.5 text-xs text-neutral-600 outline-none placeholder:capitalize placeholder:text-neutral-600"
+                  className="inline-flex w-48 flex-grow items-start justify-start rounded-l border-[0.0625rem] border-zinc-800 bg-transparent px-4 py-2.5 text-sm text-neutral-600 outline-none placeholder:capitalize placeholder:text-neutral-600"
                 />
                 <button className="inline-flex items-center justify-center gap-3 rounded-r rounded-tr border-[0.0625rem] border-zinc-800 bg-zinc-800 px-8 py-2.5 text-sm leading-tight text-white">
                   Send
@@ -148,7 +148,7 @@ export default function MainFooter() {
             />
           </div>
         </div>
-        <small className="mt-4 text-xs text-zinc-800">
+        <small className="mt-4 text-sm text-zinc-800">
           Nabi &copy; 2023 | All Rights Reserved.
         </small>
       </div>
