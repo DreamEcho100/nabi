@@ -57,8 +57,8 @@ export default function MainFooter() {
           "flex flex-col gap-8 px-8 py-20 sm:px-16 lg:gap-4"
         )}
       >
-        <div className="flex flex-wrap justify-between gap-2">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-wrap justify-between gap-4">
+          <div className="flex flex-col gap-4">
             <Link href="/">
               <CustomNextImage
                 className="explore h-12 w-24 object-contain"
@@ -89,7 +89,7 @@ export default function MainFooter() {
                 info@seamlesstance.com
               </a>
             </div>
-            <form className="relative flex h-28 w-80 max-w-full flex-col gap-2">
+            <form className="relative flex h-28 w-80 max-w-full flex-col gap-4">
               <label className="text-lg font-medium capitalize" htmlFor="email">
                 subscribe
               </label>
@@ -109,13 +109,13 @@ export default function MainFooter() {
             </form>
           </div>
           <div className="flex flex-col gap-6 lg:items-end">
-            <div className="flex flex-wrap gap-x-12 gap-y-6 text-sm">
+            <div className="flex flex-wrap gap-x-12 gap-y-6 text-right text-sm">
               {footerLinksGroups.map((linksGroup) => (
                 <ul
                   key={linksGroup.name}
                   className="flex flex-col gap-4 capitalize"
                 >
-                  <li>
+                  <li className="font-semibold">
                     {linksGroup.href ? (
                       <Link className="explore" href={linksGroup.href}>
                         {linksGroup.name}
@@ -140,10 +140,10 @@ export default function MainFooter() {
             </div>
 
             <CustomNextImage
-              className="object-contain"
+              className="h-[3.5rem] w-[25rem]"
               src="/images/44c105f51dff021ca8d973aa5908ebd3.png"
               width={400}
-              height={80}
+              height={56}
             />
           </div>
         </div>
