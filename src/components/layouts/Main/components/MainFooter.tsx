@@ -91,7 +91,7 @@ export default function MainFooter() {
               </a>
             </div>
             <form className="relative flex h-28 w-80 max-w-full flex-col gap-2">
-              <label className="text-lg capitalize" htmlFor="email">
+              <label className="text-base capitalize" htmlFor="email">
                 subscribe
               </label>
 
