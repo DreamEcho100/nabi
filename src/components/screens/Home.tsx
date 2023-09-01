@@ -257,10 +257,11 @@ export default function HomeScreen() {
           <div className="flex flex-col gap-8">
             <CustomNextImage
               src="/svgs/instagram.svg"
-              width={950}
+              width={980}
               height={135}
               alt=""
               priority
+              className="mx-auto object-cover"
             />
             <div className="flex flex-wrap items-center justify-center gap-4">
               {[

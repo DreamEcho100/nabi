@@ -9,7 +9,7 @@ import ShoppingCartSvg from "~/svgs/shopping-cart.svg";
 const mainAppHeaderLinks = [
   { name: "Collections", href: "/collections" },
   { name: "our story", href: "/our-story" },
-  { name: "the gift", href: "#" },
+  { name: "FAQs", href: "#" },
   { name: "contact", href: "/contact" },
 ];
 

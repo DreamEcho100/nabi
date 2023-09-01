@@ -102,9 +102,9 @@ export default function CollectionScreen() {
                 width={700}
                 height={450}
                 className={cx(
-                  "h-[28rem] w-2/5 flex-grow object-cover",
-                  animationClasses["intersect-show-up"],
-                  "transition-all duration-[0.75]"
+                  "h-[28rem] w-2/5 flex-grow object-cover"
+                  // animationClasses["intersect-show-up"],
+                  // "transition-all duration-[0.75]"
                 )}
               />
               <div className="flex flex-grow flex-col items-start justify-center gap-8 bg-special-primary-100 p-8">

@@ -74,8 +74,20 @@ export default function MainFooter() {
               <p>Gökçe Han No: 16 Kat: 4 Beyoğlu, İstanbul</p>
             </div>
             <div className="text-sm">
-              <p>+90 534 799 0864</p>
-              <p>info@seamlesstance.com</p>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="tel:+905347990864"
+              >
+                +90 534 799 0864
+              </a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="mailto:info@seamlesstance.com"
+              >
+                info@seamlesstance.com
+              </a>
             </div>
             <form className="relative flex h-28 w-80 max-w-full flex-col gap-2">
               <label className="text-lg font-medium capitalize" htmlFor="email">
