@@ -51,7 +51,7 @@ const footerLinksGroups: {
 
 export default function MainFooter() {
   return (
-    <footer className="bg-special-primary-800/60 text-white">
+    <footer className="bg-special-primary-800 text-white">
       <div
         className={cx(
           getSectionInnerContainerClassNames(),
@@ -86,9 +86,9 @@ export default function MainFooter() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="mailto:info@seamlesstance.com"
+                href="mailto:info@nabi.com"
               >
-                info@seamlesstance.com
+                info@nabi.com
               </a>
             </div>
             <form className="relative flex h-28 w-80 max-w-full flex-col gap-2">

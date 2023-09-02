@@ -104,6 +104,7 @@ export default function HomeScreen() {
                 width={400}
                 height={600}
                 alt=""
+                priority
               />
             </div>
             <div
@@ -145,6 +146,7 @@ export default function HomeScreen() {
                 width={400}
                 height={600}
                 alt=""
+                priority
               />
             </div>
             <div className="intersect-show-up-container retry-intersect-animation h-[25rem] w-3/4  translate-x-[25%] object-cover sm:w-1/2 sm:translate-x-[100%]">
