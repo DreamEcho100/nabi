@@ -10,6 +10,7 @@ import GenericHeroSection from "./components/GenericHeroSection";
 import GenericAboveFooterSliderSection from "./components/GenericAboveFooterSliderSection";
 
 import animationClasses from "~/styles/animation.module.css";
+import { CSSProperties } from "react";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0.1,
@@ -78,8 +79,8 @@ export default function OurStoryScreen() {
             ))}
           </div>
 
-          <div className="text-balance mx-auto max-w-[1300px] text-center text-lg font-medium leading-[2rem]">
-            <div className="intersect-show-up-container">
+          <div className="mx-auto flex max-w-[1300px] flex-col gap-y-8 gap-x-16 text-lg font-medium leading-[2rem] md:flex-row">
+            {/* <div className="intersect-show-up-container">
               <p
                 className={cx(
                   animationClasses["intersect-show-up"],
@@ -146,6 +147,42 @@ export default function OurStoryScreen() {
               >
                 Like a little sheep with butterfly wings. All our products are
                 organic and certified with the Oeko-Tex Standard 100 label.
+              </p>
+            </div> */}
+            <div className="intersect-show-up-container md:w-1/2">
+              <p className={animationClasses["intersect-show-up"]}>
+                Nabi is a luxury brand for babies and toddlers. We only use
+                organic Merino wool and fine silk for our products. Merino wool
+                has the ability to create a microclimate around your baby.
+                Meaning it will regulate body temperature, keeping your baby
+                &apos;warm when it&apos;s cold and cool when it&apos;s
+                hot&apos;. In cooler temperatures it will trap warm air in to
+                provide warmth. Silk has an incredibly soft, smooth, and light
+                texture that feels wonderful against your baby&apos;s skin. It
+                is also naturally hypoallergenic. Together, silk and Merino wool
+                are just a dream. Like a little sheep with butterfly wings.
+              </p>
+            </div>
+            <div className="intersect-show-up-container md:w-1/2">
+              <p
+                className={cx(
+                  animationClasses["intersect-show-up"],
+                  "transition-all duration-1000"
+                )}
+                style={
+                  {
+                    // "--duration-multi": "0.5s"
+                    "--transform-duration": "1.5s",
+                    "--opacity-duration": "0.85s",
+                  } as CSSProperties
+                }
+              >
+                All our products are organic and certified with the GOTS label.
+                GOTS certified companies must meet strict criteria regarding
+                organic, ecological and social practices at all processing
+                stages. The certification guarantees that our products are made
+                by people that receive fair treatment and no hazardous chemicals
+                have been used throughout the entire production process.
               </p>
             </div>
           </div>

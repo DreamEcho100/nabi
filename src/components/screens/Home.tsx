@@ -80,8 +80,11 @@ export default function HomeScreen() {
               "transition-all duration-[1.5s]"
             )}
           >
-            Scroll to discover <br />
-            more about us
+            Slow fashion for the fastest growing
+            <br />
+            Dreamed up and hand designed in the Netherlands, sustainable and
+            organic
+            <br />
           </p>
         </div>
       </section>
