@@ -96,7 +96,7 @@ const NavElementsOnLtLgScreens = () => {
   const mainWrapper =
     typeof window === "undefined"
       ? null
-      : document.querySelector(".main-wrapper");
+      : document.querySelector(".main-wrapper") as HTMLElement | null;
 
   return (
     <DropdownMenu.Root>

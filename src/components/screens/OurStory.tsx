@@ -10,7 +10,7 @@ import GenericHeroSection from "./components/GenericHeroSection";
 import GenericAboveFooterSliderSection from "./components/GenericAboveFooterSliderSection";
 
 import animationClasses from "~/styles/animation.module.css";
-import { CSSProperties } from "react";
+import { type CSSProperties } from "react";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0.1,
