@@ -71,7 +71,7 @@ export default function HomeScreen() {
           </p>
           <div
             className={cx(
-              "h-8 w-[0.0625rem] bg-special-primary-900",
+              "h-8 w-[0.0625rem] bg-special-primary-900 mb-[-0.5rem]",
               animationClasses["intersect-show-up"],
               "transition-all duration-[1.25s]"
             )}
