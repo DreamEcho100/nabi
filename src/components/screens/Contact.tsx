@@ -42,24 +42,25 @@ export default function ContactScreen() {
         <div
           className={cx(
             getSectionInnerContainerClassNames(),
-            "flex gap-16 px-8 sm:px-16",
-            "flex-col py-40 lg:flex-row"
+            "flex gap-16",
+            "py-40",
+            "px-16 md:px-20 xl:px-40",
+            "flex-col lg:flex-row",
+            "intersect-show-up-container"
           )}
         >
           <div className="flex flex-col gap-8">
-            <div className="intersect-show-up-container">
-              <CustomNextImage
-                src="/images/cc15f94a64b56b5e457264ccc18ad9cd.jpg"
-                width={800}
-                height={325}
-                className={cx(
-                  "h-[20rem] w-[50rem] object-cover",
-                  animationClasses["intersect-show-up"],
-                  "transition-all duration-700"
-                )}
-              />
-            </div>
-            <p className="intersect-show-up-container mt-8 text-2xl font-medium leading-10 text-gray-800">
+            <CustomNextImage
+              src="/images/cc15f94a64b56b5e457264ccc18ad9cd.jpg"
+              width={800}
+              height={325}
+              className={cx(
+                "h-[20rem] w-[50rem] object-cover",
+                animationClasses["intersect-show-up"],
+                "transition-all duration-700"
+              )}
+            />
+            <p className="mt-8 text-2xl font-medium leading-10 text-gray-800">
               <span
                 className={cx(
                   animationClasses["intersect-show-up"],
@@ -97,7 +98,7 @@ export default function ContactScreen() {
               </span>
             </p>
 
-            <div className="intersect-show-up-container text-base font-semibold leading-loose text-stone-400">
+            <div className="text-base font-semibold leading-loose text-stone-400">
               <a
                 href="tel:+35799829358"
                 target="_blank"
@@ -123,7 +124,7 @@ export default function ContactScreen() {
               </a>
             </div>
           </div>
-          <div className="intersect-show-up-container w-[50rem]">
+          <div className="w-[50rem]">
             <form
               className={cx(
                 "flex w-full flex-col gap-12 bg-special-primary-800 px-20 py-16",

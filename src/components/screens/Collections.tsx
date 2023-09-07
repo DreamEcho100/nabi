@@ -30,7 +30,8 @@ export default function CollectionScreen() {
         <div
           className={cx(
             getSectionInnerContainerClassNames(),
-            "flex flex-col gap-16 px-8 pb-20 pt-12 sm:px-16"
+            "flex flex-col gap-16",
+            "px-16 pb-20 pt-12 md:px-24 lg:px-40"
           )}
         >
           <div className="flex flex-wrap justify-start gap-16">

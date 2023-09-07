@@ -30,8 +30,11 @@ export default function OurStoryScreen() {
       <section className="bg-special-primary-100 text-zinc-700">
         <div
           className={cx(
-            getSectionInnerContainerClassNames(),
-            "flex flex-col gap-16 px-8 pb-20  pt-12 sm:px-16"
+            getSectionInnerContainerClassNames({
+              // "max-w": "max-w-[1500npx]",
+            }),
+            "flex flex-col gap-16",
+            "px-16 pb-20 pt-12 md:px-24 lg:px-40"
           )}
         >
           <div className="intersect-show-up-container flex flex-col sm:flex-row">
@@ -79,7 +82,7 @@ export default function OurStoryScreen() {
             ))}
           </div>
 
-          <div className="mx-auto flex max-w-[1300px] flex-col gap-x-16 gap-y-8 text-lg font-medium leading-[2rem] md:flex-row">
+          <div className="mx-auto flex flex-col justify-between gap-x-16 gap-y-8 text-lg font-medium leading-[2rem] md:flex-row">
             {/* <div className="intersect-show-up-container">
               <p
                 className={cx(
