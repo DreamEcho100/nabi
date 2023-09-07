@@ -62,9 +62,11 @@ export default function HomeScreen() {
             //   } as CSSProperties
             // }
           >
-            Nabi is a luxury brand for babies and toddlers. We only use organic
+            {/* Nabi is a luxury brand for babies and toddlers. We only use organic
             Merino wool and fine silk for our products. This sublime combination
-            of fabrics is one that was carefully chosen.
+            of fabrics is one that was carefully chosen. */}
+Slow fashion for the fastest growing. Dreamed up and hand designed in the <br />
+Netherlands, sustainable and organic.
           </p>
           <div
             className={cx(
@@ -79,12 +81,14 @@ export default function HomeScreen() {
               animationClasses["intersect-show-up"],
               "transition-all duration-[1.5s]"
             )}
-          >
-            Slow fashion for the fastest growing
+					>
+						Scroll to discover <br />
+more about us
+            {/* Slow fashion for the fastest growing
             <br />
             Dreamed up and hand designed in the Netherlands, sustainable and
             organic
-            <br />
+            <br /> */}
           </p>
         </div>
       </section>
