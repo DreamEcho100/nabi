@@ -40,7 +40,7 @@ export default function HomeScreen() {
           />
         </video>
       </section>
-      <section className="bg-special-primary-300">
+      <section className="bg-special-primary-900/20">
         <div
           className={cx(
             `${getSectionInnerContainerClassNames()} flex min-h-[36rem] flex-col items-center justify-center gap-4 px-8 py-36 text-center`,
@@ -71,7 +71,7 @@ export default function HomeScreen() {
           </p>
           <div
             className={cx(
-              "h-20 w-[0.0625rem] bg-special-primary-900",
+              "h-8 w-[0.0625rem] bg-special-primary-900",
               animationClasses["intersect-show-up"],
               "transition-all duration-[1.25s]"
             )}
