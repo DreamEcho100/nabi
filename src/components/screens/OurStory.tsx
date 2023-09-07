@@ -79,7 +79,7 @@ export default function OurStoryScreen() {
             ))}
           </div>
 
-          <div className="mx-auto flex max-w-[1300px] flex-col gap-y-8 gap-x-16 text-lg font-medium leading-[2rem] md:flex-row">
+          <div className="mx-auto flex max-w-[1300px] flex-col gap-x-16 gap-y-8 text-lg font-medium leading-[2rem] md:flex-row">
             {/* <div className="intersect-show-up-container">
               <p
                 className={cx(
@@ -163,12 +163,9 @@ export default function OurStoryScreen() {
                 are just a dream. Like a little sheep with butterfly wings.
               </p>
             </div>
-            <div className="intersect-show-up-container md:w-1/2">
+            <div className="intersect-show-up-container flex flex-col gap-4 md:w-1/2">
               <p
-                className={cx(
-                  animationClasses["intersect-show-up"],
-                  "transition-all duration-1000"
-                )}
+                className={animationClasses["intersect-show-up"]}
                 style={
                   {
                     // "--duration-multi": "0.5s"
@@ -184,6 +181,22 @@ export default function OurStoryScreen() {
                 by people that receive fair treatment and no hazardous chemicals
                 have been used throughout the entire production process.
               </p>
+              <CustomNextImage
+                src="/images/logo-e3f669f8.webp"
+                width={250}
+                height={250}
+                className={cx(
+                  animationClasses["intersect-show-up"],
+                  "ms-auto h-24 w-24"
+                )}
+                style={
+                  {
+                    // "--duration-multi": "0.5s"
+                    "--transform-delay": "0.5s",
+                    "--opacity-delay": "0.5s",
+                  } as CSSProperties
+                }
+              />
             </div>
           </div>
         </div>
