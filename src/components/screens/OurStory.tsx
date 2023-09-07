@@ -34,7 +34,8 @@ export default function OurStoryScreen() {
               // "max-w": "max-w-[1500npx]",
             }),
             "flex flex-col gap-16",
-            "px-16 pb-20 pt-12 md:px-24 lg:px-40"
+            "pb-20 pt-12",
+            "px-16 md:px-20 xl:px-40",
           )}
         >
           <div className="intersect-show-up-container flex flex-col sm:flex-row">
