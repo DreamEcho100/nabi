@@ -40,7 +40,7 @@ export const useInitGeneralAnimationIntersectionObserver = (
   );
 
   useEffect(() => {
-    if (!intersectionObserver.isClient || !hasIntroAnimationEnded) return;
+    if (typeof window === "undefined" || !intersectionObserver.isClient || !hasIntroAnimationEnded) return;
 
     const intersectElements: Element[] = [];
 
