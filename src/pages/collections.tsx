@@ -13,6 +13,6 @@ export default function CollectionsPage() {
   );
 }
 
-export const config = {
-  runtime: "experimental-edge", // or "nodejs"
-};
+// export const config = {
+//   runtime: "experimental-edge", // or "nodejs"
+// };
