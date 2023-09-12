@@ -1,4 +1,4 @@
-import { type HTMLAttributes, useState, useEffect, useRef } from "react";
+import { type HTMLAttributes, useState } from "react";
 import CustomNextImage from "./CustomNextImage";
 import { cx } from "class-variance-authority";
 
