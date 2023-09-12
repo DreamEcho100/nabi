@@ -49,7 +49,15 @@ export default function ContactScreen() {
             "intersect-show-up-container"
           )}
         >
-          <div className="flex flex-col gap-8">
+					<div
+						className={cx(
+							"flex flex-col gap-8",
+							'intersect-show intersect-elem',
+							'opacity-0',
+							"transition-all"
+						)}
+						style={{ transitionDuration: '0.75s' }}
+					>
             <CustomNextImage
               src="/images/cc15f94a64b56b5e457264ccc18ad9cd.jpg"
               width={800}

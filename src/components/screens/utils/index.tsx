@@ -5,6 +5,7 @@ export const generalAnimationIntersectionObserverCB: IntersectionObserverCallbac
     let entry: IntersectionObserverEntry;
     for (entry of entries) {
       if (entry.isIntersecting) {
+				console.log(entry.target.classList);
         if (entry.target.classList.contains("intersect-show-up-container")) {
           // entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
           //   elem.classList.remove("translate-y-full", "opacity-0");
@@ -32,7 +33,7 @@ export const generalAnimationIntersectionObserverCB: IntersectionObserverCallbac
               ? "-translate-x-[200%]"
               : "-translate-x-full"
           );
-        } else if (entry.target.classList.contains("intersect-show")) {
+				} else if (entry.target.classList.contains("intersect-show")) {
           entry.target.classList.remove("opacity-0");
         } else if (
           entry.target.classList.contains("intersect-scale-base-from-150")

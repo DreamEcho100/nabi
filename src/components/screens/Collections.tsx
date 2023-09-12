@@ -57,10 +57,16 @@ export default function CollectionScreen() {
                 title: "onesies",
                 price: "€180",
               },
-            ].map((item) => (
+            ].map((item, index) => (
               <div
                 key={item.title}
-                className="intersect-show-up-container flex flex-col gap-4"
+                className={cx(
+									"flex flex-col gap-4",
+                  'intersect-show intersect-elem',
+									'opacity-0',
+									"transition-all"
+								)}
+								style={{ transitionDuration: '0.75s', transitionDelay: `${((index + 1) * 0.15)}s`, }}
               >
                 <CustomNextImage
                   src={item.image.src}
@@ -69,14 +75,14 @@ export default function CollectionScreen() {
                   height={item.image.height}
                   className={cx(
                     "h-[28rem] w-[21rem] object-cover",
-                    animationClasses["intersect-show-up"],
+                    // animationClasses["intersect-show-up"],
                     "transition-all duration-[0.75s]"
                   )}
                 />
                 <p
                   className={cx(
                     "text-2xl capitalize",
-                    animationClasses["intersect-show-up"],
+                    // animationClasses["intersect-show-up"],
                     "transition-all duration-[1.5]"
                   )}
                 >
@@ -85,7 +91,7 @@ export default function CollectionScreen() {
                 <small
                   className={cx(
                     "-mt-2 text-base",
-                    animationClasses["intersect-show-up"],
+                    // animationClasses["intersect-show-up"],
                     "transition-all duration-[1.5]"
                   )}
                 >
@@ -102,10 +108,12 @@ export default function CollectionScreen() {
                 width={700}
                 height={450}
                 className={cx(
-                  "h-[28rem] w-2/5 flex-grow object-cover"
-                  // animationClasses["intersect-show-up"],
-                  // "transition-all duration-[0.75]"
-                )}
+                  "h-[28rem] w-2/5 flex-grow object-cover",
+									'intersect-show intersect-elem',
+									'opacity-0',
+									"transition-all"
+								)}
+								style={{ transitionDuration: '0.75s' }}
               />
               <div className="flex flex-grow flex-col items-start justify-center gap-8 bg-special-primary-100 p-8">
                 <div className="bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
