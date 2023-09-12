@@ -13,6 +13,6 @@ export default function ContactPage() {
   );
 }
 
-// export const config = {
-//   runtime: "experimental-edge", // or "nodejs"
-// };
+export const config = {
+  runtime: "experimental-edge", // or "nodejs"
+};

@@ -15,6 +15,6 @@ export default function OurStoryPage() {
   );
 }
 
-// export const config = {
-//   runtime: "experimental-edge", // or "nodejs"
-// };
+export const config = {
+  runtime: "experimental-edge", // or "nodejs"
+};

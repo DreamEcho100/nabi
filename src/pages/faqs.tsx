@@ -13,6 +13,6 @@ export default function FAQsPage() {
   );
 }
 
-// export const config = {
-//   runtime: "experimental-edge", // or "nodejs"
-// };
+export const config = {
+  runtime: "experimental-edge", // or "nodejs"
+};
