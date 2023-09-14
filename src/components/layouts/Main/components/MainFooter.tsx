@@ -55,7 +55,8 @@ export default function MainFooter() {
       <div
         className={cx(
           getSectionInnerContainerClassNames(),
-          "flex flex-col gap-8 px-8 py-20 font-medium sm:px-16 lg:gap-4"
+          "flex flex-col gap-8 py-20 font-medium lg:gap-4",
+					"px-16 md:px-20 xl:px-40"
         )}
       >
         <div className="flex flex-wrap justify-between gap-4">
