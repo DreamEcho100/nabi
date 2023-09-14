@@ -30,7 +30,7 @@ const formFields: {
 export default function ContactScreen() {
   const intersectionObserver = useIntersectionObserver(
     generalAnimationIntersectionObserverCB,
-    intersectionObserverOptions
+    intersectionObserverOptions,
   );
 
   useInitGeneralAnimationIntersectionObserver(intersectionObserver);
@@ -46,18 +46,18 @@ export default function ContactScreen() {
             "py-40",
             "px-16 md:px-20 xl:px-40",
             "flex-col lg:flex-row",
-            "intersect-show-up-container"
+            "intersect-show-up-container",
           )}
         >
-					<div
-						className={cx(
-							"flex flex-col gap-8",
-							'intersect-show intersect-elem',
-							'opacity-0',
-							"transition-all"
-						)}
-						style={{ transitionDuration: '0.75s' }}
-					>
+          <div
+            className={cx(
+              "flex flex-col gap-8",
+              "intersect-show intersect-elem",
+              "opacity-0",
+              "transition-all",
+            )}
+            style={{ transitionDuration: "0.75s" }}
+          >
             <CustomNextImage
               src="/images/cc15f94a64b56b5e457264ccc18ad9cd.jpg"
               width={800}
@@ -65,14 +65,14 @@ export default function ContactScreen() {
               className={cx(
                 "h-[20rem] w-[50rem] object-cover",
                 animationClasses["intersect-show-up"],
-                "transition-all duration-700"
+                "transition-all duration-700",
               )}
             />
             <p className="mt-8 text-2xl font-medium leading-10 text-gray-800">
               <span
                 className={cx(
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-1000"
+                  "transition-all duration-1000",
                 )}
               >
                 Nabi is the trade mark of A.K. Nabi Ltd
@@ -81,7 +81,7 @@ export default function ContactScreen() {
               <span
                 className={cx(
                   animationClasses["intersect-show-up"],
-                  "duratio1000 transition-all"
+                  "duratio1000 transition-all",
                 )}
               >
                 HE406533
@@ -90,7 +90,7 @@ export default function ContactScreen() {
               <span
                 className={cx(
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-1000"
+                  "transition-all duration-1000",
                 )}
               >
                 Georgiou A&apos; 9, SOFIRINI COURT 1, SHOP 1-3,
@@ -99,7 +99,7 @@ export default function ContactScreen() {
               <span
                 className={cx(
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-1000"
+                  "transition-all duration-1000",
                 )}
               >
                 4040, Germasogeia, Limassol, Cyprus
@@ -113,7 +113,7 @@ export default function ContactScreen() {
                 rel="noopener noreferrer"
                 className={cx(
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-700"
+                  "transition-all duration-700",
                 )}
               >
                 Tel.: +357 99829358
@@ -125,19 +125,19 @@ export default function ContactScreen() {
                 rel="noopener noreferrer"
                 className={cx(
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-700"
+                  "transition-all duration-700",
                 )}
               >
                 info@nabi.com
               </a>
             </div>
           </div>
-          <div className="w-[50rem]">
+          <div className="w-[50rem] max-w-full">
             <form
               className={cx(
                 "flex w-full flex-col gap-12 bg-special-primary-800 px-20 py-16",
                 animationClasses["intersect-show-up"],
-                "transition-all duration-700"
+                "transition-all duration-700",
               )}
             >
               <div className="mb-4 text-center text-4xl font-normal leading-10 text-stone-200">
@@ -158,7 +158,7 @@ export default function ContactScreen() {
                     {...formField}
                     className="w-full border border-stone-300 bg-transparent px-6 py-6 text-base font-medium text-white placeholder:text-base placeholder:text-white"
                   />
-                )
+                ),
               )}
               <button
                 type="submit"
