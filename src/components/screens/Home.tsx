@@ -16,7 +16,7 @@ const intersectionObserverOptions: IntersectionObserverInit = {
 export default function HomeScreen() {
   const intersectionObserver = useIntersectionObserver(
     generalAnimationIntersectionObserverCB,
-    intersectionObserverOptions
+    intersectionObserverOptions,
   );
 
   useInitGeneralAnimationIntersectionObserver(intersectionObserver);
@@ -44,14 +44,14 @@ export default function HomeScreen() {
         <div
           className={cx(
             `${getSectionInnerContainerClassNames()} flex min-h-[36rem] flex-col items-center justify-center gap-4 px-8 py-36 text-center`,
-            "intersect-show-up-container"
+            "intersect-show-up-container",
           )}
         >
           <p
             className={cx(
               "max-w-[1150px] font-all-round-gothic-w01-xlig text-3xl leading-10",
               animationClasses["intersect-show-up"],
-              "transition-all duration-1000"
+              "transition-all duration-1000",
             )}
             // style={
             //   {
@@ -71,16 +71,16 @@ export default function HomeScreen() {
           </p>
           <div
             className={cx(
-              "h-8 w-[0.0625rem] bg-special-primary-900 mb-[-0.5rem]",
+              "mb-[-0.5rem] h-8 w-[0.0625rem] bg-special-primary-900",
               animationClasses["intersect-show-up"],
-              "transition-all duration-[1.25s]"
+              "transition-all duration-[1.25s]",
             )}
           />
           <p
             className={cx(
               "text-center text-sm font-normal leading-tight text-zinc-800",
               animationClasses["intersect-show-up"],
-              "transition-all duration-[1.5s]"
+              "transition-all duration-[1.5s]",
             )}
           >
             Scroll to discover <br />
@@ -106,7 +106,7 @@ export default function HomeScreen() {
                 className={cx(
                   "w-full",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-1000"
+                  "transition-all duration-1000",
                 )}
                 src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
                 width={400}
@@ -127,7 +127,7 @@ export default function HomeScreen() {
                 className={cx(
                   "h-full w-full flex-grow object-cover sm:pl-20",
                   animationClasses["intersect-show-up"],
-                  "transition-all delay-[0.75s] duration-1000"
+                  "transition-all delay-[0.75s] duration-1000",
                 )}
                 style={{
                   gridColumn: "1/2",
@@ -144,7 +144,7 @@ export default function HomeScreen() {
                   "h-full w-full flex-grow object-cover",
                   "retry-intersect-animation",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-1000"
+                  "transition-all duration-1000",
                 )}
                 style={{
                   gridColumn: "2/3",
@@ -162,7 +162,7 @@ export default function HomeScreen() {
                 className={cx(
                   "h-full w-full object-cover",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-1000"
+                  "transition-all duration-1000",
                 )}
                 src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
                 width={328}
@@ -177,7 +177,7 @@ export default function HomeScreen() {
                 "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig text-[2.5rem] font-normal capitalize",
                 // "intersect-elem intersect-show-up",
                 animationClasses["intersect-show-up"],
-                "transition-all duration-1000"
+                "transition-all duration-1000",
               )}
             >
               <span className="leading-relaxed sm:whitespace-nowrap">
@@ -203,7 +203,7 @@ export default function HomeScreen() {
                   "h-full w-full object-cover",
                   "intersect-elem intersect-scale-base-from-150",
                   "scale-150",
-                  "transition-all duration-1000"
+                  "transition-all duration-1000",
                 )}
                 priority
               />
@@ -218,7 +218,7 @@ export default function HomeScreen() {
                   "h-full w-full object-cover",
                   "intersect-elem intersect-scale-base-from-150",
                   "scale-150",
-                  "transition-all duration-1000"
+                  "transition-all duration-1000",
                 )}
                 priority
               />
@@ -249,16 +249,19 @@ export default function HomeScreen() {
       </section>
       <section className="bg-special-primary-700/40">
         <div
-          className={`${getSectionInnerContainerClassNames({
-            "max-w": "max-w-[1088px]",
-          })} flex flex-col gap-8 px-8 py-36`}
+          className={cx(
+            getSectionInnerContainerClassNames({
+              "max-w": "max-w-[1088px]",
+            }),
+            "flex flex-col gap-8 px-8 py-36",
+          )}
         >
           <div className="intersect-show-up-container">
             <p
               className={cx(
                 "text-sm font-semibold leading-7 text-white",
                 animationClasses["intersect-show-up"],
-                "transition-all duration-1000"
+                "transition-all duration-1000",
               )}
             >
               @nabibabystore
