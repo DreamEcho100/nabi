@@ -227,7 +227,7 @@ export default function HomeScreen() {
                 alt=""
                 className={cx(
                   "h-full w-full object-cover",
-                  "intersect-elem intersect-scale-base-from-150",
+                  "intersect-elem retry-intersect-animation intersect-scale-base-from-150",
                   "scale-150",
                   "transition-all duration-1000",
                 )}
@@ -242,7 +242,7 @@ export default function HomeScreen() {
                 alt=""
                 className={cx(
                   "h-full w-full object-cover",
-                  "intersect-elem intersect-scale-base-from-150",
+                  "intersect-elem retry-intersect-animation intersect-scale-base-from-150",
                   "scale-150",
                   "transition-all duration-1000",
                 )}
