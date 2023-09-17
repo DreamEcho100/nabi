@@ -50,32 +50,21 @@ export default function HomeScreen() {
         ))}
       </section>
 
-      <section className="bg-special-primary-900/20">
+      <section className="bg-special-primary-700/40">
         <div
           className={cx(
-            `${getSectionInnerContainerClassNames()} flex min-h-[36rem] flex-col items-center justify-center gap-4 px-8 py-36 text-center`,
+            `${getSectionInnerContainerClassNames()} flex flex-col items-center justify-center gap-4 px-8 py-10 text-center sm:min-h-[36rem] sm:py-36`,
             "intersect-show-up-container",
           )}
         >
           <p
             className={cx(
-              "max-w-[1150px] font-all-round-gothic-w01-xlig leading-10",
+              "max-w-[1150px] font-all-round-gothic-w01-xlig leading-6 sm:leading-10",
               "text-sm sm:text-3xl",
               animationClasses["intersect-show-up"],
               "transition-all duration-1000",
             )}
-            // style={
-            //   {
-            //     "--transform-duration": "1.25s",
-            //     "--transform-delay": "0.5s",
-            //     "--opacity-duration": "0.75s",
-            //     "--opacity-delay": "0.5s",
-            //   } as CSSProperties
-            // }
           >
-            {/* Nabi is a luxury brand for babies and toddlers. We only use organic
-            Merino wool and fine silk for our products. This sublime combination
-            of fabrics is one that was carefully chosen. */}
             Slow fashion for the fastest growing. Dreamed up and hand designed
             in the <br />
             Netherlands, sustainable and organic.
@@ -97,11 +86,6 @@ export default function HomeScreen() {
           >
             Scroll to discover <br />
             more about us
-            {/* Slow fashion for the fastest growing
-            <br />
-            Dreamed up and hand designed in the Netherlands, sustainable and
-            organic
-            <br /> */}
           </p>
         </div>
       </section>
@@ -191,7 +175,7 @@ export default function HomeScreen() {
           <div
             className={cx(
               "intersect-show-up-container retry-intersect-animation relative max-w-[928px] flex-grow text-white",
-              "pb-16 pt-16 sm:pb-36 sm:pt-36 lg:pe-16 lg:ps-8",
+              "pb-10 pt-10 sm:pb-36 sm:pt-36 lg:pe-16 lg:ps-8",
             )}
           >
             <h2
@@ -211,7 +195,7 @@ export default function HomeScreen() {
           </div>
           <div
             className={cx(
-              "intersect-show-up-container retry-intersect-animation mx-auto w-1/2 pt-16",
+              "intersect-show-up-container retry-intersect-animation mx-auto w-1/2 pt-10",
               "sm:hidden",
             )}
           >
@@ -290,7 +274,7 @@ export default function HomeScreen() {
             getSectionInnerContainerClassNames({
               "max-w": "max-w-[1088px]",
             }),
-            "flex flex-col gap-8 px-8 py-20 sm:py-36",
+            "flex flex-col gap-8 px-8 py-10 sm:py-36",
           )}
         >
           <div className="intersect-show-up-container">
@@ -328,7 +312,7 @@ export default function HomeScreen() {
                   src={item.src}
                   width={612}
                   height={448}
-                  className="aspect-video h-28 w-32 object-cover sm:aspect-auto"
+                  className="aspect-square h-28 w-32 object-cover sm:aspect-auto sm:h-28"
                 />
               ))}
             </div>

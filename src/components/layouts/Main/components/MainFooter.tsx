@@ -3,6 +3,7 @@ import Link from "next/link";
 import CustomNextImage from "~/components/shared/common/CustomNextImage";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 import PaymentCards from "~/svgs/payment-cards.svg";
+import PaymentCardsAllInline from "~/svgs/payment-cards-all-inline.svg";
 
 const footerLinksGroups: {
   name: string;
@@ -56,7 +57,7 @@ export default function MainFooter() {
         className={cx(
           getSectionInnerContainerClassNames(),
           "flex flex-col gap-8 py-20 font-medium lg:gap-4",
-          "px-16 md:px-20 xl:px-36",
+          "px-8 sm:px-16 md:px-20 xl:px-36",
         )}
       >
         <div className="flex flex-wrap justify-between gap-4 lg:flex-nowrap">
@@ -112,11 +113,11 @@ export default function MainFooter() {
             </form>
           </div>
           <div className="flex flex-col gap-6 lg:items-end lg:justify-end">
-            <div className="flex flex-wrap gap-x-12 gap-y-6 text-sm lg:justify-end lg:text-right">
+            <div className="flex flex-wrap justify-between gap-y-2 text-sm sm:gap-x-12 sm:gap-y-6 lg:justify-end lg:text-right">
               {footerLinksGroups.map((linksGroup) => (
                 <ul
                   key={linksGroup.name}
-                  className="flex flex-col gap-4 capitalize"
+                  className="flex flex-col gap-[3.5rem] capitalize sm:gap-4"
                 >
                   <li className="font-semibold">
                     {linksGroup.href ? (
@@ -142,7 +143,13 @@ export default function MainFooter() {
               ))}
             </div>
 
-            <PaymentCards className="h-16 w-52" />
+            <PaymentCards className="hidden h-16 w-52 sm:block" />
+            <CustomNextImage
+              src="/svgs/payment-cards-all-inline.svg"
+              className="max-w-full sm:hidden"
+              width={416}
+              height={30}
+            />
           </div>
         </div>
         <small className="mt-4 text-sm">

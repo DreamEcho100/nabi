@@ -69,7 +69,8 @@ const NavElementsOnGtLgScreens = () => {
       <div
         className={cx(
           "flex items-center gap-4 text-gray-800 lg:gap-8",
-          "ml-auto rtl:ml-0 rtl:mr-0",
+          isHeaderNavOnLtMdOpen &&
+            "ml-auto rtl:ml-0 rtl:mr-0 sm:ml-0 sm:rtl:mr-0",
         )}
       >
         <ul className={cx("gap-4 lg:gap-8", "hidden lg:flex")}>
@@ -144,7 +145,15 @@ export function NavMenuOnLtLg() {
           "text-2xl sm:text-4xl",
         )}
       >
-        <Link href="/" className="explore whitespace-nowrap capitalize">
+        <Link
+          href="/"
+          className="explore whitespace-nowrap capitalize"
+          onClick={() =>
+            globalStore
+              .getState()
+              .utils.setIsMenuOpen("headerNavOnLtLg", (prev) => !prev)
+          }
+        >
           home
         </Link>
         {mainAppHeaderLinks.map((item) => (
@@ -152,6 +161,11 @@ export function NavMenuOnLtLg() {
             key={item.name}
             href={item.href}
             className="explore whitespace-nowrap capitalize"
+            onClick={() =>
+              globalStore
+                .getState()
+                .utils.setIsMenuOpen("headerNavOnLtLg", (prev) => !prev)
+            }
           >
             {item.name}
           </Link>
@@ -161,6 +175,11 @@ export function NavMenuOnLtLg() {
             key={item.name}
             href={item.href}
             className="explore whitespace-nowrap capitalize"
+            onClick={() =>
+              globalStore
+                .getState()
+                .utils.setIsMenuOpen("headerNavOnLtLg", (prev) => !prev)
+            }
           >
             {item.name}
           </Link>
