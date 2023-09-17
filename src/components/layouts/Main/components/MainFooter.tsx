@@ -13,7 +13,7 @@ const footerLinksGroups: {
     name: "corporate",
     links: [
       { name: "about us", href: "#" },
-      { name: "collection", href: "#" },
+      { name: "collections", href: "/collections" },
       { name: "gift card", href: "#" },
       { name: "contact", href: "/contact" },
     ],
@@ -29,8 +29,8 @@ const footerLinksGroups: {
     ],
   },
   {
-    name: "collection",
-    href: "/collection",
+    name: "collections",
+    href: "/collections",
     links: [
       { name: "rompers", href: "#" },
       { name: "onesies", href: "#" },
@@ -56,11 +56,11 @@ export default function MainFooter() {
         className={cx(
           getSectionInnerContainerClassNames(),
           "flex flex-col gap-8 py-20 font-medium lg:gap-4",
-					"px-16 md:px-20 xl:px-40"
+          "px-16 md:px-20 xl:px-36",
         )}
       >
-        <div className="flex flex-wrap justify-between gap-4">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-wrap justify-between gap-4 lg:flex-nowrap">
+          <div className="flex max-w-full flex-col gap-x-16">
             <Link href="/">
               <CustomNextImage
                 className="explore h-12 w-24 object-contain"
@@ -112,7 +112,7 @@ export default function MainFooter() {
             </form>
           </div>
           <div className="flex flex-col gap-6 lg:items-end lg:justify-end">
-            <div className="flex flex-wrap justify-end gap-x-12 gap-y-6 text-right text-sm">
+            <div className="flex flex-wrap gap-x-12 gap-y-6 text-sm lg:justify-end lg:text-right">
               {footerLinksGroups.map((linksGroup) => (
                 <ul
                   key={linksGroup.name}

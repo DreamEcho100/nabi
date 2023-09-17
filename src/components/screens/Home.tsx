@@ -24,22 +24,32 @@ export default function HomeScreen() {
   return (
     <>
       <section className="h-screen max-h-[100rem] min-h-fit bg-special-primary-500">
-        <video
-          className="h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          poster="/images/3eda340496860c533c866c4a3619cc26.jpg"
-          width={500}
-          height={800}
-          playsInline
-        >
-          <source
-            src="https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/Nabi_30_v2_1.mp4"
-            type="video/mp4"
-          />
-        </video>
+        {[
+          {
+            src: "https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/Reel_1_v1.mp4 - Review Link - July 17, 2023 - Frame.io.mp4",
+            className: "h-full w-full object-cover sm:hidden",
+          },
+          {
+            src: "https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/Nabi_30_v2_1.mp4",
+            className: "h-full w-full object-cover hidden sm:block",
+          },
+        ].map((item) => (
+          <video
+            key={item.src}
+            className={item.className}
+            autoPlay
+            muted
+            loop
+            poster="/images/3eda340496860c533c866c4a3619cc26.jpg"
+            width={500}
+            height={800}
+            playsInline
+          >
+            <source src={item.src} type="video/mp4" />
+          </video>
+        ))}
       </section>
+
       <section className="bg-special-primary-900/20">
         <div
           className={cx(
@@ -49,7 +59,8 @@ export default function HomeScreen() {
         >
           <p
             className={cx(
-              "max-w-[1150px] font-all-round-gothic-w01-xlig text-3xl leading-10",
+              "max-w-[1150px] font-all-round-gothic-w01-xlig leading-10",
+              "text-sm sm:text-3xl",
               animationClasses["intersect-show-up"],
               "transition-all duration-1000",
             )}
@@ -78,7 +89,8 @@ export default function HomeScreen() {
           />
           <p
             className={cx(
-              "text-center text-sm font-normal leading-tight text-zinc-800",
+              "text-center font-normal leading-tight text-zinc-800",
+              "text-[0.6875rem] sm:text-sm",
               animationClasses["intersect-show-up"],
               "transition-all duration-[1.5s]",
             )}
@@ -98,9 +110,14 @@ export default function HomeScreen() {
           className={`${getSectionInnerContainerClassNames({
             "max-w": "",
             w: "",
-          })} lg:text-align-initial flex min-h-[36rem] flex-col-reverse justify-center text-center lg:flex-row`}
+          })} lg:text-align-initial flex flex-col-reverse justify-center text-center lg:flex-row`}
         >
-          <div className="max-w-[928px] flex-grow overflow-hidden py-10">
+          <div
+            className={cx(
+              "max-w-[928px] flex-grow overflow-hidden py-10",
+              "hidden sm:block",
+            )}
+          >
             <div className="intersect-show-up-container retry-intersect-animation w-3/4 sm:w-1/2">
               <CustomNextImage
                 className={cx(
@@ -171,10 +188,16 @@ export default function HomeScreen() {
               />
             </div>
           </div>
-          <div className="intersect-show-up-container retry-intersect-animation relative max-w-[928px] flex-grow pb-16 pt-28 text-white sm:pb-36 sm:pt-36 lg:pe-16 lg:ps-8">
+          <div
+            className={cx(
+              "intersect-show-up-container retry-intersect-animation relative max-w-[928px] flex-grow text-white",
+              "pb-16 pt-16 sm:pb-36 sm:pt-36 lg:pe-16 lg:ps-8",
+            )}
+          >
             <h2
               className={cx(
-                "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig text-[2.5rem] font-normal capitalize",
+                "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig font-normal capitalize",
+                "text-xs sm:text-[2.5rem]",
                 // "intersect-elem intersect-show-up",
                 animationClasses["intersect-show-up"],
                 "transition-all duration-1000",
@@ -186,14 +209,33 @@ export default function HomeScreen() {
               </span>
             </h2>
           </div>
+          <div
+            className={cx(
+              "intersect-show-up-container retry-intersect-animation mx-auto w-1/2 pt-16",
+              "sm:hidden",
+            )}
+          >
+            <CustomNextImage
+              className={cx(
+                "w-full",
+                animationClasses["intersect-show-up"],
+                "transition-all duration-1000",
+              )}
+              src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
+              width={400}
+              height={600}
+              alt=""
+              priority
+            />
+          </div>
         </div>
       </section>
       <section className="bg-special-primary-200">
         <div
           className={`${getSectionInnerContainerClassNames()} flex flex-col gap-16 px-8 pb-10 pt-4`}
         >
-          <div className="mx-auto flex max-w-[1024px] flex-col gap-4 sm:flex-row">
-            <div className="h-[50rem] flex-grow overflow-hidden sm:w-1/2">
+          <div className="mx-auto flex max-w-[1024px] gap-4">
+            <div className="flex-grow overflow-hidden sm:h-[50rem] sm:w-1/2">
               <CustomNextImage
                 src="/images/895cda6c8300cb3d38a0b002fea06b76.jpg"
                 width={600}
@@ -208,7 +250,7 @@ export default function HomeScreen() {
                 priority
               />
             </div>
-            <div className="h-[50rem] flex-grow overflow-hidden sm:w-1/2">
+            <div className="flex-grow overflow-hidden sm:h-[50rem] sm:w-1/2">
               <CustomNextImage
                 src="/images/2dda775e04b7ae48e51400ca48accc49.jpg"
                 width={600}
@@ -225,12 +267,7 @@ export default function HomeScreen() {
             </div>
           </div>
           <div className="flex flex-col items-center justify-center gap-8 text-center">
-            {/* <p className="text-center text-base font-normal leading-loose text-zinc-800">
-              Silk has an incredibly soft, smooth, and light texture that feels
-              wonderful against your baby&apos;s skin. It is also naturally
-              hypoallergenic.
-            </p> */}
-            <p className="text-center text-lg font-normal leading-7 text-zinc-800">
+            <p className="text-center text-[0.6875rem] font-normal leading-7 text-zinc-800 sm:text-lg">
               Merino wool has the ability to create a microclimate around your
               baby. <br />
               Meaning it will regulate body temperature, keeping your baby
@@ -240,7 +277,7 @@ export default function HomeScreen() {
             </p>
             <Link
               href="#"
-              className="explore leading-7s text-center text-sm font-normal text-zinc-800 underline"
+              className="explore leading-7s text-center text-[0.6875rem] font-normal text-zinc-800 underline sm:text-sm"
             >
               Read more about our story
             </Link>
@@ -253,7 +290,7 @@ export default function HomeScreen() {
             getSectionInnerContainerClassNames({
               "max-w": "max-w-[1088px]",
             }),
-            "flex flex-col gap-8 px-8 py-36",
+            "flex flex-col gap-8 px-8 py-20 sm:py-36",
           )}
         >
           <div className="intersect-show-up-container">
@@ -276,7 +313,7 @@ export default function HomeScreen() {
               priority
               className="mx-auto object-cover"
             />
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-4 overflow-x-auto">
               {[
                 { src: "/images/78eacc02985eb7a8aa652f499f4754d5.jpg" },
                 { src: "/images/d0b95d5a13d371f41e106dfbfd9de762.jpg" },
@@ -291,7 +328,7 @@ export default function HomeScreen() {
                   src={item.src}
                   width={612}
                   height={448}
-                  className="aspect-video w-full object-cover sm:aspect-auto sm:h-28 sm:w-32"
+                  className="aspect-video h-28 w-32 object-cover sm:aspect-auto"
                 />
               ))}
             </div>

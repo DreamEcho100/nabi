@@ -35,7 +35,7 @@ export default function OurStoryScreen() {
             }),
             "flex flex-col gap-16",
             "pb-20 pt-12",
-            "px-16 md:px-20 xl:px-40",
+            "px-16 md:px-20 xl:px-36",
           )}
         >
           <div className="intersect-show-up-container flex flex-col sm:flex-row">
