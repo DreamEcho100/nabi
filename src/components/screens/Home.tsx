@@ -53,7 +53,7 @@ export default function HomeScreen() {
       <section className="bg-special-primary-700/40">
         <div
           className={cx(
-            `${getSectionInnerContainerClassNames()} flex flex-col items-center justify-center gap-4 px-8 py-10 text-center sm:min-h-[36rem] sm:py-36`,
+            `${getSectionInnerContainerClassNames()} flex flex-col items-center justify-center gap-4 px-8 py-8 text-center sm:min-h-[36rem] sm:py-36`,
             "intersect-show-up-container",
           )}
         >
@@ -175,13 +175,13 @@ export default function HomeScreen() {
           <div
             className={cx(
               "intersect-show-up-container retry-intersect-animation relative max-w-[928px] flex-grow text-white",
-              "pb-10 pt-10 sm:pb-36 sm:pt-36 lg:pe-16 lg:ps-8",
+              "pb-10 pt-5 sm:pb-36 sm:pt-36 lg:pe-16 lg:ps-8",
             )}
           >
             <h2
               className={cx(
                 "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig font-normal capitalize",
-                "text-xs sm:text-[2.5rem]",
+                "text-sm sm:text-[2.5rem]",
                 // "intersect-elem intersect-show-up",
                 animationClasses["intersect-show-up"],
                 "transition-all duration-1000",
@@ -216,7 +216,7 @@ export default function HomeScreen() {
       </section>
       <section className="bg-special-primary-200">
         <div
-          className={`${getSectionInnerContainerClassNames()} flex flex-col gap-16 px-8 pb-10 pt-4`}
+          className={`${getSectionInnerContainerClassNames()} flex flex-col gap-8 px-8 pb-10 pt-4 sm:gap-16`}
         >
           <div className="mx-auto flex max-w-[1024px] gap-4">
             <div className="flex-grow overflow-hidden sm:h-[50rem] sm:w-1/2">
@@ -250,7 +250,7 @@ export default function HomeScreen() {
               />
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-8 text-center">
+          <div className="flex flex-col items-center justify-center gap-4 text-center sm:gap-8">
             <p className="text-center text-[0.6875rem] font-normal leading-7 text-zinc-800 sm:text-lg">
               Merino wool has the ability to create a microclimate around your
               baby. <br />
@@ -274,7 +274,7 @@ export default function HomeScreen() {
             getSectionInnerContainerClassNames({
               "max-w": "max-w-[1088px]",
             }),
-            "flex flex-col gap-8 px-8 py-10 sm:py-36",
+            "flex flex-col gap-4 px-8 py-10 sm:gap-8 sm:py-36",
           )}
         >
           <div className="intersect-show-up-container">
@@ -288,7 +288,7 @@ export default function HomeScreen() {
               @nabibabystore
             </p>
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-10">
             <CustomNextImage
               src="/svgs/instagram.svg"
               width={980}
@@ -297,7 +297,7 @@ export default function HomeScreen() {
               priority
               className="mx-auto object-cover"
             />
-            <div className="flex items-center justify-center gap-4 overflow-x-auto">
+            <div className="flex gap-4 overflow-x-auto">
               {[
                 { src: "/images/78eacc02985eb7a8aa652f499f4754d5.jpg" },
                 { src: "/images/d0b95d5a13d371f41e106dfbfd9de762.jpg" },
@@ -312,7 +312,7 @@ export default function HomeScreen() {
                   src={item.src}
                   width={612}
                   height={448}
-                  className="aspect-square h-28 w-32 object-cover sm:aspect-auto sm:h-28"
+                  className="aspect-square h-28 w-32 flex-shrink-0 object-cover sm:aspect-auto sm:h-28"
                 />
               ))}
             </div>

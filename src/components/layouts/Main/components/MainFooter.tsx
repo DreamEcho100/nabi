@@ -64,7 +64,7 @@ export default function MainFooter() {
           <div className="flex max-w-full flex-col gap-x-16">
             <Link href="/">
               <CustomNextImage
-                className="explore h-12 w-24 object-contain mb-2"
+                className="explore mb-2 h-12 w-24 object-contain"
                 src="/images/58c85845d0b5fdf1d0621d1a7cfafb4b.png"
                 width={240}
                 height={160}
@@ -112,12 +112,12 @@ export default function MainFooter() {
               </div>
             </form>
           </div>
-          <div className="flex flex-col gap-6 lg:items-end lg:justify-end">
-            <div className="flex flex-wrap justify-between gap-y-2 text-sm sm:gap-x-12 sm:gap-y-6 lg:justify-end lg:text-right">
+          <div className="flex flex-col gap-10 lg:items-end lg:justify-end">
+            <div className="flex flex-wrap gap-8 text-sm sm:gap-x-12 sm:gap-y-6 lg:justify-end lg:text-right">
               {footerLinksGroups.map((linksGroup) => (
                 <ul
                   key={linksGroup.name}
-                  className="flex flex-col gap-[3.5rem] capitalize sm:gap-4"
+                  className="flex flex-col gap-2 capitalize sm:gap-4"
                 >
                   <li className="font-semibold">
                     {linksGroup.href ? (
