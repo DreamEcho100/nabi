@@ -64,7 +64,7 @@ export default function MainFooter() {
           <div className="flex max-w-full flex-col gap-x-16">
             <Link href="/">
               <CustomNextImage
-                className="explore h-12 w-24 object-contain"
+                className="explore h-12 w-24 object-contain mb-2"
                 src="/images/58c85845d0b5fdf1d0621d1a7cfafb4b.png"
                 width={240}
                 height={160}

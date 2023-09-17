@@ -8,7 +8,6 @@ import MagnifierGlassSvg from "~/svgs/magnifier-glass.svg";
 import HeartSvg from "~/svgs/heart.svg";
 import ShoppingCartSvg from "~/svgs/shopping-cart.svg";
 import { type PropsWithChildren } from "react";
-import { createPortal } from "react-dom";
 import { globalStore } from "~/components/utils/store";
 import { useStore } from "zustand";
 
