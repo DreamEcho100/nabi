@@ -8,6 +8,7 @@ import {
   useInitGeneralAnimationIntersectionObserver,
   useIntersectionObserver,
 } from "./utils/hooks";
+import { type CSSProperties } from "react";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0.1,
@@ -62,7 +63,6 @@ export default function HomeScreen() {
               "max-w-[1150px] font-all-round-gothic-w01-xlig leading-6 sm:leading-10",
               "text-sm sm:text-3xl",
               animationClasses["intersect-show-up"],
-              "transition-all duration-1000",
             )}
           >
             Slow fashion for the fastest growing. Dreamed up and hand designed
@@ -73,7 +73,6 @@ export default function HomeScreen() {
             className={cx(
               "mb-[-0.5rem] h-8 w-[0.0625rem] bg-special-primary-900",
               animationClasses["intersect-show-up"],
-              "transition-all duration-[1.25s]",
             )}
           />
           <p
@@ -81,7 +80,6 @@ export default function HomeScreen() {
               "text-center font-normal leading-tight text-zinc-800",
               "text-[0.6875rem] sm:text-sm",
               animationClasses["intersect-show-up"],
-              "transition-all duration-[1.5s]",
             )}
           >
             Scroll to discover <br />
@@ -104,11 +102,7 @@ export default function HomeScreen() {
           >
             <div className="intersect-show-up-container retry-intersect-animation w-3/4 sm:w-1/2">
               <CustomNextImage
-                className={cx(
-                  "w-full",
-                  animationClasses["intersect-show-up"],
-                  "transition-all duration-1000",
-                )}
+                className={cx("w-full", animationClasses["intersect-show-up"])}
                 src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
                 width={400}
                 height={600}
@@ -128,7 +122,6 @@ export default function HomeScreen() {
                 className={cx(
                   "h-full w-full flex-grow object-cover sm:pl-20",
                   animationClasses["intersect-show-up"],
-                  "transition-all delay-[0.75s] duration-1000",
                 )}
                 style={{
                   gridColumn: "1/2",
@@ -145,7 +138,6 @@ export default function HomeScreen() {
                   "h-full w-full flex-grow object-cover",
                   "retry-intersect-animation",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-1000",
                 )}
                 style={{
                   gridColumn: "2/3",
@@ -163,7 +155,6 @@ export default function HomeScreen() {
                 className={cx(
                   "h-full w-full object-cover",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-1000",
                 )}
                 src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
                 width={328}
@@ -184,12 +175,11 @@ export default function HomeScreen() {
                 "text-sm sm:text-[2.5rem]",
                 // "intersect-elem intersect-show-up",
                 animationClasses["intersect-show-up"],
-                "transition-all duration-1000",
               )}
             >
               <span className="leading-relaxed sm:whitespace-nowrap">
                 Home to beautiful <br />
-                pieces and delicate <br /> fabrics
+                pieces and delicate <br className="hidden sm:block" /> fabrics
               </span>
             </h2>
           </div>
@@ -200,11 +190,7 @@ export default function HomeScreen() {
             )}
           >
             <CustomNextImage
-              className={cx(
-                "w-full",
-                animationClasses["intersect-show-up"],
-                "transition-all duration-1000",
-              )}
+              className={cx("w-full", animationClasses["intersect-show-up"])}
               src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
               width={400}
               height={600}
@@ -219,7 +205,7 @@ export default function HomeScreen() {
           className={`${getSectionInnerContainerClassNames()} flex flex-col gap-8 px-8 pb-10 pt-4 sm:gap-16`}
         >
           <div className="mx-auto flex max-w-[1024px] gap-4">
-            <div className="flex-grow overflow-hidden sm:h-[50rem] sm:w-1/2">
+            <div className="flex-grow overflow-hidden sm:h-[32rem] sm:w-1/2 md:h-[44rem] lg:h-[50rem]">
               <CustomNextImage
                 src="/images/895cda6c8300cb3d38a0b002fea06b76.jpg"
                 width={600}
@@ -234,7 +220,7 @@ export default function HomeScreen() {
                 priority
               />
             </div>
-            <div className="flex-grow overflow-hidden sm:h-[50rem] sm:w-1/2">
+            <div className="flex-grow overflow-hidden sm:h-[32rem] sm:w-1/2 md:h-[44rem] lg:h-[50rem]">
               <CustomNextImage
                 src="/images/2dda775e04b7ae48e51400ca48accc49.jpg"
                 width={600}
@@ -250,8 +236,8 @@ export default function HomeScreen() {
               />
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-4 text-center sm:gap-8">
-            <p className="text-center text-[0.6875rem] font-normal leading-7 text-zinc-800 sm:text-lg">
+          <div className="flex flex-col items-center justify-center gap-3 text-center sm:gap-4 md:gap-8">
+            <p className="text-center text-[0.6875rem] font-normal leading-6 text-zinc-800 sm:text-lg sm:leading-7">
               Merino wool has the ability to create a microclimate around your
               baby. <br />
               Meaning it will regulate body temperature, keeping your baby
@@ -274,7 +260,7 @@ export default function HomeScreen() {
             getSectionInnerContainerClassNames({
               "max-w": "max-w-[1088px]",
             }),
-            "flex flex-col gap-4 px-8 py-10 sm:gap-8 sm:py-36",
+            "flex flex-col gap-3 px-8 py-10 sm:gap-8 sm:py-32",
           )}
         >
           <div className="intersect-show-up-container">
@@ -282,13 +268,12 @@ export default function HomeScreen() {
               className={cx(
                 "text-sm font-semibold leading-7 text-white",
                 animationClasses["intersect-show-up"],
-                "transition-all duration-1000",
               )}
             >
               @nabibabystore
             </p>
           </div>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-8">
             <CustomNextImage
               src="/svgs/instagram.svg"
               width={980}
@@ -297,7 +282,7 @@ export default function HomeScreen() {
               priority
               className="mx-auto object-cover"
             />
-            <div className="flex gap-4 overflow-x-auto">
+            <div className="flex gap-4 overflow-x-auto overflow-y-hidden">
               {[
                 { src: "/images/78eacc02985eb7a8aa652f499f4754d5.jpg" },
                 { src: "/images/d0b95d5a13d371f41e106dfbfd9de762.jpg" },
@@ -306,14 +291,31 @@ export default function HomeScreen() {
                 { src: "/images/7439c368bf94e43b57734d9c6957c2cd.jpg" },
                 { src: "/images/ae79344fcdb51aa3f86edc0cf2c95359.jpg" },
                 { src: "/images/c0c5b84f937a87be25263de9c2689dce.jpg" },
-              ].map((item) => (
-                <CustomNextImage
+              ].map((item, itemIndex) => (
+                <div
+                  className={cx(
+                    "intersect-show-up-container",
+                    "aspect-square h-28 w-32 flex-shrink-0 -translate-y-1 sm:aspect-auto sm:h-28",
+                  )}
                   key={item.src}
-                  src={item.src}
-                  width={612}
-                  height={448}
-                  className="aspect-square h-28 w-32 flex-shrink-0 object-cover sm:aspect-auto sm:h-28"
-                />
+                >
+                  <CustomNextImage
+                    src={item.src}
+                    width={612}
+                    height={448}
+                    className={cx(
+                      "h-full w-full object-cover",
+                      animationClasses["intersect-show-up"],
+                      animationClasses["on-gt-sm"],
+                    )}
+                    style={
+                      {
+                        "--transform-delay": `${0.1 * itemIndex}s`,
+                        "--opacity-delay": `${0.1 * itemIndex}s`,
+                      } as CSSProperties
+                    }
+                  />
+                </div>
               ))}
             </div>
           </div>

@@ -56,7 +56,7 @@ export default function MainFooter() {
       <div
         className={cx(
           getSectionInnerContainerClassNames(),
-          "flex flex-col gap-8 py-20 font-medium lg:gap-4",
+          "flex flex-col gap-8 py-16 font-medium sm:py-20 lg:gap-4",
           "px-8 sm:px-16 md:px-20 xl:px-36",
         )}
       >
@@ -113,7 +113,7 @@ export default function MainFooter() {
             </form>
           </div>
           <div className="flex flex-col gap-10 lg:items-end lg:justify-end">
-            <div className="flex flex-wrap gap-8 text-sm sm:gap-x-12 sm:gap-y-6 lg:justify-end lg:text-right">
+            <div className="flex flex-wrap gap-x-16 gap-y-8 text-sm sm:gap-x-12 sm:gap-y-6 lg:justify-end lg:text-right">
               {footerLinksGroups.map((linksGroup) => (
                 <ul
                   key={linksGroup.name}
@@ -152,7 +152,7 @@ export default function MainFooter() {
             />
           </div>
         </div>
-        <small className="mt-4 text-sm">
+        <small className="text-sm sm:mt-4">
           Nabi &copy; 2023 | All Rights Reserved.
         </small>
       </div>
