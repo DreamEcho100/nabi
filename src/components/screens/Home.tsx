@@ -125,6 +125,12 @@ function InstagramImagesSlider() {
             configRef.current.isActive = false;
             configRef.current.mouse.oldX = 0;
           }}
+          onPointerLeave={() => {
+            if (!trackRef.current) return;
+
+            configRef.current.isActive = false;
+            configRef.current.mouse.oldX = 0;
+          }}
           onPointerMove={(event) => {
             if (!configRef.current.isActive || !trackRef.current) return;
             const moveX = event.clientX - configRef.current.mouse.oldX;
