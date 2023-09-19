@@ -8,7 +8,7 @@ import {
   useInitGeneralAnimationIntersectionObserver,
   useIntersectionObserver,
 } from "./utils/hooks";
-import { useRef, type CSSProperties, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0.1,
@@ -23,6 +23,22 @@ const instagramSectionImages = [
   { src: "/images/ae79344fcdb51aa3f86edc0cf2c95359.jpg" },
   { src: "/images/c0c5b84f937a87be25263de9c2689dce.jpg" },
 ];
+
+function detectMob() {
+  const toMatch = [
+    /Android/i,
+    /webOS/i,
+    /iPhone/i,
+    /iPad/i,
+    /iPod/i,
+    /BlackBerry/i,
+    /Windows Phone/i,
+  ];
+
+  return toMatch.some((toMatchItem) => {
+    return navigator.userAgent.match(toMatchItem);
+  });
+}
 
 function InstagramImagesSlider() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -41,9 +57,13 @@ function InstagramImagesSlider() {
     mouse: { oldX: 0 },
     isActive: false,
   });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => setIsMobile(detectMob()), []);
 
   useEffect(() => {
     if (
+      detectMob() ||
       configRef.current.isInitialized ||
       !trackContainerRef.current ||
       !trackRef.current
@@ -65,7 +85,10 @@ function InstagramImagesSlider() {
   }, []);
 
   return (
-    <div className="overflow-x-hidden" ref={trackContainerRef}>
+    <div
+      className={cx(isMobile ? "overflow-x-auto" : "overflow-x-hidden")}
+      ref={trackContainerRef}
+    >
       <div
         className="relative flex gap-4"
         style={{
@@ -115,18 +138,6 @@ function InstagramImagesSlider() {
 
             configRef.current.track.translateX += moveX;
             trackRef.current.style.transform = `translateX(${configRef.current.track.translateX}px)`;
-
-            // if (
-            //   configRef.current.track.translateX -
-            //     configRef.current.track.width <
-            //   configRef.current.trackContainer.x
-            // )
-            //   console.log("over left");
-            // if (
-            //   Math.abs(configRef.current.track.translateX) >
-            //   configRef.current.trackContainer.x2
-            // )
-            //   console.log("over Right");
 
             configRef.current.mouse.oldX = event.clientX;
           }}
