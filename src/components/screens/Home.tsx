@@ -42,8 +42,6 @@ function InstagramImagesSlider() {
     isActive: false,
   });
 
-  if (typeof window !== "undefined") window.configRef = configRef;
-
   useEffect(() => {
     if (
       configRef.current.isInitialized ||
