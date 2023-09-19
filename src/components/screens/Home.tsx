@@ -225,15 +225,12 @@ export default function HomeScreen() {
         <div
           className={`${getSectionInnerContainerClassNames()} flex flex-col gap-8 px-8 pb-10 pt-4 sm:gap-16`}
         >
-          <div className="mx-auto flex max-w-[1024px] gap-4">
+          <div className="mx-auto grid max-w-[1024px] grid-cols-2 gap-4 sm:h-[28rem] md:h-[44rem]">
             {[
               { src: "/images/895cda6c8300cb3d38a0b002fea06b76.jpg" },
               { src: "/images/2dda775e04b7ae48e51400ca48accc49.jpg" },
             ].map((item) => (
-              <div
-                key={item.src}
-                className="flex-grow overflow-hidden sm:h-[28rem] sm:w-1/2 md:h-[44rem]"
-              >
+              <div key={item.src} className="w-full flex-grow overflow-hidden">
                 <CustomNextImage
                   src={item.src}
                   width={600}
@@ -251,7 +248,7 @@ export default function HomeScreen() {
             ))}
           </div>
           <div className="flex flex-col items-center justify-center gap-3 text-center sm:gap-4 md:gap-8">
-            <p className="text-center text-[0.6875rem] font-normal leading-6 text-zinc-800 sm:text-lg sm:leading-7">
+            <p className="text-center text-sm font-normal leading-6 text-zinc-800 sm:text-xl sm:leading-8">
               Merino wool has the ability to create a microclimate around your
               baby. <br />
               Meaning it will regulate body temperature, keeping your baby
@@ -261,7 +258,7 @@ export default function HomeScreen() {
             </p>
             <Link
               href="/our-story"
-              className="explore leading-7s text-center text-[0.6875rem] font-normal text-zinc-800 underline sm:text-sm"
+              className="explore leading-7s text-center text-xs font-normal text-zinc-800 underline sm:text-sm"
             >
               Read more about our story
             </Link>
@@ -298,17 +295,17 @@ export default function HomeScreen() {
             />
             <div className="overflow-hidden">
               <div
-                className="slide-to-the-end-item flex gap-4"
+                className="flex gap-4"
                 style={{
                   width: `${
-                    8 * instagramImagesRepeatedImages.length +
-                    (1 * instagramImagesRepeatedImages.length - 1)
+                    8 * instagramSectionImages.length +
+                    (1 * instagramSectionImages.length - 1)
                   }rem`,
                 }}
               >
-                {instagramImagesRepeatedImages.map((item) => (
+                {instagramSectionImages.map((item) => (
                   <CustomNextImage
-                    key={item.id}
+                    key={item.src}
                     src={item.src}
                     width={612}
                     height={448}
@@ -319,17 +316,6 @@ export default function HomeScreen() {
                 ))}
               </div>
             </div>
-            <style jsx>{`
-              .slide-to-the-end-item {
-                animation: slide-to-the-end
-                  ${instagramImagesRepeatedImages.length * 2}s infinite forwards;
-              }
-              @keyframes slide-to-the-end {
-                100% {
-                  transform: translateX(-100%);
-                }
-              }
-            `}</style>
           </div>
         </div>
       </section>
