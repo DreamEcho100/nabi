@@ -12,7 +12,7 @@ export default function GenericHeroSection(props: Props) {
       <div
         className={cx(
           getSectionInnerContainerClassNames(),
-          `flex h-[40rem] max-h-[120vh] flex-col items-center justify-center gap-4`,
+          `flex h-[40rem] max-h-[50vh] sm:max-h-[120vh] flex-col items-center justify-center gap-4`,
           "text-lg sm:text-3xl",
         )}
       >
@@ -27,7 +27,7 @@ export default function GenericHeroSection(props: Props) {
         </h1>
         <div
           className={cx(
-            "h-20 w-[0.0625rem] bg-special-primary-900",
+            "h-10 w-[0.0625rem] bg-special-primary-900",
             animationClasses["intersect-show-up"],
             "transition-all duration-[1.25s]",
           )}

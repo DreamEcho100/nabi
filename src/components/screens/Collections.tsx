@@ -30,7 +30,7 @@ export default function CollectionScreen() {
         <div
           className={cx(
             getSectionInnerContainerClassNames(),
-            "flex flex-col gap-16",
+            "flex flex-col gap-10 sm:gap-16",
             "pb-20 pt-12",
             "px-8 sm:px-16 md:px-20 xl:px-36",
           )}
@@ -99,7 +99,7 @@ export default function CollectionScreen() {
                 </p>
                 <small
                   className={cx(
-                    "-mt-2 text-base",
+                    "-mt-2",
                     // animationClasses["intersect-show-up"],
                     "transition-all duration-[1.5]",
                   )}
@@ -130,13 +130,13 @@ export default function CollectionScreen() {
                   "text-sm sm:text-xl",
                 )}
               >
-                <div className="bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
+                <div className="hidden sm:block bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
                   About Product
                 </div>
                 <p
                   className={cx(
-                    "font-medium leading-[49px] text-gray-800",
-                    "leading-8",
+                    "font-medium text-gray-800",
+                    "leading-4",
                     animationClasses["intersect-show-up"],
                     "transition-all duration-[1.5]",
                   )}
@@ -145,9 +145,13 @@ export default function CollectionScreen() {
                   texture that feels wonderful against your baby&apos;s skin.
                   <br /> It is also naturally hypoallergenic.
                 </p>
-              </div>
+
+
+<div className="sm:hidden bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
+                  About Product
+                </div>              </div>
             </div>
-            <div className="intersect-show-up-container flex flex-col gap-4">
+            <div className="intersect-show-up-container flex flex-col gap-4 text-sm sm:text-xl">
               <p
                 className={cx(
                   "text-2xl capitalize",
