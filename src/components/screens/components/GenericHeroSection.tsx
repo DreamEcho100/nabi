@@ -12,7 +12,7 @@ export default function GenericHeroSection(props: Props) {
       <div
         className={cx(
           getSectionInnerContainerClassNames(),
-          `flex h-[40rem] max-h-[120vh] flex-col items-center justify-center gap-4`,
+          `flex h-[40rem] max-h-[50vh] sm:max-h-[120vh] flex-col items-center justify-center gap-4`,
           "text-lg sm:text-3xl",
         )}
       >
