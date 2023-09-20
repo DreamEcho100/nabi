@@ -53,7 +53,6 @@ const MainLayout = (props: PropsWithChildren) => {
 
   const resizeObserverCallback: ResizeObserverCallback = useCallback(
     (entries: ResizeObserverEntry[]) => {
-      console.log("entries", entries);
       for (const entry of entries) {
         if (entry.target.id === "app-container" && cursorElemRef.current) {
           cursorElemRef.current.style.top = "0px";

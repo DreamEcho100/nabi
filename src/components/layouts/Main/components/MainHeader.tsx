@@ -252,7 +252,12 @@ function MainHeaderWrapper(props: PropsWithChildren) {
 export default function MainHeader() {
   return (
     <MainHeaderWrapper>
-      <div className="mx-auto flex h-full w-full max-w-main items-center justify-between px-8 text-white">
+      <div
+        className={cx(
+          "mx-auto flex h-full w-full max-w-main items-center justify-between text-white",
+          "px-8 sm:px-16 xl:px-32",
+        )}
+      >
         <NavElementsOnGtLgScreens />
       </div>
     </MainHeaderWrapper>

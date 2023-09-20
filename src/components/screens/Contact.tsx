@@ -44,7 +44,7 @@ export default function ContactScreen() {
             getSectionInnerContainerClassNames(),
             "flex gap-16",
             "py-40",
-            "px-16 md:px-20 xl:px-36",
+            "px-8 sm:px-16 md:px-20 xl:px-36",
             "flex-col lg:flex-row",
             "intersect-show-up-container",
           )}

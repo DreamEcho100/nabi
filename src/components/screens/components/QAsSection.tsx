@@ -15,7 +15,7 @@ export default function QAsSection(props: Props) {
         className={cx(
           getSectionInnerContainerClassNames({ "max-w": "max-w-[1150px]" }),
           "flex flex-col gap-4 py-28",
-          "px-16 md:px-20 xl:px-36",
+          "px-8 sm:px-16 md:px-20 xl:px-36",
           "font-normal",
         )}
       >
