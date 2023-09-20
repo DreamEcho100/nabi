@@ -64,11 +64,16 @@ export default function ContactScreen() {
               height={325}
               className={cx(
                 "h-[20rem] w-[50rem] object-cover",
-                animationClasses["intersect-show-up"],
+                "intersect-element intersect-show",
                 "transition-all duration-700",
               )}
             />
-            <p className="mt-8 text-2xl font-medium leading-10 text-gray-800">
+            <p
+              className={cx(
+                "mt-8 font-medium leading-normal text-gray-800 sm:leading-10",
+                "text-sm sm:text-xl",
+              )}
+            >
               <span
                 className={cx(
                   animationClasses["intersect-show-up"],
@@ -106,7 +111,7 @@ export default function ContactScreen() {
               </span>
             </p>
 
-            <div className="text-base font-semibold leading-loose text-stone-400">
+            <div className="text-base font-semibold leading-normal text-stone-400 sm:leading-loose">
               <a
                 href="tel:+35799829358"
                 target="_blank"
@@ -135,12 +140,15 @@ export default function ContactScreen() {
           <div className="w-[50rem] max-w-full">
             <form
               className={cx(
-                "flex w-full flex-col gap-12 bg-special-primary-800 px-20 py-16",
+                "flex w-full flex-col bg-special-primary-800 px-8 py-12 sm:px-20 sm:py-16",
                 animationClasses["intersect-show-up"],
                 "transition-all duration-700",
+                "text-sm sm:text-xl",
+                "text-white",
+                "gap-6 sm:gap-12",
               )}
             >
-              <div className="mb-4 text-center text-4xl font-normal leading-10 text-stone-200">
+              <div className="mb-4 text-center text-3xl font-normal leading-10 text-stone-200 sm:text-4xl">
                 Contact form
               </div>
               {formFields.map((formField) =>
@@ -148,7 +156,11 @@ export default function ContactScreen() {
                   <textarea
                     key={formField.name}
                     {...formField}
-                    className="w-full border border-stone-300 bg-transparent px-6 py-6 text-base font-medium text-white placeholder:text-base placeholder:text-white"
+                    className={cx(
+                      "w-full border border-stone-300 bg-transparent text-base font-medium",
+                      "p-3 sm:p-6",
+                      "placeholder:text-sm placeholder:text-white placeholder:sm:text-xl",
+                    )}
                     cols={30}
                     rows={3}
                   />
@@ -156,13 +168,17 @@ export default function ContactScreen() {
                   <input
                     key={formField.name}
                     {...formField}
-                    className="w-full border border-stone-300 bg-transparent px-6 py-6 text-base font-medium text-white placeholder:text-base placeholder:text-white"
+                    className={cx(
+                      "w-full border border-stone-300 bg-transparent text-base font-medium",
+                      "p-3 sm:p-6",
+                      "placeholder:text-sm placeholder:text-white placeholder:sm:text-xl",
+                    )}
                   />
                 ),
               )}
               <button
                 type="submit"
-                className="h-10 w-36 border border-white px-4 py-3 text-center text-sm font-semibold uppercase leading-none text-white"
+                className="h-10 w-full border border-white px-4 py-3 text-center text-sm font-semibold uppercase leading-none text-white sm:w-36"
               >
                 send
               </button>

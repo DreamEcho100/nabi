@@ -50,7 +50,6 @@ const footerLinksGroups: [
     links: [
       { name: "about us", href: "#" },
       { name: "collections", href: "/collections" },
-      { name: "gift card", href: "#" },
       { name: "contact", href: "/contact" },
     ],
   },
@@ -59,9 +58,7 @@ const footerLinksGroups: [
     links: [
       { name: "privacy policy", href: "#" },
       { name: "return & exchange", href: "/policies/return" },
-      { name: "terms and conditions", href: "#" },
-      { name: "sales contract", href: "#" },
-      { name: "secure shopping", href: "#" },
+      { name: "FAQs", href: "/faqs" },
     ],
   },
   {
@@ -160,7 +157,7 @@ export default function MainFooter() {
                 </ul>
               ))}
             </div>
-            <div className="grid grid-cols-[repeat(auto-fill,_minmax(8.25rem,_1fr))] justify-between gap-8 text-sm sm:hidden">
+            <div className="mt-4 grid grid-cols-[repeat(auto-fill,_minmax(8.25rem,_1fr))] justify-between gap-8 text-sm sm:hidden">
               {footerLinksGroups.map((linksGroup) => (
                 <ul
                   key={linksGroup.name}

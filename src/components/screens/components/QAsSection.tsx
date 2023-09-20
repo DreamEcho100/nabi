@@ -14,13 +14,16 @@ export default function QAsSection(props: Props) {
       <div
         className={cx(
           getSectionInnerContainerClassNames({ "max-w": "max-w-[1150px]" }),
-          "flex flex-col gap-4 py-28",
+          "flex flex-col gap-4 py-12",
           "px-8 sm:px-16 md:px-20 xl:px-36",
           "font-normal",
         )}
       >
         {props.QAsList.map((item) => (
-          <article key={item.q} className="flex flex-col gap-1 text-base">
+          <article
+            key={item.q}
+            className={cx("flex flex-col gap-1", "text-sm sm:text-xl")}
+          >
             <h2 className="font-semibold leading-10 text-black">{item.q}</h2>
             <p className="leading-relaxed text-black">{item.a}</p>
           </article>

@@ -11,6 +11,19 @@ import GenericAboveFooterSliderSection from "./components/GenericAboveFooterSlid
 
 import animationClasses from "~/styles/animation.module.css";
 
+function AboutProductButton(props: { className?: string }) {
+  return (
+    <div
+      className={cx(
+        "bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white",
+        props.className,
+      )}
+    >
+      About Product
+    </div>
+  );
+}
+
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0,
 };
@@ -30,17 +43,12 @@ export default function CollectionScreen() {
         <div
           className={cx(
             getSectionInnerContainerClassNames(),
-            "flex flex-col gap-10 sm:gap-16",
-            "pb-20 pt-12",
+            "flex flex-col gap-8 sm:gap-12",
+            "pb-12 pt-12",
             "px-8 sm:px-16 md:px-20 xl:px-36",
           )}
         >
-          <div
-            className={cx(
-              "sm:flex sm:flex-wrap sm:justify-start sm:gap-16",
-              "flex gap-4 sm:h-[28rem] md:h-[44rem]",
-            )}
-          >
+          <div className={cx("flex gap-6 md:justify-start md:gap-16")}>
             {[
               {
                 image: {
@@ -84,6 +92,7 @@ export default function CollectionScreen() {
                   height={item.image.height}
                   className={cx(
                     "flex-grow object-cover",
+                    "sm:h-[28rem] md:h-[32rem] lg:h-[36rem]",
                     // animationClasses["intersect-show-up"],
                     "transition-all duration-[0.75s]",
                   )}
@@ -117,7 +126,8 @@ export default function CollectionScreen() {
                 width={700}
                 height={450}
                 className={cx(
-                  "aspect-video flex-grow object-cover sm:h-[28rem] sm:w-2/5",
+                  "aspect-video flex-grow object-cover sm:w-2/5",
+                  "sm:h-[28rem] md:h-[32rem] lg:h-[36rem]",
                   "intersect-show intersect-elem",
                   "opacity-0",
                   "transition-all",
@@ -126,17 +136,15 @@ export default function CollectionScreen() {
               />
               <div
                 className={cx(
-                  "flex flex-grow flex-col items-start justify-center gap-4 bg-special-primary-100 p-8",
+                  "flex flex-grow flex-col items-start justify-center gap-4 bg-special-primary-100 p-8 md:gap-8 lg:gap-16",
                   "text-sm sm:text-xl",
                 )}
               >
-                <div className="hidden sm:block bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
-                  About Product
-                </div>
+                <AboutProductButton className="hidden sm:block" />
                 <p
                   className={cx(
                     "font-medium text-gray-800",
-                    "leading-4",
+                    "leading-normal md:leading-10",
                     animationClasses["intersect-show-up"],
                     "transition-all duration-[1.5]",
                   )}
@@ -145,11 +153,8 @@ export default function CollectionScreen() {
                   texture that feels wonderful against your baby&apos;s skin.
                   <br /> It is also naturally hypoallergenic.
                 </p>
-
-
-<div className="sm:hidden bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
-                  About Product
-                </div>              </div>
+                <AboutProductButton className="sm:hidden" />
+              </div>
             </div>
             <div className="intersect-show-up-container flex flex-col gap-4 text-sm sm:text-xl">
               <p

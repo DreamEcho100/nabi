@@ -34,7 +34,7 @@ export default function OurStoryScreen() {
               // "max-w": "max-w-[1500npx]",
             }),
             "flex flex-col gap-16",
-            "pb-20 pt-12",
+            "pb-12 pt-12",
             "px-8 sm:px-16 md:px-20 xl:px-36",
           )}
         >
@@ -83,7 +83,7 @@ export default function OurStoryScreen() {
             ))}
           </div>
 
-          <div className="mx-auto flex flex-col justify-between gap-x-16 gap-y-8 text-lg font-medium leading-[2rem] md:flex-row">
+          <div className="mx-auto flex flex-col justify-between gap-x-16 gap-y-4 text-lg font-medium leading-[2rem] md:flex-row md:gap-y-8">
             <div className="intersect-show-up-container md:w-1/2">
               <p className={animationClasses["intersect-show-up"]}>
                 Nabi is a luxury brand for babies and toddlers. We only use
@@ -122,7 +122,7 @@ export default function OurStoryScreen() {
                 height={250}
                 className={cx(
                   animationClasses["intersect-show-up"],
-                  "ms-auto h-24 w-24",
+                  "ms-auto h-20 w-20",
                 )}
                 style={
                   {
