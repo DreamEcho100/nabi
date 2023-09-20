@@ -30,7 +30,7 @@ export default function CollectionScreen() {
         <div
           className={cx(
             getSectionInnerContainerClassNames(),
-            "flex flex-col gap-16",
+            "flex flex-col gap-10 sm:gap-16",
             "pb-20 pt-12",
             "px-16 md:px-20 xl:px-36",
           )}
@@ -99,7 +99,7 @@ export default function CollectionScreen() {
                 </p>
                 <small
                   className={cx(
-                    "-mt-2 text-base",
+                    "-mt-2",
                     // animationClasses["intersect-show-up"],
                     "transition-all duration-[1.5]",
                   )}
@@ -135,8 +135,8 @@ export default function CollectionScreen() {
                 </div>
                 <p
                   className={cx(
-                    "font-medium leading-[49px] text-gray-800",
-                    "leading-8",
+                    "font-medium text-gray-800",
+                    "leading-5",
                     animationClasses["intersect-show-up"],
                     "transition-all duration-[1.5]",
                   )}
