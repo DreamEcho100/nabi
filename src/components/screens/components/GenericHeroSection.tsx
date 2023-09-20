@@ -27,7 +27,7 @@ export default function GenericHeroSection(props: Props) {
         </h1>
         <div
           className={cx(
-            "h-20 w-[0.0625rem] bg-special-primary-900",
+            "h-10 w-[0.0625rem] bg-special-primary-900",
             animationClasses["intersect-show-up"],
             "transition-all duration-[1.25s]",
           )}
