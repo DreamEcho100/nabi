@@ -8,7 +8,7 @@ type Props = { headerText: string };
 
 export default function GenericHeroSection(props: Props) {
   return (
-    <section className="intersect-show-up-container bg-special-primary-900/20">
+    <section className="intersect-show-up-container bg-special-primary-400">
       <div
         className={cx(
           getSectionInnerContainerClassNames(),

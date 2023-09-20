@@ -169,20 +169,6 @@ export function NavMenuOnLtLg() {
             {item.name}
           </Link>
         ))}
-        {mainSocialHeaderLinks.map((item) => (
-          <Link
-            key={item.name}
-            href={item.href}
-            className="explore whitespace-nowrap capitalize"
-            onClick={() =>
-              globalStore
-                .getState()
-                .utils.setIsMenuOpen("headerNavOnLtLg", (prev) => !prev)
-            }
-          >
-            {item.name}
-          </Link>
-        ))}
       </div>
     </div>
   );
