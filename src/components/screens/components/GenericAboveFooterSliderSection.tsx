@@ -25,7 +25,7 @@ export default function GenericAboveFooterSliderSection() {
       <style jsx>{`
         .slider > .container {
           transform: translate3d(0, 0, 0);
-          animation: sliderAnimation 55s infinite;
+          animation: sliderAnimation 45s infinite;
         }
         @keyframes sliderAnimation {
           100% {
