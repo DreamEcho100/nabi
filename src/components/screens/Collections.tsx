@@ -130,13 +130,13 @@ export default function CollectionScreen() {
                   "text-sm sm:text-xl",
                 )}
               >
-                <div className="bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
+                <div className="hidden sm:block bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
                   About Product
                 </div>
                 <p
                   className={cx(
                     "font-medium text-gray-800",
-                    "leading-5",
+                    "leading-4",
                     animationClasses["intersect-show-up"],
                     "transition-all duration-[1.5]",
                   )}
@@ -145,9 +145,13 @@ export default function CollectionScreen() {
                   texture that feels wonderful against your baby&apos;s skin.
                   <br /> It is also naturally hypoallergenic.
                 </p>
-              </div>
+
+
+<div className="sm:hidden bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
+                  About Product
+                </div>              </div>
             </div>
-            <div className="intersect-show-up-container flex flex-col gap-4">
+            <div className="intersect-show-up-container flex flex-col gap-4 text-sm sm:text-xl">
               <p
                 className={cx(
                   "text-2xl capitalize",
