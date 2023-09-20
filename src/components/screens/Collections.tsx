@@ -18,7 +18,7 @@ const intersectionObserverOptions: IntersectionObserverInit = {
 export default function CollectionScreen() {
   const intersectionObserver = useIntersectionObserver(
     generalAnimationIntersectionObserverCB,
-    intersectionObserverOptions
+    intersectionObserverOptions,
   );
 
   useInitGeneralAnimationIntersectionObserver(intersectionObserver);
@@ -32,10 +32,15 @@ export default function CollectionScreen() {
             getSectionInnerContainerClassNames(),
             "flex flex-col gap-16",
             "pb-20 pt-12",
-            "px-16 md:px-20 xl:px-36"
+            "px-16 md:px-20 xl:px-36",
           )}
         >
-          <div className="flex flex-wrap justify-start gap-16">
+          <div
+            className={cx(
+              "sm:flex sm:flex-wrap sm:justify-start sm:gap-16",
+              "flex gap-4 sm:h-[28rem] md:h-[44rem]",
+            )}
+          >
             {[
               {
                 image: {
@@ -61,12 +66,16 @@ export default function CollectionScreen() {
               <div
                 key={item.title}
                 className={cx(
-									"flex flex-col gap-4",
-                  'intersect-show intersect-elem',
-									'opacity-0',
-									"transition-all"
-								)}
-								style={{ transitionDuration: '0.75s', transitionDelay: `${((index + 1) * 0.15)}s`, }}
+                  "flex flex-col gap-4",
+                  "text-sm sm:text-xl",
+                  "intersect-show intersect-elem",
+                  "opacity-0",
+                  "transition-all",
+                )}
+                style={{
+                  transitionDuration: "0.75s",
+                  transitionDelay: `${(index + 1) * 0.15}s`,
+                }}
               >
                 <CustomNextImage
                   src={item.image.src}
@@ -74,16 +83,16 @@ export default function CollectionScreen() {
                   width={item.image.width}
                   height={item.image.height}
                   className={cx(
-                    "h-[28rem] w-[21rem] object-cover",
+                    "flex-grow object-cover",
                     // animationClasses["intersect-show-up"],
-                    "transition-all duration-[0.75s]"
+                    "transition-all duration-[0.75s]",
                   )}
                 />
                 <p
                   className={cx(
-                    "text-2xl capitalize",
+                    "capitalize",
                     // animationClasses["intersect-show-up"],
-                    "transition-all duration-[1.5]"
+                    "transition-all duration-[1.5]",
                   )}
                 >
                   {item.title}
@@ -92,7 +101,7 @@ export default function CollectionScreen() {
                   className={cx(
                     "-mt-2 text-base",
                     // animationClasses["intersect-show-up"],
-                    "transition-all duration-[1.5]"
+                    "transition-all duration-[1.5]",
                   )}
                 >
                   {item.price}
@@ -108,22 +117,28 @@ export default function CollectionScreen() {
                 width={700}
                 height={450}
                 className={cx(
-                  "h-[28rem] w-2/5 flex-grow object-cover",
-									'intersect-show intersect-elem',
-									'opacity-0',
-									"transition-all"
-								)}
-								style={{ transitionDuration: '0.75s' }}
+                  "aspect-video flex-grow object-cover sm:h-[28rem] sm:w-2/5",
+                  "intersect-show intersect-elem",
+                  "opacity-0",
+                  "transition-all",
+                )}
+                style={{ transitionDuration: "0.75s" }}
               />
-              <div className="flex flex-grow flex-col items-start justify-center gap-8 bg-special-primary-100 p-8">
+              <div
+                className={cx(
+                  "flex flex-grow flex-col items-start justify-center gap-4 bg-special-primary-100 p-8",
+                  "text-sm sm:text-xl",
+                )}
+              >
                 <div className="bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white">
                   About Product
                 </div>
                 <p
                   className={cx(
-                    "text-[23px] font-medium leading-[49px] text-gray-800",
+                    "font-medium leading-[49px] text-gray-800",
+                    "leading-8",
                     animationClasses["intersect-show-up"],
-                    "transition-all duration-[1.5]"
+                    "transition-all duration-[1.5]",
                   )}
                 >
                   Silk has an incredibly soft, smooth, and light <br />
@@ -137,7 +152,7 @@ export default function CollectionScreen() {
                 className={cx(
                   "text-2xl capitalize",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-[1.5]"
+                  "transition-all duration-[1.5]",
                 )}
               >
                 full collection
@@ -146,7 +161,7 @@ export default function CollectionScreen() {
                 className={cx(
                   "-mt-2 text-base",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-[1.5]"
+                  "transition-all duration-[1.5]",
                 )}
               >
                 €600

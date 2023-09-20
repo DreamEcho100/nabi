@@ -199,7 +199,7 @@ export default function HomeScreen() {
         >
           <h1
             className={cx(
-              "max-w-[1150px] font-all-round-gothic-w01-xlig leading-6 sm:leading-10",
+              "max-w-[1150px] leading-6 sm:leading-10",
               "text-lg sm:text-3xl",
               animationClasses["intersect-show-up"],
             )}
@@ -366,7 +366,12 @@ export default function HomeScreen() {
             ))}
           </div>
           <div className="flex flex-col items-center justify-center gap-3 text-center sm:gap-4 md:gap-8">
-            <p className="text-center text-sm font-normal leading-6 text-zinc-800 sm:text-xl sm:leading-8">
+            <p
+              className={cx(
+                "text-center font-normal leading-6 text-zinc-800",
+                "text-sm sm:text-xl sm:leading-8",
+              )}
+            >
               Merino wool has the ability to create a microclimate around your
               baby. <br />
               Meaning it will regulate body temperature, keeping your baby

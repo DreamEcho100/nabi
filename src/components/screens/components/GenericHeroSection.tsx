@@ -12,14 +12,15 @@ export default function GenericHeroSection(props: Props) {
       <div
         className={cx(
           getSectionInnerContainerClassNames(),
-          `flex h-[40rem] max-h-[120vh] flex-col items-center justify-center gap-4`
+          `flex h-[40rem] max-h-[120vh] flex-col items-center justify-center gap-4`,
+          "text-lg sm:text-3xl",
         )}
       >
         <h1
           className={cx(
-            "text-center text-3xl font-normal capitalize leading-10 text-zinc-800",
+            "text-center font-normal capitalize leading-10 text-zinc-800",
             animationClasses["intersect-show-up"],
-            "transition-all duration-700"
+            "transition-all duration-700",
           )}
         >
           {props.headerText}
@@ -28,7 +29,7 @@ export default function GenericHeroSection(props: Props) {
           className={cx(
             "h-20 w-[0.0625rem] bg-special-primary-900",
             animationClasses["intersect-show-up"],
-            "transition-all duration-[1.25s]"
+            "transition-all duration-[1.25s]",
           )}
         />
       </div>
