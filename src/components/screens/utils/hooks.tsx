@@ -4,7 +4,7 @@ import { globalStore } from "~/components/utils/store";
 
 export function useIntersectionObserver(
   callback: IntersectionObserverCallback,
-  options?: IntersectionObserverInit | undefined
+  options?: IntersectionObserverInit | undefined,
 ) {
   const [config, setConfig] = useState<
     | { isClient: false; intersectionObserver: null }
@@ -32,11 +32,13 @@ export function useIntersectionObserver(
 }
 
 export const useInitGeneralAnimationIntersectionObserver = (
-  intersectionObserver: ReturnType<typeof useIntersectionObserver>
+  callback: IntersectionObserverCallback,
+  options?: IntersectionObserverInit | undefined,
 ) => {
+  const intersectionObserver = useIntersectionObserver(callback, options);
   const hasIntroAnimationEnded = useStore(
     globalStore,
-    (store) => store.hasIntroAnimationEnded
+    (store) => store.hasIntroAnimationEnded,
   );
 
   useEffect(() => {
@@ -45,7 +47,9 @@ export const useInitGeneralAnimationIntersectionObserver = (
     const intersectElements: Element[] = [];
 
     document
-      .querySelectorAll(".intersect-elem,.intersect-show-up-container")
+      .querySelectorAll(
+        '[data-intersection-observer-element="true"],[data-intersection-observer-parent-element="true"]',
+      )
       .forEach((elem) => intersectElements.push(elem));
 
     let elem: Element;
@@ -60,8 +64,10 @@ export const useInitGeneralAnimationIntersectionObserver = (
       }
     };
   }, [
+    hasIntroAnimationEnded,
     intersectionObserver.intersectionObserver,
     intersectionObserver.isClient,
-    hasIntroAnimationEnded,
   ]);
+
+  return intersectionObserver;
 };

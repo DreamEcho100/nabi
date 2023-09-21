@@ -23,6 +23,7 @@
     "class-variance-authority": "^0.7.0",
     "cookies-next": "^4.0.0",
     "graphql-request": "^6.1.0",
+    "is-mobile": "^4.0.0",
     "jsonwebtoken": "^9.0.2",
     "next": "^13.4.19",
     "next-seo": "^6.1.0",

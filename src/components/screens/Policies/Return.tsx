@@ -3,10 +3,7 @@ import GenericAboveFooterSliderSection from "../components/GenericAboveFooterSli
 
 import QAsSection, { type TQAsList } from "../components/QAsSection";
 import { generalAnimationIntersectionObserverCB } from "../utils";
-import {
-  useIntersectionObserver,
-  useInitGeneralAnimationIntersectionObserver,
-} from "../utils/hooks";
+import { useInitGeneralAnimationIntersectionObserver } from "../utils/hooks";
 
 const returnsPolicyQAs: TQAsList = [
   {
@@ -28,12 +25,10 @@ const intersectionObserverOptions: IntersectionObserverInit = {
 };
 
 export default function ReturnsPolicyScreen() {
-  const intersectionObserver = useIntersectionObserver(
+  useInitGeneralAnimationIntersectionObserver(
     generalAnimationIntersectionObserverCB,
-    intersectionObserverOptions
+    intersectionObserverOptions,
   );
-
-  useInitGeneralAnimationIntersectionObserver(intersectionObserver);
 
   return (
     <>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import CustomNextImage from "~/components/shared/common/CustomNextImage";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 import PaymentCards from "~/svgs/payment-cards.svg";
-import PaymentCardsAllInline from "~/svgs/payment-cards-all-inline.svg";
+// import PaymentCardsAllInline from "~/svgs/payment-cards-all-inline.svg";
 
 type FooterLinksGroup = {
   name: string;
@@ -15,7 +15,7 @@ const SubscribeForm = (props: { showOn: "gt-sm" | "lt-sm" }) => {
   return (
     <form
       className={cx(
-        "relative w-80 max-w-full flex-col gap-y-4",
+        "relative w-72 max-w-full flex-col gap-y-4 sm:w-80",
         props.showOn === "gt-sm" ? "hidden sm:flex" : "flex sm:hidden",
       )}
     >
@@ -157,7 +157,7 @@ export default function MainFooter() {
                 </ul>
               ))}
             </div>
-            <div className="mt-4 grid grid-cols-[repeat(auto-fill,_minmax(8.25rem,_1fr))] justify-between gap-8 text-sm sm:hidden">
+            <div className="mt-8 grid grid-cols-[repeat(auto-fill,_minmax(8.25rem,_1fr))] justify-between gap-y-8 text-sm sm:hidden">
               {footerLinksGroups.map((linksGroup) => (
                 <ul
                   key={linksGroup.name}

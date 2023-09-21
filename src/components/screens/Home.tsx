@@ -4,11 +4,9 @@ import CustomNextImage from "~/components/shared/common/CustomNextImage";
 import { cx } from "class-variance-authority";
 import animationClasses from "~/styles/animation.module.css";
 import { generalAnimationIntersectionObserverCB } from "./utils";
-import {
-  useInitGeneralAnimationIntersectionObserver,
-  useIntersectionObserver,
-} from "./utils/hooks";
+import { useInitGeneralAnimationIntersectionObserver } from "./utils/hooks";
 import { useRef, useEffect, useState } from "react";
+import detectMob from "is-mobile";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0.1,
@@ -23,22 +21,6 @@ const instagramSectionImages = [
   { src: "/images/ae79344fcdb51aa3f86edc0cf2c95359.jpg" },
   { src: "/images/c0c5b84f937a87be25263de9c2689dce.jpg" },
 ];
-
-function detectMob() {
-  const toMatch = [
-    /Android/i,
-    /webOS/i,
-    /iPhone/i,
-    /iPad/i,
-    /iPod/i,
-    /BlackBerry/i,
-    /Windows Phone/i,
-  ];
-
-  return toMatch.some((toMatchItem) => {
-    return navigator.userAgent.match(toMatchItem);
-  });
-}
 
 function InstagramImagesSlider() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -154,12 +136,10 @@ function InstagramImagesSlider() {
 }
 
 export default function HomeScreen() {
-  const intersectionObserver = useIntersectionObserver(
+  useInitGeneralAnimationIntersectionObserver(
     generalAnimationIntersectionObserverCB,
     intersectionObserverOptions,
   );
-
-  useInitGeneralAnimationIntersectionObserver(intersectionObserver);
 
   return (
     <>
@@ -192,10 +172,7 @@ export default function HomeScreen() {
 
       <section className="bg-special-primary-700/40">
         <div
-          className={cx(
-            `${getSectionInnerContainerClassNames()} flex flex-col items-center justify-center gap-4 px-8 py-8 text-center sm:min-h-[36rem] sm:py-36`,
-            "intersect-show-up-container",
-          )}
+          className={`${getSectionInnerContainerClassNames()} flex flex-col items-center justify-center gap-4 px-8 py-8 text-center sm:min-h-[36rem] sm:py-36`}
         >
           <h1
             className={cx(
@@ -203,6 +180,11 @@ export default function HomeScreen() {
               "text-lg sm:text-3xl",
               animationClasses["intersect-show-up"],
             )}
+            data-intersection-observer-element={true}
+            data-intersection-observer-on-intersect-add={
+              animationClasses.animate
+            }
+            data-intersection-observer-unobserve-after-intersect={true}
           >
             Slow fashion for the fastest growing. Dreamed up and hand designed
             in the <br />
@@ -213,6 +195,11 @@ export default function HomeScreen() {
               "mb-[-0.5rem] h-8 w-[0.0625rem] bg-special-primary-900",
               animationClasses["intersect-show-up"],
             )}
+            data-intersection-observer-element={true}
+            data-intersection-observer-on-intersect-add={
+              animationClasses.animate
+            }
+            data-intersection-observer-unobserve-after-intersect={true}
           />
           <p
             className={cx(
@@ -220,13 +207,18 @@ export default function HomeScreen() {
               "text-[0.6875rem] sm:text-sm",
               animationClasses["intersect-show-up"],
             )}
+            data-intersection-observer-element={true}
+            data-intersection-observer-on-intersect-add={
+              animationClasses.animate
+            }
+            data-intersection-observer-unobserve-after-intersect={true}
           >
             Scroll to discover <br />
             more about us
           </p>
         </div>
       </section>
-      <section className="bg-special-primary-800">
+      <section className="overflow-hidden bg-special-primary-800">
         <div
           className={`${getSectionInnerContainerClassNames({
             "max-w": "",
@@ -239,9 +231,14 @@ export default function HomeScreen() {
               "hidden sm:block",
             )}
           >
-            <div className="intersect-show-up-container retry-intersect-animation w-3/4 sm:w-1/2">
+            <div className="w-3/4 sm:w-1/2">
               <CustomNextImage
                 className={cx("w-full", animationClasses["intersect-show-up"])}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
+                data-intersection-observer-unobserve-after-intersect={true}
                 src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
                 width={400}
                 height={600}
@@ -250,7 +247,7 @@ export default function HomeScreen() {
               />
             </div>
             <div
-              className="intersect-show-up-container retry-intersect-animation flex h-[40rem] max-w-full sm:w-3/4"
+              className={cx("flex h-[40rem] max-w-full sm:w-3/4")}
               style={{
                 display: "grid",
                 gridTemplateColumns: "2fr 1fr",
@@ -262,6 +259,10 @@ export default function HomeScreen() {
                   "h-full w-full flex-grow object-cover sm:pl-20",
                   animationClasses["intersect-show-up"],
                 )}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
                 style={{
                   gridColumn: "1/2",
                   gridRow: "2/3",
@@ -275,9 +276,12 @@ export default function HomeScreen() {
               <CustomNextImage
                 className={cx(
                   "h-full w-full flex-grow object-cover",
-                  "retry-intersect-animation",
                   animationClasses["intersect-show-up"],
                 )}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
                 style={{
                   gridColumn: "2/3",
                   gridRow: "1/2",
@@ -289,12 +293,17 @@ export default function HomeScreen() {
                 priority
               />
             </div>
-            <div className="intersect-show-up-container retry-intersect-animation h-[25rem] w-3/4  translate-x-[25%] object-cover sm:w-1/2 sm:translate-x-[100%]">
+            <div className={cx("flex h-[25rem] object-cover")}>
+              <div className="w-1/2" />
               <CustomNextImage
                 className={cx(
-                  "h-full w-full object-cover",
+                  "object-coversw-1/2 h-full",
                   animationClasses["intersect-show-up"],
                 )}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
                 src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
                 width={328}
                 height={328}
@@ -304,7 +313,7 @@ export default function HomeScreen() {
           </div>
           <div
             className={cx(
-              "intersect-show-up-container retry-intersect-animation relative max-w-[928px] flex-grow text-white",
+              "relative max-w-[928px] flex-grow text-white",
               "pb-10 pt-5 sm:pb-36 sm:pt-36 lg:pe-16 lg:ps-8",
             )}
           >
@@ -312,9 +321,12 @@ export default function HomeScreen() {
               className={cx(
                 "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig font-normal capitalize",
                 "text-sm sm:text-[2.5rem]",
-                // "intersect-elem intersect-show-up",
                 animationClasses["intersect-show-up"],
               )}
+              data-intersection-observer-element={true}
+              data-intersection-observer-on-intersect-add={
+                animationClasses.animate
+              }
             >
               <span className="leading-relaxed sm:whitespace-nowrap">
                 Home to beautiful <br />
@@ -322,14 +334,13 @@ export default function HomeScreen() {
               </span>
             </h2>
           </div>
-          <div
-            className={cx(
-              "intersect-show-up-container retry-intersect-animation mx-auto w-1/2 pt-10",
-              "sm:hidden",
-            )}
-          >
+          <div className={cx("mx-auto w-1/2 pt-10", "sm:hidden")}>
             <CustomNextImage
               className={cx("w-full", animationClasses["intersect-show-up"])}
+              data-intersection-observer-element={true}
+              data-intersection-observer-on-intersect-add={
+                animationClasses.animate
+              }
               src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
               width={400}
               height={600}
@@ -355,11 +366,11 @@ export default function HomeScreen() {
                   height={800}
                   alt=""
                   className={cx(
-                    "h-full w-full object-cover",
-                    "intersect-elem retry-intersect-animation intersect-scale-base-from-150",
-                    "scale-150",
+                    "h-[20rem] w-[12rem] object-cover sm:h-full sm:w-full",
                     "transition-all duration-1000",
                   )}
+                  data-intersection-observer-element={true}
+                  data-intersection-observer-on-intersect-remove="scale-150"
                   priority
                 />
               </div>
@@ -369,7 +380,7 @@ export default function HomeScreen() {
             <p
               className={cx(
                 "text-center font-normal leading-6 text-zinc-800",
-                "text-sm sm:text-xl sm:leading-8",
+                "text-sm sm:text-xl sm:leading-10",
               )}
             >
               Merino wool has the ability to create a microclimate around your
@@ -403,6 +414,10 @@ export default function HomeScreen() {
                 "text-sm font-semibold leading-7 text-white",
                 animationClasses["intersect-show-up"],
               )}
+              data-intersection-observer-element={true}
+              data-intersection-observer-on-intersect-add={
+                animationClasses.animate
+              }
             >
               @nabibabystore
             </p>

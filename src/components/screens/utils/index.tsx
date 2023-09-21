@@ -1,84 +1,106 @@
-import animationClasses from "~/styles/animation.module.css";
-
 export const generalAnimationIntersectionObserverCB: IntersectionObserverCallback =
   (entries, observer) => {
     let entry: IntersectionObserverEntry;
     for (entry of entries) {
+      const dataset = (entry.target as HTMLElement).dataset;
+
       if (entry.isIntersecting) {
-        if (entry.target.classList.contains("intersect-show-up-container")) {
-          // entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
-          //   elem.classList.remove("translate-y-full", "opacity-0");
-          // });
-          entry.target
-            .querySelectorAll(`.${animationClasses["intersect-show-up"]}`)
-            .forEach((elem) => {
-              elem.classList.add(animationClasses.animate!);
-            });
-        } else if (
-          entry.target.classList.contains("intersect-show-from-right")
-        ) {
+        const config = {
+          removed: "",
+          added: "",
+        };
+
+        if (dataset.intersectionObserverOnIntersectRemove) {
+          config.removed = dataset.intersectionObserverOnIntersectRemove;
           entry.target.classList.remove(
-            "opacity-0",
-            entry.target.classList.contains("double")
-              ? "translate-x-[200%]"
-              : "translate-x-full",
+            ...dataset.intersectionObserverOnIntersectRemove.split(" "),
           );
-        } else if (
-          entry.target.classList.contains("intersect-show-from-left")
-        ) {
+        }
+        if (dataset.intersectionObserverOnIntersectionRemoveAutomatic) {
           entry.target.classList.remove(
-            "opacity-0",
-            entry.target.classList.contains("double")
-              ? "-translate-x-[200%]"
-              : "-translate-x-full",
+            ...dataset.intersectionObserverOnIntersectionRemoveAutomatic.split(
+              " ",
+            ),
           );
-        } else if (entry.target.classList.contains("intersect-show")) {
-          entry.target.classList.remove("opacity-0");
-        } else if (
-          entry.target.classList.contains("intersect-scale-base-from-150")
-        ) {
-          entry.target.classList.remove("scale-150");
+          dataset.intersectionObserverOnIntersectionRemoveAutomatic = "";
         }
 
-        if (!entry.target.classList.contains("retry-intersect-animation")) {
-          observer.unobserve(entry.target);
+        if (dataset.intersectionObserverOnIntersectAdd) {
+          config.added = dataset.intersectionObserverOnIntersectAdd;
+          entry.target.classList.add(
+            ...dataset.intersectionObserverOnIntersectAdd.split(" "),
+          );
+        }
+        if (dataset.intersectionObserverOnIntersectionAddAutomatic) {
+          entry.target.classList.add(
+            ...dataset.intersectionObserverOnIntersectionAddAutomatic.split(
+              " ",
+            ),
+          );
+          dataset.intersectionObserverOnIntersectionAddAutomatic = "";
+        }
 
+        if (dataset.intersectionObserverUnobserveAfterIntersect) {
+          observer.unobserve(entry.target);
           continue;
+        } else {
+          if (config.added) {
+            dataset.intersectionObserverOnSeparationRemoveAutomatic =
+              config.added;
+          }
+
+          if (config.removed) {
+            dataset.intersectionObserverOnSeparationAddAutomatic =
+              config.removed;
+          }
         }
       } else {
-        if (entry.target.classList.contains("intersect-show-up-container")) {
-          // entry.target.querySelectorAll(".intersect-show-up").forEach((elem) => {
-          //   elem.classList.add("translate-y-full", "opacity-0");
-          // });
-          entry.target
-            .querySelectorAll(`.${animationClasses["intersect-show-up"]}`)
-            .forEach((elem) => {
-              elem.classList.remove(animationClasses.animate!);
-            });
-        } else if (
-          entry.target.classList.contains("intersect-show-from-right")
-        ) {
-          entry.target.classList.add(
-            "opacity-0",
-            entry.target.classList.contains("double")
-              ? "translate-x-[200%]"
-              : "translate-x-full",
+        const config = {
+          removed: "",
+          added: "",
+        };
+
+        if (dataset.intersectionObserverOnSeparationRemove) {
+          config.removed = dataset.intersectionObserverOnSeparationRemove;
+          entry.target.classList.remove(
+            ...dataset.intersectionObserverOnSeparationRemove.split(" "),
           );
-        } else if (
-          entry.target.classList.contains("intersect-show-from-left")
-        ) {
-          entry.target.classList.add(
-            "opacity-0",
-            entry.target.classList.contains("double")
-              ? "-translate-x-[200%]"
-              : "-translate-x-full",
+        }
+        if (dataset.intersectionObserverOnSeparationRemoveAutomatic) {
+          entry.target.classList.remove(
+            ...dataset.intersectionObserverOnSeparationRemoveAutomatic.split(
+              " ",
+            ),
           );
-        } else if (entry.target.classList.contains("intersect-show")) {
-          entry.target.classList.add("opacity-0");
-        } else if (
-          entry.target.classList.contains("intersect-scale-base-from-150")
-        ) {
-          entry.target.classList.add("scale-150");
+          dataset.intersectionObserverOnSeparationRemoveAutomatic = "";
+        }
+
+        if (dataset.intersectionObserverOnSeparationAdd) {
+          config.added = dataset.intersectionObserverOnSeparationAdd;
+          entry.target.classList.add(
+            ...dataset.intersectionObserverOnSeparationAdd.split(" "),
+          );
+        }
+        if (dataset.intersectionObserverOnSeparationAddAutomatic) {
+          entry.target.classList.add(
+            ...dataset.intersectionObserverOnSeparationAddAutomatic.split(" "),
+          );
+          dataset.intersectionObserverOnSeparationAddAutomatic = "";
+        }
+
+        if (dataset.intersectionObserverUnobserveAfterSeparation) {
+          observer.unobserve(entry.target);
+          continue;
+        } else {
+          if (config.added) {
+            dataset.intersectionObserverOnIntersectionRemoveAutomatic =
+              config.added;
+          }
+
+          if (config.removed) {
+            dataset.intersectionObserverOnIntersectionAddAutomatic =
+              config.removed;
+          }
         }
       }
     }

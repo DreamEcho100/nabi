@@ -1,9 +1,6 @@
 import { cx } from "class-variance-authority";
 import { getSectionInnerContainerClassNames } from "../utils";
-import {
-  useInitGeneralAnimationIntersectionObserver,
-  useIntersectionObserver,
-} from "./utils/hooks";
+import { useInitGeneralAnimationIntersectionObserver } from "./utils/hooks";
 import { generalAnimationIntersectionObserverCB } from "./utils";
 import CustomNextImage from "../shared/common/CustomNextImage";
 import GenericHeroSection from "./components/GenericHeroSection";
@@ -29,12 +26,10 @@ const intersectionObserverOptions: IntersectionObserverInit = {
 };
 
 export default function CollectionScreen() {
-  const intersectionObserver = useIntersectionObserver(
+  useInitGeneralAnimationIntersectionObserver(
     generalAnimationIntersectionObserverCB,
     intersectionObserverOptions,
   );
-
-  useInitGeneralAnimationIntersectionObserver(intersectionObserver);
 
   return (
     <>
@@ -44,7 +39,7 @@ export default function CollectionScreen() {
           className={cx(
             getSectionInnerContainerClassNames(),
             "flex flex-col gap-8 sm:gap-12",
-            "pb-12 pt-12",
+            "py-12",
             "px-8 sm:px-16 md:px-20 xl:px-36",
           )}
         >
@@ -76,14 +71,16 @@ export default function CollectionScreen() {
                 className={cx(
                   "flex flex-col gap-4",
                   "text-sm sm:text-xl",
-                  "intersect-show intersect-elem",
                   "opacity-0",
-                  "transition-all",
+                  "transition-all duration-1000",
                 )}
                 style={{
                   transitionDuration: "0.75s",
                   transitionDelay: `${(index + 1) * 0.15}s`,
                 }}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-remove="opacity-0"
+                data-intersection-observer-unobserve-after-intersect={true}
               >
                 <CustomNextImage
                   src={item.image.src}
@@ -93,28 +90,10 @@ export default function CollectionScreen() {
                   className={cx(
                     "flex-grow object-cover",
                     "sm:h-[28rem] md:h-[32rem] lg:h-[36rem]",
-                    // animationClasses["intersect-show-up"],
-                    "transition-all duration-[0.75s]",
                   )}
                 />
-                <p
-                  className={cx(
-                    "capitalize",
-                    // animationClasses["intersect-show-up"],
-                    "transition-all duration-[1.5]",
-                  )}
-                >
-                  {item.title}
-                </p>
-                <small
-                  className={cx(
-                    "-mt-2",
-                    // animationClasses["intersect-show-up"],
-                    "transition-all duration-[1.5]",
-                  )}
-                >
-                  {item.price}
-                </small>
+                <p className="capitalize">{item.title}</p>
+                <small className="-mt-2">{item.price}</small>
               </div>
             ))}
           </div>
@@ -128,11 +107,12 @@ export default function CollectionScreen() {
                 className={cx(
                   "aspect-video flex-grow object-cover sm:w-2/5",
                   "sm:h-[28rem] md:h-[32rem] lg:h-[36rem]",
-                  "intersect-show intersect-elem",
                   "opacity-0",
-                  "transition-all",
+                  "transition-all duration-700",
                 )}
-                style={{ transitionDuration: "0.75s" }}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-remove="opacity-0"
+                data-intersection-observer-unobserve-after-intersect={true}
               />
               <div
                 className={cx(
@@ -144,10 +124,14 @@ export default function CollectionScreen() {
                 <p
                   className={cx(
                     "font-medium text-gray-800",
-                    "leading-normal md:leading-10",
+                    "leading-relaxed md:leading-10",
                     animationClasses["intersect-show-up"],
-                    "transition-all duration-[1.5]",
                   )}
+                  data-intersection-observer-element={true}
+                  data-intersection-observer-on-intersect-add={
+                    animationClasses.animate
+                  }
+                  data-intersection-observer-unobserve-after-intersect={true}
                 >
                   Silk has an incredibly soft, smooth, and light <br />
                   texture that feels wonderful against your baby&apos;s skin.
@@ -161,8 +145,12 @@ export default function CollectionScreen() {
                 className={cx(
                   "text-2xl capitalize",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-[1.5]",
                 )}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
+                data-intersection-observer-unobserve-after-intersect={true}
               >
                 full collection
               </p>
@@ -170,8 +158,12 @@ export default function CollectionScreen() {
                 className={cx(
                   "-mt-2 text-base",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-[1.5]",
                 )}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
+                data-intersection-observer-unobserve-after-intersect={true}
               >
                 €600
               </small>

@@ -1,9 +1,6 @@
 import { cx } from "class-variance-authority";
 import { getSectionInnerContainerClassNames } from "../utils";
-import {
-  useInitGeneralAnimationIntersectionObserver,
-  useIntersectionObserver,
-} from "./utils/hooks";
+import { useInitGeneralAnimationIntersectionObserver } from "./utils/hooks";
 import { generalAnimationIntersectionObserverCB } from "./utils";
 import CustomNextImage from "../shared/common/CustomNextImage";
 import GenericHeroSection from "./components/GenericHeroSection";
@@ -27,13 +24,48 @@ const formFields: {
   { name: "content", type: "textarea" },
 ];
 
+const ContactsData = (props: { className: string }) => {
+  return (
+    <div
+      className={cx(
+        "font-semibold text-stone-400",
+        "leading-normal sm:leading-relaxed",
+        "text-sm sm:text-xl",
+        props.className,
+      )}
+    >
+      <a
+        href="tel:+35799829358"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={animationClasses["intersect-show-up"]}
+        data-intersection-observer-element={true}
+        data-intersection-observer-on-intersect-add={animationClasses.animate}
+        data-intersection-observer-unobserve-after-intersect={true}
+      >
+        Tel.: +357 99829358
+      </a>
+      <br />
+      <a
+        href="mailto:info@nabi.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={animationClasses["intersect-show-up"]}
+        data-intersection-observer-element={true}
+        data-intersection-observer-on-intersect-add={animationClasses.animate}
+        data-intersection-observer-unobserve-after-intersect={true}
+      >
+        info@nabi.com
+      </a>
+    </div>
+  );
+};
+
 export default function ContactScreen() {
-  const intersectionObserver = useIntersectionObserver(
+  useInitGeneralAnimationIntersectionObserver(
     generalAnimationIntersectionObserverCB,
     intersectionObserverOptions,
   );
-
-  useInitGeneralAnimationIntersectionObserver(intersectionObserver);
 
   return (
     <>
@@ -42,21 +74,21 @@ export default function ContactScreen() {
         <div
           className={cx(
             getSectionInnerContainerClassNames(),
-            "flex gap-16",
-            "py-40",
-            "px-8 sm:px-16 md:px-20 xl:px-36",
+            "flex gap-8 sm:gap-16",
             "flex-col lg:flex-row",
-            "intersect-show-up-container",
+            "py-20 sm:py-40",
+            "px-8 sm:px-16 md:px-20 xl:px-36",
           )}
         >
           <div
             className={cx(
-              "flex flex-col gap-8",
-              "intersect-show intersect-elem",
+              "flex flex-col gap-4 sm:gap-8",
               "opacity-0",
-              "transition-all",
+              "transition-all duration-700",
             )}
-            style={{ transitionDuration: "0.75s" }}
+            data-intersection-observer-element={true}
+            data-intersection-observer-on-intersect-remove="opacity-0"
+            data-intersection-observer-unobserve-after-intersect={true}
           >
             <CustomNextImage
               src="/images/cc15f94a64b56b5e457264ccc18ad9cd.jpg"
@@ -64,89 +96,81 @@ export default function ContactScreen() {
               height={325}
               className={cx(
                 "h-[20rem] w-[50rem] object-cover",
-                "intersect-element intersect-show",
+                "opacity-0",
                 "transition-all duration-700",
               )}
+              data-intersection-observer-element={true}
+              data-intersection-observer-on-intersect-remove="opacity-0"
+              data-intersection-observer-unobserve-after-intersect={true}
             />
             <p
               className={cx(
-                "mt-8 font-medium leading-normal text-gray-800 sm:leading-10",
+                "mt-4 font-medium text-gray-800 sm:mt-8",
+                "leading-normal sm:leading-relaxed",
                 "text-sm sm:text-xl",
               )}
             >
               <span
-                className={cx(
-                  animationClasses["intersect-show-up"],
-                  "transition-all duration-1000",
-                )}
+                className={animationClasses["intersect-show-up"]}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
+                data-intersection-observer-unobserve-after-intersect={true}
               >
                 Nabi is the trade mark of A.K. Nabi Ltd
               </span>
               <br />
               <span
-                className={cx(
-                  animationClasses["intersect-show-up"],
-                  "duratio1000 transition-all",
-                )}
+                className={animationClasses["intersect-show-up"]}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
+                data-intersection-observer-unobserve-after-intersect={true}
               >
                 HE406533
               </span>
               <br />
               <span
-                className={cx(
-                  animationClasses["intersect-show-up"],
-                  "transition-all duration-1000",
-                )}
+                className={animationClasses["intersect-show-up"]}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
+                data-intersection-observer-unobserve-after-intersect={true}
               >
                 Georgiou A&apos; 9, SOFIRINI COURT 1, SHOP 1-3,
               </span>
               <br />
               <span
-                className={cx(
-                  animationClasses["intersect-show-up"],
-                  "transition-all duration-1000",
-                )}
+                className={animationClasses["intersect-show-up"]}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
+                data-intersection-observer-unobserve-after-intersect={true}
               >
                 4040, Germasogeia, Limassol, Cyprus
               </span>
             </p>
 
-            <div className="text-base font-semibold leading-normal text-stone-400 sm:leading-loose">
-              <a
-                href="tel:+35799829358"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cx(
-                  animationClasses["intersect-show-up"],
-                  "transition-all duration-700",
-                )}
-              >
-                Tel.: +357 99829358
-              </a>
-              <br />
-              <a
-                href="mailto:info@nabi.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cx(
-                  animationClasses["intersect-show-up"],
-                  "transition-all duration-700",
-                )}
-              >
-                info@nabi.com
-              </a>
-            </div>
+            <ContactsData className="hidden sm:block" />
           </div>
           <div className="w-[50rem] max-w-full">
             <form
               className={cx(
                 "flex w-full flex-col bg-special-primary-800 px-8 py-12 sm:px-20 sm:py-16",
-                animationClasses["intersect-show-up"],
-                "transition-all duration-700",
                 "text-sm sm:text-xl",
                 "text-white",
                 "gap-6 sm:gap-12",
+                animationClasses["intersect-show-up"],
               )}
+              data-intersection-observer-element={true}
+              data-intersection-observer-on-intersect-add={
+                animationClasses.animate
+              }
+              data-intersection-observer-unobserve-after-intersect={true}
             >
               <div className="mb-4 text-center text-3xl font-normal leading-10 text-stone-200 sm:text-4xl">
                 Contact form
@@ -183,6 +207,7 @@ export default function ContactScreen() {
                 send
               </button>
             </form>
+            <ContactsData className="block sm:hidden" />
           </div>
         </div>
       </section>

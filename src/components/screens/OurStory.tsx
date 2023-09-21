@@ -1,9 +1,6 @@
 import { cx } from "class-variance-authority";
 import { getSectionInnerContainerClassNames } from "../utils";
-import {
-  useInitGeneralAnimationIntersectionObserver,
-  useIntersectionObserver,
-} from "./utils/hooks";
+import { useInitGeneralAnimationIntersectionObserver } from "./utils/hooks";
 import { generalAnimationIntersectionObserverCB } from "./utils";
 import CustomNextImage from "../shared/common/CustomNextImage";
 import GenericHeroSection from "./components/GenericHeroSection";
@@ -17,12 +14,10 @@ const intersectionObserverOptions: IntersectionObserverInit = {
 };
 
 export default function OurStoryScreen() {
-  const intersectionObserver = useIntersectionObserver(
+  useInitGeneralAnimationIntersectionObserver(
     generalAnimationIntersectionObserverCB,
     intersectionObserverOptions,
   );
-
-  useInitGeneralAnimationIntersectionObserver(intersectionObserver);
 
   return (
     <>
@@ -33,74 +28,86 @@ export default function OurStoryScreen() {
             getSectionInnerContainerClassNames({
               // "max-w": "max-w-[1500npx]",
             }),
-            "flex flex-col gap-16",
+            "flex flex-col gap-8 sm:gap-16",
             "pb-12 pt-12",
             "px-8 sm:px-16 md:px-20 xl:px-36",
           )}
         >
-          <div className="intersect-show-up-container flex flex-col sm:flex-row">
+          <div className="flex flex-col sm:flex-row">
             {[
               {
                 src: "/images/d6bbcebc00531220f00ff5a40a6af1ad.jpg",
                 width: 450,
                 height: 600,
-                containerClassName: cx(
-                  "flex-grow-[1] w-full sm:w-1/4 hidden sm:block",
+                className: cx(
+                  "object-cover flex-grow-[1] w-full sm:w-1/4 hidden sm:block",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-500 delay=[0.25s]",
                 ),
+                "data-intersection-observer-element": true,
+                "data-intersection-observer-on-intersect-add":
+                  animationClasses.animate,
+                "data-intersection-observer-unobserve-after-intersect": true,
               },
               {
                 src: "/images/a77396da5e6b7b29d69d2aad30bd3e0a.jpg",
                 width: 900,
                 height: 600,
-                containerClassName: cx(
-                  "flex-grow-[2] w-full sm:w-2/4",
+                className: cx(
+                  "object-cover flex-grow-[2] w-full sm:w-2/4",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-700 delay=[0.5s]",
                 ),
+                "data-intersection-observer-element": true,
+                "data-intersection-observer-on-intersect-add":
+                  animationClasses.animate,
+                "data-intersection-observer-unobserve-after-intersect": true,
               },
               {
                 src: "/images/895cda6c8300cb3d38a0b002fea06b76.jpg",
                 width: 450,
                 height: 600,
-                containerClassName: cx(
-                  "flex-grow-[1] w-full sm:w-1/4 hidden sm:block",
+                className: cx(
+                  "object-cover flex-grow-[1] w-full sm:w-1/4 hidden sm:block",
                   animationClasses["intersect-show-up"],
-                  "transition-all duration-1000 delay=[0.75s]",
                 ),
+                "data-intersection-observer-element": true,
+                "data-intersection-observer-on-intersect-add":
+                  animationClasses.animate,
+                "data-intersection-observer-unobserve-after-intersect": true,
               },
             ].map((item) => (
-              <div key={item.src} className={item.containerClassName}>
-                <CustomNextImage
-                  className="h-full w-full object-cover"
-                  src={item.src}
-                  alt=""
-                  width={item.width}
-                  height={item.height}
-                />
-              </div>
+              <CustomNextImage key={item.src} {...item} alt="" />
             ))}
           </div>
 
-          <div className="mx-auto flex flex-col justify-between gap-x-16 gap-y-4 text-lg font-medium leading-[2rem] md:flex-row md:gap-y-8">
-            <div className="intersect-show-up-container md:w-1/2">
-              <p className={animationClasses["intersect-show-up"]}>
-                Nabi is a luxury brand for babies and toddlers. We only use
-                organic Merino wool and fine silk for our products. Merino wool
-                has the ability to create a microclimate around your baby.
-                Meaning it will regulate body temperature, keeping your baby
-                &apos;warm when it&apos;s cold and cool when it&apos;s
-                hot&apos;. In cooler temperatures it will trap warm air in to
-                provide warmth. Silk has an incredibly soft, smooth, and light
-                texture that feels wonderful against your baby&apos;s skin. It
-                is also naturally hypoallergenic. Together, silk and Merino wool
-                are just a dream. Like a little sheep with butterfly wings.
-              </p>
-            </div>
-            <div className="intersect-show-up-container flex flex-col gap-4 md:w-1/2">
+          <div className="mx-auto flex flex-col justify-between gap-x-16 text-lg font-medium leading-[2rem] md:flex-row md:gap-y-8">
+            <p
+              className={cx("md:w-1/2", animationClasses["intersect-show-up"])}
+              data-intersection-observer-element={true}
+              data-intersection-observer-on-intersect-add={
+                animationClasses.animate
+              }
+              data-intersection-observer-unobserve-after-intersect={true}
+            >
+              Nabi is a luxury brand for babies and toddlers. We only use
+              organic Merino wool and fine silk for our products. Merino wool
+              has the ability to create a microclimate around your baby. Meaning
+              it will regulate body temperature, keeping your baby &apos;warm
+              when it&apos;s cold and cool when it&apos;s hot&apos;. In cooler
+              temperatures it will trap warm air in to provide warmth. Silk has
+              an incredibly soft, smooth, and light texture that feels wonderful
+              against your baby&apos;s skin. It is also naturally
+              hypoallergenic. Together, silk and Merino wool are just a dream.
+              Like a little sheep with butterfly wings.
+            </p>
+
+            <div className="flex flex-col gap-4 md:w-1/2">
               <p
-                className={animationClasses["intersect-show-up"]}
+                className={cx(animationClasses["intersect-show-up"])}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
+                data-intersection-observer-unobserve-after-intersect={true}
                 style={
                   {
                     // "--duration-multi": "0.5s"
@@ -121,9 +128,14 @@ export default function OurStoryScreen() {
                 width={250}
                 height={250}
                 className={cx(
+                  "ms-auto h-16 w-16 sm:h-20 sm:w-20",
                   animationClasses["intersect-show-up"],
-                  "ms-auto h-20 w-20",
                 )}
+                data-intersection-observer-element={true}
+                data-intersection-observer-on-intersect-add={
+                  animationClasses.animate
+                }
+                data-intersection-observer-unobserve-after-intersect={true}
                 style={
                   {
                     // "--duration-multi": "0.5s"
