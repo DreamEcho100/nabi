@@ -293,17 +293,19 @@ export default function HomeScreen() {
                 priority
               />
             </div>
-            <div className={cx("flex h-[25rem] object-cover")}>
-              <div className="w-1/2" />
+            <div
+              className={cx(
+                "flex h-[25rem] object-cover",
+                animationClasses["intersect-show-up"],
+              )}
+              data-intersection-observer-element={true}
+              data-intersection-observer-on-intersect-add={
+                animationClasses.animate
+              }
+            >
+              <div className="w-2/5" />
               <CustomNextImage
-                className={cx(
-                  "object-coversw-1/2 h-full",
-                  animationClasses["intersect-show-up"],
-                )}
-                data-intersection-observer-element={true}
-                data-intersection-observer-on-intersect-add={
-                  animationClasses.animate
-                }
+                className="h-full w-3/5 object-cover"
                 src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
                 width={328}
                 height={328}
