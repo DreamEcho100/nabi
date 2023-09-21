@@ -303,9 +303,9 @@ export default function HomeScreen() {
                 animationClasses.animate
               }
             >
-              <div className="w-2/5" />
+              <div className="w-1/2" />
               <CustomNextImage
-                className="h-full w-3/5 object-cover"
+                className="h-full w-2/5 object-cover"
                 src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
                 width={328}
                 height={328}
