@@ -75,7 +75,7 @@ export default function ContactScreen() {
         <div
           className={cx(
             getSectionInnerContainerClassNames(),
-            "flex gap-8 sm:gap-16",
+            "flex gap-6 sm:gap-16",
             "flex-col lg:flex-row",
             "py-20 sm:py-40",
             "px-8 sm:px-16 md:px-20 xl:px-36",
@@ -87,7 +87,7 @@ export default function ContactScreen() {
               unobserveAfterIntersection: true,
             }}
             className={cx(
-              "flex flex-col gap-4 sm:gap-8",
+              "flex flex-col gap-6 sm:gap-8",
               "opacity-0",
               "transition-all duration-700",
             )}
@@ -104,7 +104,7 @@ export default function ContactScreen() {
             />
             <p
               className={cx(
-                "mt-4 font-medium text-gray-800 sm:mt-8",
+                "font-medium text-gray-800 sm:mt-2",
                 "leading-normal sm:leading-relaxed",
                 "text-sm sm:text-xl",
               )}
