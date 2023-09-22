@@ -162,6 +162,10 @@ export const intersectionElementsIntersectionObserverCB: IntersectionObserverCal
 
 export const useInitIntersectionElementsIntersectionObserver = (
   options?: IntersectionObserverInit | undefined,
+  selectorOptions?: {
+    haveSelector?: string;
+    notHaveSelector?: string;
+  },
 ) => {
   const intersectionObserver = useIntersectionObserver(
     intersectionElementsIntersectionObserverCB,
@@ -171,11 +175,23 @@ export const useInitIntersectionElementsIntersectionObserver = (
   useEffect(() => {
     if (!intersectionObserver.isClient) return;
 
-    const intersectElements: Element[] = [
-      ...document.querySelectorAll(
-        '[data-intersection-observer-element="true"],[data-intersection-observer-parent-element="true"]',
-      ),
-    ];
+    const intersectElements: Element[] = [];
+
+    document
+      .querySelectorAll(
+        `[data-intersection-observer-element="true"]${
+          selectorOptions?.haveSelector ?? ""
+        }`,
+      )
+      .forEach((elem) => {
+        if (
+          selectorOptions?.notHaveSelector &&
+          elem.classList.contains(selectorOptions.notHaveSelector)
+        )
+          return;
+
+        intersectElements.push(elem);
+      });
 
     console.log("intersectElements", intersectElements);
 
@@ -193,6 +209,7 @@ export const useInitIntersectionElementsIntersectionObserver = (
   }, [
     intersectionObserver.intersectionObserver,
     intersectionObserver.isClient,
+    selectorOptions,
   ]);
 
   return intersectionObserver;

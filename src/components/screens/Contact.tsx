@@ -144,6 +144,7 @@ export default function ContactScreen() {
                 "text-white",
                 "gap-6 sm:gap-12",
                 animationClasses["intersect-show-up"],
+                animationClasses["on-gt-sm"],
               )}
             >
               <div className="mb-4 text-center text-3xl font-normal leading-10 text-stone-200 sm:text-4xl">
