@@ -1,23 +1,28 @@
 import { cx } from "class-variance-authority";
 import { getSectionInnerContainerClassNames } from "../utils";
-import { useInitGeneralAnimationIntersectionObserver } from "./utils/hooks";
-import { generalAnimationIntersectionObserverCB } from "./utils";
 import CustomNextImage from "../shared/common/CustomNextImage";
 import GenericHeroSection from "./components/GenericHeroSection";
 import GenericAboveFooterSliderSection from "./components/GenericAboveFooterSliderSection";
 
 import animationClasses from "~/styles/animation.module.css";
+import IntersectionElement, {
+  useInitIntersectionElementsIntersectionObserver,
+} from "./components/IntersectionElement";
 
 function AboutProductButton(props: { className?: string }) {
   return (
-    <div
+    <IntersectionElement
+      dataConfig={{
+        onIntersectionAdd: animationClasses.animate!,
+        unobserveAfterIntersection: true,
+      }}
       className={cx(
         "bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white",
         props.className,
       )}
     >
       About Product
-    </div>
+    </IntersectionElement>
   );
 }
 
@@ -26,10 +31,7 @@ const intersectionObserverOptions: IntersectionObserverInit = {
 };
 
 export default function CollectionScreen() {
-  useInitGeneralAnimationIntersectionObserver(
-    generalAnimationIntersectionObserverCB,
-    intersectionObserverOptions,
-  );
+  useInitIntersectionElementsIntersectionObserver(intersectionObserverOptions);
 
   return (
     <>
@@ -66,7 +68,11 @@ export default function CollectionScreen() {
                 price: "€180",
               },
             ].map((item, index) => (
-              <div
+              <IntersectionElement
+                dataConfig={{
+                  onIntersectionRemove: "opacity-0",
+                  unobserveAfterIntersection: true,
+                }}
                 key={item.title}
                 className={cx(
                   "flex flex-col gap-4",
@@ -78,9 +84,6 @@ export default function CollectionScreen() {
                   transitionDuration: "0.75s",
                   transitionDelay: `${(index + 1) * 0.15}s`,
                 }}
-                data-intersection-observer-element
-                data-intersection-observer-on-intersect-remove="opacity-0"
-                data-intersection-observer-unobserve-after-intersect
               >
                 <CustomNextImage
                   src={item.image.src}
@@ -94,12 +97,17 @@ export default function CollectionScreen() {
                 />
                 <p className="capitalize">{item.title}</p>
                 <small className="-mt-2">{item.price}</small>
-              </div>
+              </IntersectionElement>
             ))}
           </div>
           <div className="flex flex-col gap-4">
             <div className="intersect-show-up-container flex flex-wrap overflow-hidden md:flex-nowrap">
-              <CustomNextImage
+              <IntersectionElement
+                as={CustomNextImage}
+                dataConfig={{
+                  onIntersectionRemove: "opacity-0",
+                  unobserveAfterIntersection: true,
+                }}
                 src="/images/d0b95d5a13d371f41e106dfbfd9de762.jpg"
                 alt=""
                 width={700}
@@ -107,12 +115,8 @@ export default function CollectionScreen() {
                 className={cx(
                   "aspect-video flex-grow object-cover sm:w-2/5",
                   "sm:h-[28rem] md:h-[32rem] lg:h-[36rem]",
-                  "opacity-0",
                   "transition-all duration-700",
                 )}
-                data-intersection-observer-element
-                data-intersection-observer-on-intersect-remove="opacity-0"
-                data-intersection-observer-unobserve-after-intersect
               />
               <div
                 className={cx(
@@ -121,50 +125,50 @@ export default function CollectionScreen() {
                 )}
               >
                 <AboutProductButton className="hidden sm:block" />
-                <p
+                <IntersectionElement
+                  as="p"
+                  dataConfig={{
+                    onIntersectionAdd: animationClasses.animate!,
+                    unobserveAfterIntersection: true,
+                  }}
                   className={cx(
                     "font-medium text-gray-800",
                     "leading-relaxed md:leading-10",
                     animationClasses["intersect-show-up"],
                   )}
-                  data-intersection-observer-element
-                  data-intersection-observer-on-intersect-add={
-                    animationClasses.animate
-                  }
-                  data-intersection-observer-unobserve-after-intersect
                 >
                   Silk has an incredibly soft, smooth, and light <br />
                   texture that feels wonderful against your baby&apos;s skin.
                   <br /> It is also naturally hypoallergenic.
-                </p>
+                </IntersectionElement>
                 <AboutProductButton className="sm:hidden" />
               </div>
             </div>
             <div className="intersect-show-up-container flex flex-col gap-4 text-sm sm:text-xl">
-              <p
+              <IntersectionElement
+                as="p"
+                dataConfig={{
+                  onIntersectionAdd: animationClasses.animate!,
+                  unobserveAfterIntersection: true,
+                }}
                 className={cx(
                   "capitalize",
                   "text-sm sm:text-xl",
                   animationClasses["intersect-show-up"],
                 )}
-                data-intersection-observer-element
-                data-intersection-observer-on-intersect-add={
-                  animationClasses.animate
-                }
-                data-intersection-observer-unobserve-after-intersect
               >
                 full collection
-              </p>
-              <small
+              </IntersectionElement>
+              <IntersectionElement
+                as="small"
+                dataConfig={{
+                  onIntersectionAdd: animationClasses.animate!,
+                  unobserveAfterIntersection: true,
+                }}
                 className={cx("-mt-2", animationClasses["intersect-show-up"])}
-                data-intersection-observer-element
-                data-intersection-observer-on-intersect-add={
-                  animationClasses.animate
-                }
-                data-intersection-observer-unobserve-after-intersect
               >
                 €600
-              </small>
+              </IntersectionElement>
             </div>
           </div>
         </div>

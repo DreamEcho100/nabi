@@ -10,10 +10,10 @@ export const generalAnimationIntersectionObserverCB: IntersectionObserverCallbac
           added: "",
         };
 
-        if (dataset.intersectionObserverOnIntersectRemove) {
-          config.removed = dataset.intersectionObserverOnIntersectRemove;
+        if (dataset.intersectionObserverOnIntersectionRemove) {
+          config.removed = dataset.intersectionObserverOnIntersectionRemove;
           entry.target.classList.remove(
-            ...dataset.intersectionObserverOnIntersectRemove.split(" "),
+            ...dataset.intersectionObserverOnIntersectionRemove.split(" "),
           );
         }
         if (dataset.intersectionObserverOnIntersectionRemoveAutomatic) {
@@ -22,13 +22,13 @@ export const generalAnimationIntersectionObserverCB: IntersectionObserverCallbac
               " ",
             ),
           );
-          dataset.intersectionObserverOnIntersectionRemoveAutomatic = "";
+          dataset.intersectionObserverOnIntersectionRemoveAutomatic = undefined;
         }
 
-        if (dataset.intersectionObserverOnIntersectAdd) {
-          config.added = dataset.intersectionObserverOnIntersectAdd;
+        if (dataset.intersectionObserverOnIntersectionAdd) {
+          config.added = dataset.intersectionObserverOnIntersectionAdd;
           entry.target.classList.add(
-            ...dataset.intersectionObserverOnIntersectAdd.split(" "),
+            ...dataset.intersectionObserverOnIntersectionAdd.split(" "),
           );
         }
         if (dataset.intersectionObserverOnIntersectionAddAutomatic) {
@@ -37,7 +37,7 @@ export const generalAnimationIntersectionObserverCB: IntersectionObserverCallbac
               " ",
             ),
           );
-          dataset.intersectionObserverOnIntersectionAddAutomatic = "";
+          dataset.intersectionObserverOnIntersectionAddAutomatic = undefined;
         }
 
         if (dataset.intersectionObserverUnobserveAfterIntersect) {
@@ -72,7 +72,7 @@ export const generalAnimationIntersectionObserverCB: IntersectionObserverCallbac
               " ",
             ),
           );
-          dataset.intersectionObserverOnSeparationRemoveAutomatic = "";
+          dataset.intersectionObserverOnSeparationRemoveAutomatic = undefined;
         }
 
         if (dataset.intersectionObserverOnSeparationAdd) {
@@ -85,7 +85,7 @@ export const generalAnimationIntersectionObserverCB: IntersectionObserverCallbac
           entry.target.classList.add(
             ...dataset.intersectionObserverOnSeparationAddAutomatic.split(" "),
           );
-          dataset.intersectionObserverOnSeparationAddAutomatic = "";
+          dataset.intersectionObserverOnSeparationAddAutomatic = undefined;
         }
 
         if (dataset.intersectionObserverUnobserveAfterSeparation) {

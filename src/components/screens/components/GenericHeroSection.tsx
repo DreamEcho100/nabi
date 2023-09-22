@@ -2,22 +2,24 @@ import { cx } from "class-variance-authority";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 
 import animationClasses from "~/styles/animation.module.css";
+import IntersectionElement from "./IntersectionElement";
 
 type Props = { headerText: string };
 
 export default function GenericHeroSection(props: Props) {
   return (
     <section className="bg-special-primary-400">
-      <div
+      <IntersectionElement
+        dataConfig={{
+          onIntersectionAdd: animationClasses.animate!,
+          unobserveAfterIntersection: true,
+        }}
         className={cx(
           getSectionInnerContainerClassNames(),
           `flex h-[40rem] max-h-[50vh] flex-col items-center justify-center overflow-hidden sm:max-h-[120vh]`,
           "text-lg sm:text-3xl",
           animationClasses["intersect-show-up"],
         )}
-        data-intersection-observer-element
-        data-intersection-observer-on-intersect-add={animationClasses.animate}
-        data-intersection-observer-unobserve-after-intersect
       >
         <h1
           className={cx(
@@ -34,7 +36,7 @@ export default function GenericHeroSection(props: Props) {
             )}
           />
         </h1>
-      </div>
+      </IntersectionElement>
     </section>
   );
 }

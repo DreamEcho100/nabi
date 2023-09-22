@@ -1,23 +1,21 @@
 import { cx } from "class-variance-authority";
 import { getSectionInnerContainerClassNames } from "../utils";
-import { useInitGeneralAnimationIntersectionObserver } from "./utils/hooks";
-import { generalAnimationIntersectionObserverCB } from "./utils";
 import CustomNextImage from "../shared/common/CustomNextImage";
 import GenericHeroSection from "./components/GenericHeroSection";
 import GenericAboveFooterSliderSection from "./components/GenericAboveFooterSliderSection";
 
 import animationClasses from "~/styles/animation.module.css";
 import { type CSSProperties } from "react";
+import IntersectionElement, {
+  useInitIntersectionElementsIntersectionObserver,
+} from "./components/IntersectionElement";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0,
 };
 
 export default function OurStoryScreen() {
-  useInitGeneralAnimationIntersectionObserver(
-    generalAnimationIntersectionObserverCB,
-    intersectionObserverOptions,
-  );
+  useInitIntersectionElementsIntersectionObserver(intersectionObserverOptions);
 
   return (
     <>
@@ -43,10 +41,6 @@ export default function OurStoryScreen() {
                   "object-cover flex-grow-[1] w-full sm:w-1/4 hidden sm:block",
                   animationClasses["intersect-show-up"],
                 ),
-                "data-intersection-observer-element": true,
-                "data-intersection-observer-on-intersect-add":
-                  animationClasses.animate,
-                "data-intersection-observer-unobserve-after-intersect": true,
               },
               {
                 src: "/images/a77396da5e6b7b29d69d2aad30bd3e0a.jpg",
@@ -56,10 +50,6 @@ export default function OurStoryScreen() {
                   "object-cover flex-grow-[2] w-full sm:w-2/4",
                   animationClasses["intersect-show-up"],
                 ),
-                "data-intersection-observer-element": true,
-                "data-intersection-observer-on-intersect-add":
-                  animationClasses.animate,
-                "data-intersection-observer-unobserve-after-intersect": true,
               },
               {
                 src: "/images/895cda6c8300cb3d38a0b002fea06b76.jpg",
@@ -69,24 +59,28 @@ export default function OurStoryScreen() {
                   "object-cover flex-grow-[1] w-full sm:w-1/4 hidden sm:block",
                   animationClasses["intersect-show-up"],
                 ),
-                "data-intersection-observer-element": true,
-                "data-intersection-observer-on-intersect-add":
-                  animationClasses.animate,
-                "data-intersection-observer-unobserve-after-intersect": true,
               },
             ].map((item) => (
-              <CustomNextImage key={item.src} {...item} alt="" />
+              <IntersectionElement
+                as={CustomNextImage}
+                dataConfig={{
+                  onIntersectionAdd: animationClasses.animate!,
+                  unobserveAfterIntersection: true,
+                }}
+                key={item.src}
+                {...item}
+              />
             ))}
           </div>
 
           <div className="mx-auto flex flex-col justify-between gap-x-16 text-lg font-medium leading-[2rem] md:flex-row md:gap-y-8">
-            <p
+            <IntersectionElement
+              as="p"
+              dataConfig={{
+                onIntersectionAdd: animationClasses.animate!,
+                unobserveAfterIntersection: true,
+              }}
               className={cx("md:w-1/2", animationClasses["intersect-show-up"])}
-              data-intersection-observer-element
-              data-intersection-observer-on-intersect-add={
-                animationClasses.animate
-              }
-              data-intersection-observer-unobserve-after-intersect
             >
               Nabi is a luxury brand for babies and toddlers. We only use
               organic Merino wool and fine silk for our products. Merino wool
@@ -98,16 +92,16 @@ export default function OurStoryScreen() {
               against your baby&apos;s skin. It is also naturally
               hypoallergenic. Together, silk and Merino wool are just a dream.
               Like a little sheep with butterfly wings.
-            </p>
+            </IntersectionElement>
 
             <div className="flex flex-col gap-4 md:w-1/2">
-              <p
+              <IntersectionElement
+                as="p"
+                dataConfig={{
+                  onIntersectionAdd: animationClasses.animate!,
+                  unobserveAfterIntersection: true,
+                }}
                 className={cx(animationClasses["intersect-show-up"])}
-                data-intersection-observer-element
-                data-intersection-observer-on-intersect-add={
-                  animationClasses.animate
-                }
-                data-intersection-observer-unobserve-after-intersect
                 style={
                   {
                     // "--duration-multi": "0.5s"
@@ -122,8 +116,13 @@ export default function OurStoryScreen() {
                 stages. The certification guarantees that our products are made
                 by people that receive fair treatment and no hazardous chemicals
                 have been used throughout the entire production process.
-              </p>
-              <CustomNextImage
+              </IntersectionElement>
+              <IntersectionElement
+                as={CustomNextImage}
+                dataConfig={{
+                  onIntersectionAdd: animationClasses.animate!,
+                  unobserveAfterIntersection: true,
+                }}
                 src="/images/logo-e3f669f8.webp"
                 width={250}
                 height={250}
@@ -131,11 +130,6 @@ export default function OurStoryScreen() {
                   "ms-auto h-16 w-16 sm:h-20 sm:w-20",
                   animationClasses["intersect-show-up"],
                 )}
-                data-intersection-observer-element
-                data-intersection-observer-on-intersect-add={
-                  animationClasses.animate
-                }
-                data-intersection-observer-unobserve-after-intersect
                 style={
                   {
                     // "--duration-multi": "0.5s"

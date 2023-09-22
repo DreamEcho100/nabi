@@ -2,8 +2,7 @@ import GenericHeroSection from "./components/GenericHeroSection";
 import GenericAboveFooterSliderSection from "./components/GenericAboveFooterSliderSection";
 
 import QAsSection, { type TQAsList } from "./components/QAsSection";
-import { generalAnimationIntersectionObserverCB } from "./utils";
-import { useInitGeneralAnimationIntersectionObserver } from "./utils/hooks";
+import { useInitIntersectionElementsIntersectionObserver } from "./components/IntersectionElement";
 
 const faqsQAs: TQAsList = [
   {
@@ -37,10 +36,7 @@ const intersectionObserverOptions: IntersectionObserverInit = {
 };
 
 export default function FAQsScreen() {
-  useInitGeneralAnimationIntersectionObserver(
-    generalAnimationIntersectionObserverCB,
-    intersectionObserverOptions,
-  );
+  useInitIntersectionElementsIntersectionObserver(intersectionObserverOptions);
 
   return (
     <>

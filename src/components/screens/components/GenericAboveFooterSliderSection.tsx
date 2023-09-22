@@ -5,8 +5,7 @@ export default function GenericAboveFooterSliderSection() {
   return (
     <section>
       <div
-        className={cx(
-          // getSectionInnerContainerClassNames(),
+        className={cx( 
           allRoundGothicW01XLigFont.className,
           "slider max-w-full justify-start overflow-hidden bg-special-primary-700 bg-opacity-[0.3] py-2 font-all-round-gothic-w01-xlig text-zinc-700"
         )}
