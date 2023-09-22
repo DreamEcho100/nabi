@@ -1,4 +1,4 @@
-.intersect-show-up:not(.on-gt-sm) {
+.intersect-show-up:not(.on-gt-sm, .on-lt-sm) {
   --multi: 1;
   transform: translateY(100%);
   opacity: 0;
@@ -8,7 +8,7 @@
     opacity var(--opacity-duration, 0.8s) cubic-bezier(0.4, 0, 0.2, 1)
       var(--opacity-delay, 0s);
 }
-.intersect-show-up:not(.on-gt-sm).animate {
+.intersect-show-up:not(.on-gt-sm, .on-lt-sm).animate {
   transform: translateY(0%);
   opacity: 1;
 }
@@ -25,6 +25,23 @@
         var(--opacity-delay, 0s);
   }
   .on-gt-sm.intersect-show-up.animate {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .on-lt-sm.intersect-show-up {
+    --multi: 1;
+    transform: translateY(100%);
+    opacity: 0;
+    transition:
+      transform var(--transform-duration, 1.25s) cubic-bezier(0.4, 0, 0.2, 1)
+        var(--transform-delay, 0s),
+      opacity var(--opacity-duration, 0.8s) cubic-bezier(0.4, 0, 0.2, 1)
+        var(--opacity-delay, 0s);
+  }
+  .on-lt-sm.intersect-show-up.animate {
     transform: translateY(0%);
     opacity: 1;
   }

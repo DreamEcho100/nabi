@@ -80,7 +80,11 @@ export default function OurStoryScreen() {
                 onIntersectionAdd: animationClasses.animate!,
                 unobserveAfterIntersection: true,
               }}
-              className={cx("md:w-1/2", animationClasses["intersect-show-up"])}
+              className={cx(
+                "md:w-1/2",
+                animationClasses["intersect-show-up"],
+                animationClasses["on-gt-sm"],
+              )}
             >
               Nabi is a luxury brand for babies and toddlers. We only use
               organic Merino wool and fine silk for our products. Merino wool
@@ -101,7 +105,10 @@ export default function OurStoryScreen() {
                   onIntersectionAdd: animationClasses.animate!,
                   unobserveAfterIntersection: true,
                 }}
-                className={cx(animationClasses["intersect-show-up"])}
+                className={cx(
+                  animationClasses["intersect-show-up"],
+                  animationClasses["on-gt-sm"],
+                )}
                 style={
                   {
                     // "--duration-multi": "0.5s"

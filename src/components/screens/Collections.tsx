@@ -94,6 +94,7 @@ export default function CollectionScreen() {
                     "flex-grow object-cover",
                     "sm:h-[28rem] md:h-[32rem] lg:h-[36rem]",
                   )}
+                  priority
                 />
                 <p className="capitalize">{item.title}</p>
                 <small className="-mt-2">{item.price}</small>
