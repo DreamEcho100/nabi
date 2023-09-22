@@ -77,7 +77,6 @@ export default function ContactScreen() {
             getSectionInnerContainerClassNames(),
             "flex gap-8 sm:gap-16",
             "flex-col lg:flex-row",
-            "opacity-0",
             "py-20 sm:py-40",
             "px-8 sm:px-16 md:px-20 xl:px-36",
           )}
