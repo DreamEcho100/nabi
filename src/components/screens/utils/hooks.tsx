@@ -38,12 +38,11 @@ export const useInitGeneralAnimationIntersectionObserver = (
   useEffect(() => {
     if (!intersectionObserver.isClient) return;
 
-    const intersectElements: Element[] = [...document
-      .querySelectorAll(
+    const intersectElements: Element[] = [
+      ...document.querySelectorAll(
         '[data-intersection-observer-element="true"],[data-intersection-observer-parent-element="true"]',
-      )];
-
-    console.log('intersectElements', intersectElements);
+      ),
+    ];
 
     let elem: Element;
     for (elem of intersectElements) {

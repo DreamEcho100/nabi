@@ -193,8 +193,6 @@ export const useInitIntersectionElementsIntersectionObserver = (
         intersectElements.push(elem);
       });
 
-    console.log("intersectElements", intersectElements);
-
     let elem: Element;
     for (elem of intersectElements) {
       intersectionObserver.intersectionObserver.observe(elem);
