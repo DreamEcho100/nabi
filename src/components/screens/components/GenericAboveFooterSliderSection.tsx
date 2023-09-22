@@ -5,9 +5,9 @@ export default function GenericAboveFooterSliderSection() {
   return (
     <section>
       <div
-        className={cx( 
+        className={cx(
           allRoundGothicW01XLigFont.className,
-          "slider max-w-full justify-start overflow-hidden bg-special-primary-700 bg-opacity-[0.3] py-2 font-all-round-gothic-w01-xlig text-zinc-700"
+          "slider max-w-full justify-start overflow-hidden bg-special-primary-700 bg-opacity-[0.3] py-2 font-all-round-gothic-w01-xlig text-zinc-700",
         )}
       >
         <p className="container flex gap-4 whitespace-nowrap">
@@ -24,7 +24,13 @@ export default function GenericAboveFooterSliderSection() {
       <style jsx>{`
         .slider > .container {
           transform: translate3d(0, 0, 0);
-          animation: sliderAnimation 30s infinite;
+          animation: sliderAnimation 45s infinite;
+        }
+        @media screen and (min-width: 640px) {
+        .slider > .container {
+          transform: translate3d(0, 0, 0);
+          animation: sliderAnimation 25s infinite;
+        }
         }
         @keyframes sliderAnimation {
           100% {

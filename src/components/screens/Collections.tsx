@@ -17,7 +17,8 @@ function AboutProductButton(props: { className?: string }) {
         unobserveAfterIntersection: true,
       }}
       className={cx(
-        "bg-stone-500 p-3 text-base font-semibold uppercase leading-none tracking-wide text-white",
+        "bg-stone-500 font-semibold uppercase leading-none tracking-wide text-white",
+        "p-3 text-xs sm:p-2.5 sm:text-base",
         props.className,
       )}
     >

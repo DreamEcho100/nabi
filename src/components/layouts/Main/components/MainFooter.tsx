@@ -15,7 +15,7 @@ const SubscribeForm = (props: { showOn: "gt-sm" | "lt-sm" }) => {
   return (
     <form
       className={cx(
-        "relative w-72 max-w-full flex-col gap-y-4 sm:w-80",
+        "relative w-full max-w-full flex-col gap-y-4 sm:w-80",
         props.showOn === "gt-sm" ? "hidden sm:flex" : "flex sm:hidden",
       )}
     >
@@ -157,7 +157,7 @@ export default function MainFooter() {
                 </ul>
               ))}
             </div>
-            <div className="mt-8 grid grid-cols-[repeat(auto-fill,_minmax(8.25rem,_1fr))] justify-between gap-y-8 text-sm sm:hidden">
+            <div className="mt-8 grid grid-cols-[repeat(auto-fill,_minmax(8.25rem,_1fr))] justify-between gap-x-4 gap-y-8 text-sm sm:hidden">
               {footerLinksGroups.map((linksGroup) => (
                 <ul
                   key={linksGroup.name}
