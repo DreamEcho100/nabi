@@ -9,7 +9,7 @@ import GenericAboveFooterSliderSection from "./components/GenericAboveFooterSlid
 import animationClasses from "~/styles/animation.module.css";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0.1,
+  threshold: 0,
 };
 
 const formFields: {
@@ -39,9 +39,9 @@ const ContactsData = (props: { className: string }) => {
         target="_blank"
         rel="noopener noreferrer"
         className={animationClasses["intersect-show-up"]}
-        data-intersection-observer-element={true}
+        data-intersection-observer-element
         data-intersection-observer-on-intersect-add={animationClasses.animate}
-        data-intersection-observer-unobserve-after-intersect={true}
+        data-intersection-observer-unobserve-after-intersect
       >
         Tel.: +357 99829358
       </a>
@@ -51,9 +51,9 @@ const ContactsData = (props: { className: string }) => {
         target="_blank"
         rel="noopener noreferrer"
         className={animationClasses["intersect-show-up"]}
-        data-intersection-observer-element={true}
+        data-intersection-observer-element
         data-intersection-observer-on-intersect-add={animationClasses.animate}
-        data-intersection-observer-unobserve-after-intersect={true}
+        data-intersection-observer-unobserve-after-intersect
       >
         info@nabi.com
       </a>
@@ -86,11 +86,12 @@ export default function ContactScreen() {
               "opacity-0",
               "transition-all duration-700",
             )}
-            data-intersection-observer-element={true}
+            data-intersection-observer-element
             data-intersection-observer-on-intersect-remove="opacity-0"
-            data-intersection-observer-unobserve-after-intersect={true}
+            data-intersection-observer-unobserve-after-intersect
           >
             <CustomNextImage
+              priority
               src="/images/cc15f94a64b56b5e457264ccc18ad9cd.jpg"
               width={800}
               height={325}
@@ -99,9 +100,9 @@ export default function ContactScreen() {
                 "opacity-0",
                 "transition-all duration-700",
               )}
-              data-intersection-observer-element={true}
+              data-intersection-observer-element
               data-intersection-observer-on-intersect-remove="opacity-0"
-              data-intersection-observer-unobserve-after-intersect={true}
+              data-intersection-observer-unobserve-after-intersect
             />
             <p
               className={cx(
@@ -112,44 +113,44 @@ export default function ContactScreen() {
             >
               <span
                 className={animationClasses["intersect-show-up"]}
-                data-intersection-observer-element={true}
+                data-intersection-observer-element
                 data-intersection-observer-on-intersect-add={
                   animationClasses.animate
                 }
-                data-intersection-observer-unobserve-after-intersect={true}
+                data-intersection-observer-unobserve-after-intersect
               >
                 Nabi is the trade mark of A.K. Nabi Ltd
               </span>
               <br />
               <span
                 className={animationClasses["intersect-show-up"]}
-                data-intersection-observer-element={true}
+                data-intersection-observer-element
                 data-intersection-observer-on-intersect-add={
                   animationClasses.animate
                 }
-                data-intersection-observer-unobserve-after-intersect={true}
+                data-intersection-observer-unobserve-after-intersect
               >
                 HE406533
               </span>
               <br />
               <span
                 className={animationClasses["intersect-show-up"]}
-                data-intersection-observer-element={true}
+                data-intersection-observer-element
                 data-intersection-observer-on-intersect-add={
                   animationClasses.animate
                 }
-                data-intersection-observer-unobserve-after-intersect={true}
+                data-intersection-observer-unobserve-after-intersect
               >
                 Georgiou A&apos; 9, SOFIRINI COURT 1, SHOP 1-3,
               </span>
               <br />
               <span
                 className={animationClasses["intersect-show-up"]}
-                data-intersection-observer-element={true}
+                data-intersection-observer-element
                 data-intersection-observer-on-intersect-add={
                   animationClasses.animate
                 }
-                data-intersection-observer-unobserve-after-intersect={true}
+                data-intersection-observer-unobserve-after-intersect
               >
                 4040, Germasogeia, Limassol, Cyprus
               </span>
@@ -157,7 +158,7 @@ export default function ContactScreen() {
 
             <ContactsData className="hidden sm:block" />
           </div>
-          <div className="w-[50rem] max-w-full">
+          <div className="flex w-[50rem] max-w-full flex-col gap-4 sm:gap-8">
             <form
               className={cx(
                 "flex w-full flex-col bg-special-primary-800 px-8 py-12 sm:px-20 sm:py-16",
@@ -166,11 +167,11 @@ export default function ContactScreen() {
                 "gap-6 sm:gap-12",
                 animationClasses["intersect-show-up"],
               )}
-              data-intersection-observer-element={true}
+              data-intersection-observer-element
               data-intersection-observer-on-intersect-add={
                 animationClasses.animate
               }
-              data-intersection-observer-unobserve-after-intersect={true}
+              data-intersection-observer-unobserve-after-intersect
             >
               <div className="mb-4 text-center text-3xl font-normal leading-10 text-stone-200 sm:text-4xl">
                 Contact form

@@ -15,9 +15,9 @@ export default function GenericHeroSection(props: Props) {
           "text-lg sm:text-3xl",
           animationClasses["intersect-show-up"],
         )}
-        data-intersection-observer-element={true}
+        data-intersection-observer-element
         data-intersection-observer-on-intersect-add={animationClasses.animate}
-        data-intersection-observer-unobserve-after-intersect={true}
+        data-intersection-observer-unobserve-after-intersect
       >
         <h1
           className={cx(

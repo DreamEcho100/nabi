@@ -10,7 +10,7 @@ import animationClasses from "~/styles/animation.module.css";
 import { type CSSProperties } from "react";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0.1,
+  threshold: 0,
 };
 
 export default function OurStoryScreen() {
@@ -82,11 +82,11 @@ export default function OurStoryScreen() {
           <div className="mx-auto flex flex-col justify-between gap-x-16 text-lg font-medium leading-[2rem] md:flex-row md:gap-y-8">
             <p
               className={cx("md:w-1/2", animationClasses["intersect-show-up"])}
-              data-intersection-observer-element={true}
+              data-intersection-observer-element
               data-intersection-observer-on-intersect-add={
                 animationClasses.animate
               }
-              data-intersection-observer-unobserve-after-intersect={true}
+              data-intersection-observer-unobserve-after-intersect
             >
               Nabi is a luxury brand for babies and toddlers. We only use
               organic Merino wool and fine silk for our products. Merino wool
@@ -103,11 +103,11 @@ export default function OurStoryScreen() {
             <div className="flex flex-col gap-4 md:w-1/2">
               <p
                 className={cx(animationClasses["intersect-show-up"])}
-                data-intersection-observer-element={true}
+                data-intersection-observer-element
                 data-intersection-observer-on-intersect-add={
                   animationClasses.animate
                 }
-                data-intersection-observer-unobserve-after-intersect={true}
+                data-intersection-observer-unobserve-after-intersect
                 style={
                   {
                     // "--duration-multi": "0.5s"
@@ -131,11 +131,11 @@ export default function OurStoryScreen() {
                   "ms-auto h-16 w-16 sm:h-20 sm:w-20",
                   animationClasses["intersect-show-up"],
                 )}
-                data-intersection-observer-element={true}
+                data-intersection-observer-element
                 data-intersection-observer-on-intersect-add={
                   animationClasses.animate
                 }
-                data-intersection-observer-unobserve-after-intersect={true}
+                data-intersection-observer-unobserve-after-intersect
                 style={
                   {
                     // "--duration-multi": "0.5s"

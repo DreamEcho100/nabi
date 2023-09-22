@@ -180,11 +180,11 @@ export default function HomeScreen() {
               "text-lg sm:text-3xl",
               animationClasses["intersect-show-up"],
             )}
-            data-intersection-observer-element={true}
+            data-intersection-observer-element
             data-intersection-observer-on-intersect-add={
               animationClasses.animate
             }
-            data-intersection-observer-unobserve-after-intersect={true}
+            data-intersection-observer-unobserve-after-intersect
           >
             Slow fashion for the fastest growing. Dreamed up and hand designed
             in the <br />
@@ -195,11 +195,11 @@ export default function HomeScreen() {
               "mb-[-0.5rem] h-8 w-[0.0625rem] bg-special-primary-900",
               animationClasses["intersect-show-up"],
             )}
-            data-intersection-observer-element={true}
+            data-intersection-observer-element
             data-intersection-observer-on-intersect-add={
               animationClasses.animate
             }
-            data-intersection-observer-unobserve-after-intersect={true}
+            data-intersection-observer-unobserve-after-intersect
           />
           <p
             className={cx(
@@ -207,11 +207,11 @@ export default function HomeScreen() {
               "text-[0.6875rem] sm:text-sm",
               animationClasses["intersect-show-up"],
             )}
-            data-intersection-observer-element={true}
+            data-intersection-observer-element
             data-intersection-observer-on-intersect-add={
               animationClasses.animate
             }
-            data-intersection-observer-unobserve-after-intersect={true}
+            data-intersection-observer-unobserve-after-intersect
           >
             Scroll to discover <br />
             more about us
@@ -234,11 +234,11 @@ export default function HomeScreen() {
             <div className="w-3/4 sm:w-1/2">
               <CustomNextImage
                 className={cx("w-full", animationClasses["intersect-show-up"])}
-                data-intersection-observer-element={true}
+                data-intersection-observer-element
                 data-intersection-observer-on-intersect-add={
                   animationClasses.animate
                 }
-                data-intersection-observer-unobserve-after-intersect={true}
+                data-intersection-observer-unobserve-after-intersect
                 src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
                 width={400}
                 height={600}
@@ -259,7 +259,7 @@ export default function HomeScreen() {
                   "h-full w-full flex-grow object-cover sm:pl-20",
                   animationClasses["intersect-show-up"],
                 )}
-                data-intersection-observer-element={true}
+                data-intersection-observer-element
                 data-intersection-observer-on-intersect-add={
                   animationClasses.animate
                 }
@@ -278,7 +278,7 @@ export default function HomeScreen() {
                   "h-full w-full flex-grow object-cover",
                   animationClasses["intersect-show-up"],
                 )}
-                data-intersection-observer-element={true}
+                data-intersection-observer-element
                 data-intersection-observer-on-intersect-add={
                   animationClasses.animate
                 }
@@ -298,7 +298,7 @@ export default function HomeScreen() {
                 "flex h-[25rem] object-cover",
                 animationClasses["intersect-show-up"],
               )}
-              data-intersection-observer-element={true}
+              data-intersection-observer-element
               data-intersection-observer-on-intersect-add={
                 animationClasses.animate
               }
@@ -325,7 +325,7 @@ export default function HomeScreen() {
                 "text-sm sm:text-[2.5rem]",
                 animationClasses["intersect-show-up"],
               )}
-              data-intersection-observer-element={true}
+              data-intersection-observer-element
               data-intersection-observer-on-intersect-add={
                 animationClasses.animate
               }
@@ -339,7 +339,7 @@ export default function HomeScreen() {
           <div className={cx("mx-auto w-1/2 pt-10", "sm:hidden")}>
             <CustomNextImage
               className={cx("w-full", animationClasses["intersect-show-up"])}
-              data-intersection-observer-element={true}
+              data-intersection-observer-element
               data-intersection-observer-on-intersect-add={
                 animationClasses.animate
               }
@@ -371,7 +371,7 @@ export default function HomeScreen() {
                     "h-[20rem] w-[12rem] object-cover sm:h-full sm:w-full",
                     "transition-all duration-1000",
                   )}
-                  data-intersection-observer-element={true}
+                  data-intersection-observer-element
                   data-intersection-observer-on-intersect-remove="scale-150"
                   priority
                 />
@@ -416,7 +416,7 @@ export default function HomeScreen() {
                 "text-sm font-semibold leading-7 text-white",
                 animationClasses["intersect-show-up"],
               )}
-              data-intersection-observer-element={true}
+              data-intersection-observer-element
               data-intersection-observer-on-intersect-add={
                 animationClasses.animate
               }
