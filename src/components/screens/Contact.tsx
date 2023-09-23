@@ -33,7 +33,7 @@ const ContactsData = (props: { showOn?: "gt-sm" | "lt-sm" }) => {
     <>
       <p
         className={cx(
-          "font-medium text-gray-800 lg:mt-2",
+          "font-medium text-gray-800 md:mt-2",
           "leading-normal md:leading-relaxed",
           "text-sm md:text-xl",
           extraClassName,
@@ -145,7 +145,7 @@ export default function ContactScreen() {
                 unobserveAfterIntersection: true,
               }}
               className={cx(
-                "flex w-full flex-col bg-special-primary-800 px-8 py-12 md:px-20 md:py-16",
+                "flex w-full flex-col bg-special-primary-800 px-8 py-12 md:px-16 lg:px-16 xl:px-20",
                 "text-sm md:text-xl",
                 "text-white",
                 "gap-6 md:gap-12",
