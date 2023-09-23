@@ -1,5 +1,7 @@
 import { type HTMLAttributes, type FC, useEffect, useRef } from "react";
 import { useIntersectionObserver } from "../utils/hooks";
+import { globalStore } from "~/components/utils/store";
+import { useStore } from "zustand";
 
 export type DataConfig = {
   //
@@ -164,6 +166,10 @@ export const useInitIntersectionElementsIntersectionObserver = (
     intersectionElementsIntersectionObserverCB,
     options,
   );
+  const hasIntroAnimationEnded = useStore(
+    globalStore,
+    (store) => store.hasIntroAnimationEnded,
+  );
 
   const configRef = useRef({
     firstMount: false,
@@ -171,6 +177,7 @@ export const useInitIntersectionElementsIntersectionObserver = (
 
   useEffect(() => {
     if (
+      !hasIntroAnimationEnded ||
       typeof window === "undefined" ||
       !intersectionObserver ||
       !configRef.current.firstMount
@@ -205,7 +212,7 @@ export const useInitIntersectionElementsIntersectionObserver = (
     return () => {
       intersectionObserver?.disconnect();
     };
-  }, [intersectionObserver, selectorOptions]);
+  }, [hasIntroAnimationEnded, intersectionObserver, selectorOptions]);
 
   return intersectionObserver;
 };

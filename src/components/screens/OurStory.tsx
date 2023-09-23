@@ -26,7 +26,7 @@ export default function OurStoryScreen() {
             getSectionInnerContainerClassNames({
               // "max-w": "max-w-[1500npx]",
             }),
-            "flex flex-col gap-8 sm:gap-16",
+            "flex flex-col gap-8 md:gap-16",
             "pb-12 pt-12",
             "px-8 sm:px-16 md:px-20 xl:px-36",
           )}
@@ -50,6 +50,11 @@ export default function OurStoryScreen() {
                   "object-cover flex-grow-[2] w-full sm:w-2/4",
                   animationClasses["intersect-show-up"],
                 ),
+                style: {
+                  // "--duration-multi": "0.5s"
+                  "--transform-delay": "0.05s",
+                  "--opacity-delay": "0.05s",
+                } as CSSProperties,
               },
               {
                 src: "/images/895cda6c8300cb3d38a0b002fea06b76.jpg",
