@@ -107,7 +107,7 @@ export default function ContactScreen() {
         <div
           className={cx(
             getSectionInnerContainerClassNames(),
-            "flex gap-8 lg:gap-16",
+            "flex gap-6 lg:gap-16",
             "flex-col lg:flex-row",
             "pb-12 pt-12",
             "px-8 sm:px-16 md:px-20 xl:px-36",
@@ -119,7 +119,7 @@ export default function ContactScreen() {
               unobserveAfterIntersection: true,
             }}
             className={cx(
-              "flex flex-col gap-8",
+              "flex flex-col gap-6",
               "opacity-0",
               "transition-all duration-700",
             )}
@@ -127,16 +127,17 @@ export default function ContactScreen() {
             <CustomNextImage
               priority
               src="/images/cc15f94a64b56b5e457264ccc18ad9cd.jpg"
-              width={800}
-              height={325}
+              width={750}
+              height={562.5}
               className={cx(
-                "h-[20rem] w-[50rem] object-cover",
+                "h-[12rem] w-[30rem] sm:h-[20rem] sm:w-[50rem]",
+                "aspect-video object-cover",
                 "transition-all duration-700",
               )}
             />
             <ContactsData />
           </IntersectionElement>
-          <div className="flex w-[50rem] max-w-full flex-col gap-4 md:gap-8">
+          <div className="flex w-[50rem] max-w-full flex-col gap-4 md:gap-6">
             <IntersectionElement
               as="form"
               dataConfig={{

@@ -356,8 +356,9 @@ export default function HomeScreen() {
           <div className="flex flex-col items-center justify-center gap-3 text-center sm:gap-4 md:gap-8">
             <p
               className={cx(
-                "text-center font-normal leading-6 text-zinc-800",
-                "text-sm sm:text-xl sm:leading-10",
+                "text-center font-normal text-zinc-800",
+                "text-sm sm:text-xl",
+                "leading-6 sm:leading-10",
               )}
             >
               Merino wool has the ability to create a microclimate around your

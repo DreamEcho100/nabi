@@ -77,7 +77,15 @@ export default function OurStoryScreen() {
               />
             ))}
           </div>
-          <div className="mx-auto flex flex-col justify-between gap-x-16 text-lg font-medium leading-[2rem] md:flex-row md:gap-y-8">
+          <div
+            className={cx(
+              "mx-auto flex flex-col justify-between gap-x-16 text-lg font-medium leading-[2rem] md:flex-row md:gap-y-8",
+              "md:text-align-initial text-center",
+              "font-normal text-zinc-800",
+              "text-sm sm:text-xl",
+              "leading-6 sm:leading-10",
+            )}
+          >
             <IntersectionElement
               as="p"
               dataConfig={{
