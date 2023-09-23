@@ -1,4 +1,4 @@
-import { type HTMLAttributes, type FC, useEffect } from "react";
+import { type HTMLAttributes, type FC, useEffect, useRef } from "react";
 import { useIntersectionObserver } from "../utils/hooks";
 
 export type DataConfig = {
@@ -62,16 +62,14 @@ export const intersectionElementsIntersectionObserverCB: IntersectionObserverCal
           entry.target.classList.remove(
             ...dataset.intersectionObserverOnIntersectionRemove.split(" "),
           );
-
-          if (dataset.intersectionObserverOnIntersectionRemoveAutomatic) {
-            entry.target.classList.remove(
-              ...dataset.intersectionObserverOnIntersectionRemoveAutomatic.split(
-                " ",
-              ),
-            );
-            dataset.intersectionObserverOnIntersectionRemoveAutomatic =
-              undefined;
-          }
+        }
+        if (dataset.intersectionObserverOnIntersectionRemoveAutomatic) {
+          entry.target.classList.remove(
+            ...dataset.intersectionObserverOnIntersectionRemoveAutomatic.split(
+              " ",
+            ),
+          );
+          dataset.intersectionObserverOnIntersectionRemoveAutomatic = undefined;
         }
 
         if (dataset.intersectionObserverOnIntersectionAdd) {
@@ -79,15 +77,14 @@ export const intersectionElementsIntersectionObserverCB: IntersectionObserverCal
           entry.target.classList.add(
             ...dataset.intersectionObserverOnIntersectionAdd.split(" "),
           );
-
-          if (dataset.intersectionObserverOnIntersectionAddAutomatic) {
-            entry.target.classList.add(
-              ...dataset.intersectionObserverOnIntersectionAddAutomatic.split(
-                " ",
-              ),
-            );
-            dataset.intersectionObserverOnIntersectionAddAutomatic = undefined;
-          }
+        }
+        if (dataset.intersectionObserverOnIntersectionAddAutomatic) {
+          entry.target.classList.add(
+            ...dataset.intersectionObserverOnIntersectionAddAutomatic.split(
+              " ",
+            ),
+          );
+          dataset.intersectionObserverOnIntersectionAddAutomatic = undefined;
         }
 
         if (dataset.intersectionObserverUnobserveAfterIntersection) {
@@ -115,15 +112,14 @@ export const intersectionElementsIntersectionObserverCB: IntersectionObserverCal
           entry.target.classList.remove(
             ...dataset.intersectionObserverOnSeparationRemove.split(" "),
           );
-
-          if (dataset.intersectionObserverOnSeparationRemoveAutomatic) {
-            entry.target.classList.remove(
-              ...dataset.intersectionObserverOnSeparationRemoveAutomatic.split(
-                " ",
-              ),
-            );
-            dataset.intersectionObserverOnSeparationRemoveAutomatic = undefined;
-          }
+        }
+        if (dataset.intersectionObserverOnSeparationRemoveAutomatic) {
+          entry.target.classList.remove(
+            ...dataset.intersectionObserverOnSeparationRemoveAutomatic.split(
+              " ",
+            ),
+          );
+          dataset.intersectionObserverOnSeparationRemoveAutomatic = undefined;
         }
 
         if (dataset.intersectionObserverOnSeparationAdd) {
@@ -131,15 +127,12 @@ export const intersectionElementsIntersectionObserverCB: IntersectionObserverCal
           entry.target.classList.add(
             ...dataset.intersectionObserverOnSeparationAdd.split(" "),
           );
-
-          if (dataset.intersectionObserverOnSeparationAddAutomatic) {
-            entry.target.classList.add(
-              ...dataset.intersectionObserverOnSeparationAddAutomatic.split(
-                " ",
-              ),
-            );
-            dataset.intersectionObserverOnSeparationAddAutomatic = undefined;
-          }
+        }
+        if (dataset.intersectionObserverOnSeparationAddAutomatic) {
+          entry.target.classList.add(
+            ...dataset.intersectionObserverOnSeparationAddAutomatic.split(" "),
+          );
+          dataset.intersectionObserverOnSeparationAddAutomatic = undefined;
         }
 
         if (dataset.intersectionObserverUnobserveAfterSeparation) {
@@ -167,13 +160,24 @@ export const useInitIntersectionElementsIntersectionObserver = (
     notHaveSelector?: string;
   },
 ) => {
-  const intersectionObserver = useIntersectionObserver(
+  const [intersectionObserver] = useIntersectionObserver(
     intersectionElementsIntersectionObserverCB,
     options,
   );
 
+  const configRef = useRef({
+    firstMount: false,
+  });
+
   useEffect(() => {
-    if (!intersectionObserver.isClient) return;
+    if (
+      typeof window === "undefined" ||
+      !intersectionObserver ||
+      !configRef.current.firstMount
+    ) {
+      configRef.current.firstMount = true;
+      return;
+    }
 
     const intersectElements: Element[] = [];
 
@@ -195,20 +199,13 @@ export const useInitIntersectionElementsIntersectionObserver = (
 
     let elem: Element;
     for (elem of intersectElements) {
-      intersectionObserver.intersectionObserver.observe(elem);
+      intersectionObserver.observe(elem);
     }
 
     return () => {
-      let elem: Element;
-      for (elem of intersectElements) {
-        intersectionObserver.intersectionObserver.unobserve(elem);
-      }
+      intersectionObserver?.disconnect();
     };
-  }, [
-    intersectionObserver.intersectionObserver,
-    intersectionObserver.isClient,
-    selectorOptions,
-  ]);
+  }, [intersectionObserver, selectorOptions]);
 
   return intersectionObserver;
 };

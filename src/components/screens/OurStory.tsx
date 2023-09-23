@@ -72,7 +72,6 @@ export default function OurStoryScreen() {
               />
             ))}
           </div>
-
           <div className="mx-auto flex flex-col justify-between gap-x-16 text-lg font-medium leading-[2rem] md:flex-row md:gap-y-8">
             <IntersectionElement
               as="p"
