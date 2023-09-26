@@ -80,6 +80,7 @@ export default function CollectionScreen() {
                   "text-sm sm:text-xl",
                   "opacity-0",
                   "transition-all duration-1000",
+                  "aspect-[41/56] max-w-[20rem]",
                 )}
                 style={{
                   transitionDuration: "0.75s",
@@ -93,7 +94,7 @@ export default function CollectionScreen() {
                   height={item.image.height}
                   className={cx(
                     "flex-grow object-cover",
-                    "sm:h-[28rem] md:h-[32rem] lg:h-[36rem]",
+                    "sm:h-[20rem] md:h-[24rem] lg:h-[28rem]",
                   )}
                   priority
                 />
@@ -116,7 +117,7 @@ export default function CollectionScreen() {
                 height={450}
                 className={cx(
                   "aspect-video flex-grow object-cover sm:w-2/5",
-                  "sm:h-[28rem] md:h-[32rem] lg:h-[36rem]",
+                  "sm:h-[20rem] md:h-[24rem] lg:h-[28rem]",
                   "transition-all duration-700",
                 )}
               />
