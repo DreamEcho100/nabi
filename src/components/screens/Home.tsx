@@ -95,7 +95,10 @@ function InstagramImagesSlider() {
         ))}
         <div
           ref={trackWrapperRef}
-          className="absolute inset-0 h-full w-full"
+          className={cx(
+            "media absolute inset-0 h-full w-full",
+            isMobile && "hidden",
+          )}
           onPointerDown={(event) => {
             if (!trackRef.current) return;
 
@@ -330,7 +333,7 @@ export default function HomeScreen() {
         <div
           className={`${getSectionInnerContainerClassNames()} flex flex-col gap-8 px-8 pb-10 pt-4 sm:gap-16`}
         >
-          <div className="mx-auto grid max-w-[1024px] grid-cols-2 gap-4 sm:h-[28rem] md:h-[44rem]">
+          <div className="mx-auto grid max-w-[1024px] grid-cols-2 gap-4 sm:h-[24rem] md:h-[44rem]">
             {[
               { src: "/images/895cda6c8300cb3d38a0b002fea06b76.jpg" },
               { src: "/images/2dda775e04b7ae48e51400ca48accc49.jpg" },
@@ -344,7 +347,7 @@ export default function HomeScreen() {
                   height={800}
                   alt=""
                   className={cx(
-                    "h-[20rem] w-[12rem] object-cover sm:h-full sm:w-full",
+                    "aspect-[9/16] h-[15rem] w-[12rem] object-cover xl-2-sm:h-[18rem] sm:h-full sm:w-full",
                     "scale-150",
                     "transition-all duration-1000",
                   )}

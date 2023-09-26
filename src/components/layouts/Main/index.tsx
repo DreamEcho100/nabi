@@ -27,7 +27,10 @@ function activeCursor(
   } else if (item.classList.contains("explore")) {
     cursorElem.classList.add("explore-active");
     cursorElem.style.mixBlendMode = "difference";
-  } else if (["IMG", "VIDEO"].includes(item.tagName)) {
+  } else if (
+    ["IMG", "VIDEO"].includes(item.tagName) ||
+    item.classList?.contains("media")
+  ) {
     cursorElem.classList.remove("nav-active", "explore-active");
     cursorElem.style.mixBlendMode = "hard-light";
     cursorElem.style.background = "rgb(var(--color-special-primary-700))";
