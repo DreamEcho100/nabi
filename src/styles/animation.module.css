@@ -45,4 +45,8 @@
     transform: translateY(0%);
     opacity: 1;
   }
+  /*  */
+  .intersect-show-up:not(.on-gt-sm, .on-lt-sm) {
+    transform: translateY(50%);
+  }
 }
