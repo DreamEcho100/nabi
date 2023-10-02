@@ -129,13 +129,20 @@ export function NavMenuOnLtLg() {
     <div
       className={cx(
         "fixed inset-0 z-10 bg-special-primary-400",
-        "transition-all ease-in",
-        isHeaderNavOnLtMdOpen ? "duration-700" : "duration-500",
+        isHeaderNavOnLtMdOpen
+          ? "opacity-1"
+          : "pointer-events-none select-none opacity-0",
       )}
       style={{
         clipPath: `circle(${
           isHeaderNavOnLtMdOpen ? "200.0%" : "0.0%"
         } at 100% 0)`,
+        opacity: isHeaderNavOnLtMdOpen ? "1" : "0",
+        transition: `clip-path ${
+          isHeaderNavOnLtMdOpen ? "0.7s" : "0.5s"
+        } cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1) ${
+          isHeaderNavOnLtMdOpen ? "0s" : "0.5s"
+        }`,
       }}
     >
       <div
