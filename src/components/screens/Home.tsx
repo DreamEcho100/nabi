@@ -227,7 +227,7 @@ export default function HomeScreen() {
                 as={CustomNextImage}
                 dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
                 className={cx("w-full", animationClasses["intersect-show-up"])}
-                src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
+                src="/images/WhatsApp Image 2023-10-24 at 12.15.00_d01b03f9.jpg"
                 width={400}
                 height={600}
                 alt=""
@@ -320,7 +320,7 @@ export default function HomeScreen() {
               as={CustomNextImage}
               dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
               className={cx("w-full", animationClasses["intersect-show-up"])}
-              src="/images/c0c5b84f937a87be25263de9c2689dce.jpg"
+              src="/images/WhatsApp Image 2023-10-24 at 12.15.00_d01b03f9.jpg"
               width={400}
               height={600}
               alt=""
