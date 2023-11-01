@@ -1,0 +1,15 @@
+.slider > .container {
+  transform: translate3d(0, 0, 0);
+  animation: sliderAnimation var(--repeatAnimationDurationOnGtSm) infinite;
+}
+@media screen and (max-width: 640px) {
+  .slider > .container {
+    transform: translate3d(0, 0, 0);
+    animation: sliderAnimation var(--repeatAnimationDurationOnLtSm) infinite;
+  }
+}
+@keyframes sliderAnimation {
+  100% {
+    transform: translateX(-100%);
+  }
+}

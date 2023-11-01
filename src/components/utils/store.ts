@@ -17,7 +17,7 @@ type GlobalStore = {
   };
 };
 
-export const globalStore = createStore<GlobalStore>((set, get) => ({
+export const globalStore = createStore<GlobalStore>((set) => ({
   menus: { headerNavOnLtLg: { isOpen: false } },
   hasIntroAnimationEnded: false,
   utils: {

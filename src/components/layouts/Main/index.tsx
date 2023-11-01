@@ -1,102 +1,27 @@
-import {
-  type PropsWithChildren,
-  type PointerEvent,
-  useRef,
-  useState,
-  useEffect,
-  useCallback,
-} from "react";
-import MainHeader, { NavMenuOnLtLg } from "./components/MainHeader";
-import MainFooter from "./components/MainFooter";
+"use client";
+import { type PropsWithChildren } from "react";
+import MainHeader, { NavMenuOnLtLg } from "./Header";
+import MainFooter from "./Footer";
 import { cx } from "class-variance-authority";
-import CustomNextImage from "~/components/shared/common/CustomNextImage";
-import { MontFont } from "~/utils/core/fonts";
 import { globalStore } from "~/components/utils/store";
-
-function activeCursor(
-  event: PointerEvent<HTMLDivElement>,
-  cursorElem: HTMLDivElement,
-) {
-  event.stopPropagation();
-
-  const item = event.target as Element;
-
-  if (item.classList?.contains("logo") || item.classList?.contains("burger")) {
-    cursorElem.classList.add("nav-active");
-    cursorElem.style.mixBlendMode = "difference";
-  } else if (item.classList.contains("explore")) {
-    cursorElem.classList.add("explore-active");
-    cursorElem.style.mixBlendMode = "difference";
-  } else if (
-    ["IMG", "VIDEO"].includes(item.tagName) ||
-    item.classList?.contains("media")
-  ) {
-    cursorElem.classList.remove("nav-active", "explore-active");
-    cursorElem.style.mixBlendMode = "hard-light";
-    cursorElem.style.background = "rgb(var(--color-special-primary-700))";
-  } else {
-    cursorElem.classList.remove("nav-active", "explore-active");
-    cursorElem.style.mixBlendMode = "difference";
-    cursorElem.style.background = "white";
-  }
-}
-function cursor(
-  event: PointerEvent<HTMLDivElement>,
-  cursorElem: HTMLDivElement,
-) {
-  event.stopPropagation();
-
-  cursorElem.style.top = `${event.pageY}px`;
-  cursorElem.style.left = `${event.pageX}px`;
-}
+import useCursor from "~/components/utils/hooks/useCursor";
+import CustomNextImage from "~/components/common/CustomNextImage";
 
 const MainLayout = (props: PropsWithChildren) => {
-  const cursorElemRef = useRef<HTMLDivElement>(null);
-  const appContainerElemRef = useRef<HTMLDivElement>(null);
-
-  const resizeObserverCallback: ResizeObserverCallback = useCallback(
-    (entries: ResizeObserverEntry[]) => {
-      for (const entry of entries) {
-        if (entry.target.id === "app-container" && cursorElemRef.current) {
-          cursorElemRef.current.style.top = "0px";
-          cursorElemRef.current.style.left = "0px";
-        }
-      }
-      return;
-    },
-    [],
-  );
-
-  const [resizeObserver, setResizeObserver] = useState(
-    typeof window === "undefined"
-      ? undefined
-      : new ResizeObserver(resizeObserverCallback),
-  );
-  useEffect(() => {
-    if (typeof window !== "undefined" && !resizeObserver)
-      setResizeObserver(new ResizeObserver(resizeObserverCallback));
-
-    if (appContainerElemRef.current)
-      resizeObserver?.observe(appContainerElemRef.current);
-
-    return () => {
-      resizeObserver?.disconnect();
-    };
-  }, [resizeObserver, resizeObserverCallback]);
+  const { containerElemRef, containerProps, defaultCursorElement } = useCursor<
+    HTMLDivElement,
+    HTMLDivElement
+  >();
 
   return (
     <div
-      ref={appContainerElemRef}
-      id="app-container"
+      ref={containerElemRef}
       className={cx(
         "main-wrapper",
         "flex flex-col font-mont",
         "cursor-none overflow-x-hidden",
-        "light", // bg-bg-primary-500 text-text-primary-500',
-        MontFont.className,
       )}
-      onPointerMove={(event) => cursor(event, cursorElemRef.current!)}
-      onPointerOver={(event) => activeCursor(event, cursorElemRef.current!)}
+      {...containerProps}
     >
       <div
         className="intro-animation fixed inset-0 z-[999] flex items-center justify-center bg-special-primary-400"
@@ -155,9 +80,7 @@ const MainLayout = (props: PropsWithChildren) => {
         {props.children}
       </main>
       <MainFooter />
-      <div id="cursor" ref={cursorElemRef}>
-        <span className="cursor-txt"></span>
-      </div>
+      {defaultCursorElement}
       <NavMenuOnLtLg />
     </div>
   );
