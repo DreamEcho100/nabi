@@ -1,7 +1,6 @@
 import { cx } from "class-variance-authority";
 import CustomNextImage from "~/components/common/CustomNextImage";
 import GenericHeroSection from "~/components/core/GenericHeroSection";
-import GenericAboveFooterSliderSection from "~/components/core/GenericAboveFooterSliderSection";
 
 import animationClasses from "~/app/styles/animation.module.css";
 import { type CSSProperties } from "react";
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0,
+  threshold: 0.1,
 };
 
 export default function OurStoryScreen() {
@@ -93,43 +92,31 @@ export default function OurStoryScreen() {
             )}
           >
             <IntersectionElement
-              as="p"
-              dataConfig={{
-                onIntersectAdd: animationClasses.animate!,
-                unobserveAfterIntersect: true,
-              }}
-              className={cx(
-                "md:w-1/2",
-                animationClasses.intersectShowUp,
-                animationClasses["on-gt-sm"],
-              )}
+              dataConfig={{ unobserveAfterIntersect: true }}
+              className="md:w-1/2"
             >
-              Nabi is a luxury brand for babies and toddlers. We only use
-              organic Merino wool and fine silk for our products. Merino wool
-              has the ability to create a microclimate around your baby. Meaning
-              it will regulate body temperature, keeping your baby &apos;warm
-              when it&apos;s cold and cool when it&apos;s hot&apos;. In cooler
-              temperatures it will trap warm air in to provide warmth. Silk has
-              an incredibly soft, smooth, and light texture that feels wonderful
-              against your baby&apos;s skin. It is also naturally
-              hypoallergenic. Together, silk and Merino wool are just a dream.
-              Like a little sheep with butterfly wings.
+              <p className="parent-intersect-show-up">
+                Nabi is a luxury brand for babies and toddlers. We only use
+                organic Merino wool and fine silk for our products. Merino wool
+                has the ability to create a microclimate around your baby.
+                Meaning it will regulate body temperature, keeping your baby
+                &apos;warm when it&apos;s cold and cool when it&apos;s
+                hot&apos;. In cooler temperatures it will trap warm air in to
+                provide warmth. Silk has an incredibly soft, smooth, and light
+                texture that feels wonderful against your baby&apos;s skin. It
+                is also naturally hypoallergenic. Together, silk and Merino wool
+                are just a dream. Like a little sheep with butterfly wings.
+              </p>
             </IntersectionElement>
 
-            <div className="flex flex-col gap-4 md:w-1/2">
-              <IntersectionElement
-                as="p"
-                dataConfig={{
-                  onIntersectAdd: animationClasses.animate!,
-                  unobserveAfterIntersect: true,
-                }}
-                className={cx(
-                  animationClasses.intersectShowUp,
-                  animationClasses["on-gt-sm"],
-                )}
+            <IntersectionElement
+              dataConfig={{ unobserveAfterIntersect: true }}
+              className="flex flex-col gap-4 md:w-1/2"
+            >
+              <p
+                className="parent-intersect-show-up"
                 style={
                   {
-                    // "--duration-multi": "0.5s"
                     "--transform-duration": "1.5s",
                     "--opacity-duration": "0.85s",
                   } as CSSProperties
@@ -141,7 +128,7 @@ export default function OurStoryScreen() {
                 stages. The certification guarantees that our products are made
                 by people that receive fair treatment and no hazardous chemicals
                 have been used throughout the entire production process.
-              </IntersectionElement>
+              </p>
               <IntersectionElement
                 as={CustomNextImage}
                 dataConfig={{
@@ -163,11 +150,10 @@ export default function OurStoryScreen() {
                   } as CSSProperties
                 }
               />
-            </div>
+            </IntersectionElement>
           </div>
         </div>
       </section>
-      <GenericAboveFooterSliderSection />
     </>
   );
 }

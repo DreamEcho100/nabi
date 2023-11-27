@@ -1,7 +1,6 @@
 import { cx } from "class-variance-authority";
 import CustomNextImage from "~/components/common/CustomNextImage";
 import GenericHeroSection from "~/components/core/GenericHeroSection";
-import GenericAboveFooterSliderSection from "~/components/core/GenericAboveFooterSliderSection";
 
 import animationClasses from "~/app/styles/animation.module.css";
 import IntersectionElement, {
@@ -33,7 +32,7 @@ function AboutProductButton(props: { className?: string }) {
 }
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0,
+  threshold: 0.1,
 };
 
 export default function CollectionScreen() {
@@ -182,7 +181,6 @@ export default function CollectionScreen() {
           </div>
         </div>
       </section>
-      <GenericAboveFooterSliderSection />
     </>
   );
 }

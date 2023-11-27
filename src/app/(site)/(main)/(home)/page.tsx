@@ -11,7 +11,7 @@ import CustomNextImage from "~/components/common/CustomNextImage";
 import InstagramImagesSlider from "./_components/InstagramImagesSlider";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0,
+  threshold: 0.1,
 };
 
 export default function HomeScreen() {
@@ -35,12 +35,13 @@ export default function HomeScreen() {
             key={item.src}
             className={item.className}
             autoPlay
-            muted
             loop
+            muted
+            playsInline
+            preload="auto"
             poster="/images/3eda340496860c533c866c4a3619cc26.jpg"
             width={500}
             height={800}
-            playsInline
             src={item.src}
             // type="video/mp4"
           />

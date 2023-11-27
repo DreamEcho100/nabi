@@ -1,5 +1,4 @@
 import GenericHeroSection from "~/components/core/GenericHeroSection";
-import GenericAboveFooterSliderSection from "~/components/core/GenericAboveFooterSliderSection";
 
 import QAsSection, { type TQAsList } from "~/components/core/QAsSection";
 import { UseInitIntersectionElementsIntersectionObserver } from "~/components/core/IntersectionElement";
@@ -25,7 +24,7 @@ const returnsPolicyQAs: TQAsList = [
 ];
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0,
+  threshold: 0.1,
 };
 
 export default function ReturnsPolicyScreen() {
@@ -36,7 +35,6 @@ export default function ReturnsPolicyScreen() {
       />
       <GenericHeroSection headerText="return policy" />
       <QAsSection QAsList={returnsPolicyQAs} />
-      <GenericAboveFooterSliderSection />
     </>
   );
 }

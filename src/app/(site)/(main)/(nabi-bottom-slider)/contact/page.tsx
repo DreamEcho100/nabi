@@ -1,6 +1,5 @@
 import { cx } from "class-variance-authority";
 import CustomNextImage from "~/components/common/CustomNextImage";
-import GenericAboveFooterSliderSection from "~/components/core/GenericAboveFooterSliderSection";
 
 import animationClasses from "~/app/styles/animation.module.css";
 import IntersectionElement, {
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0,
+  threshold: 0.1,
 };
 
 const formFields: {
@@ -144,55 +143,52 @@ export default function ContactScreen() {
             <ContactsData />
           </IntersectionElement>
           <div className="flex w-[50rem] max-w-full flex-col gap-4 md:gap-6">
-            <IntersectionElement
-              as="form"
-              dataConfig={{
-                onIntersectAdd: animationClasses.animate!,
-                unobserveAfterIntersect: true,
-              }}
-              className={cx(
-                "flex w-full flex-col bg-special-primary-800 px-8 py-12 md:px-16 lg:px-16 xl:px-20",
-                "text-sm md:text-xl",
-                "text-white",
-                "gap-6 md:gap-12",
-                animationClasses.intersectShowUp,
-                animationClasses["on-gt-sm"],
-              )}
-            >
-              <div className="mb-4 text-center text-3xl font-normal leading-10 text-stone-200 md:text-4xl">
-                Contact form
-              </div>
-              {formFields.map((formField) =>
-                formField.type === "textarea" ? (
-                  <textarea
-                    key={formField.name}
-                    {...formField}
-                    className={cx(
-                      "w-full border border-stone-300 bg-transparent text-base font-medium",
-                      "p-3 md:p-6",
-                      "placeholder:text-sm placeholder:text-white placeholder:md:text-xl",
-                    )}
-                    cols={30}
-                    rows={3}
-                  />
-                ) : (
-                  <input
-                    key={formField.name}
-                    {...formField}
-                    className={cx(
-                      "w-full border border-stone-300 bg-transparent text-base font-medium",
-                      "p-3 md:p-6",
-                      "placeholder:text-sm placeholder:text-white placeholder:md:text-xl",
-                    )}
-                  />
-                ),
-              )}
-              <button
-                type="submit"
-                className="h-10 w-full border border-white px-4 py-3 text-center text-sm font-semibold uppercase leading-none text-white md:w-36"
+            <IntersectionElement dataConfig={{ unobserveAfterIntersect: true }}>
+              <form
+                className={cx(
+                  "parent-intersect-show-up flex w-full flex-col bg-special-primary-800 px-8 py-12 md:px-16 lg:px-16 xl:px-20",
+                  "text-sm md:text-xl",
+                  "text-white",
+                  "gap-6 md:gap-12",
+                  animationClasses.intersectShowUp,
+                  animationClasses["on-gt-sm"],
+                )}
               >
-                send
-              </button>
+                <div className="mb-4 text-center text-3xl font-normal leading-10 text-stone-200 md:text-4xl">
+                  Contact form
+                </div>
+                {formFields.map((formField) =>
+                  formField.type === "textarea" ? (
+                    <textarea
+                      key={formField.name}
+                      {...formField}
+                      className={cx(
+                        "w-full border border-stone-300 bg-transparent text-base font-medium",
+                        "p-3 md:p-6",
+                        "placeholder:text-sm placeholder:text-white placeholder:md:text-xl",
+                      )}
+                      cols={30}
+                      rows={3}
+                    />
+                  ) : (
+                    <input
+                      key={formField.name}
+                      {...formField}
+                      className={cx(
+                        "w-full border border-stone-300 bg-transparent text-base font-medium",
+                        "p-3 md:p-6",
+                        "placeholder:text-sm placeholder:text-white placeholder:md:text-xl",
+                      )}
+                    />
+                  ),
+                )}
+                <button
+                  type="submit"
+                  className="h-10 w-full border border-white px-4 py-3 text-center text-sm font-semibold uppercase leading-none text-white md:w-36"
+                >
+                  send
+                </button>
+              </form>
             </IntersectionElement>
             <div className="mt-1.5 flex flex-col gap-4">
               <ContactsData showOn="lt-sm" />
@@ -200,7 +196,6 @@ export default function ContactScreen() {
           </div>
         </div>
       </section>
-      <GenericAboveFooterSliderSection />
     </>
   );
 }
