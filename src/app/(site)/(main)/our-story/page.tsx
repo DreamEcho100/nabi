@@ -45,7 +45,7 @@ export default function OurStoryScreen() {
                 height: 600,
                 className: cx(
                   "object-cover flex-grow-[1] w-full sm:w-1/4 hidden sm:block",
-                  animationClasses["intersect-show-up"],
+                  animationClasses.intersectShowUp,
                 ),
               },
               {
@@ -54,7 +54,7 @@ export default function OurStoryScreen() {
                 height: 600,
                 className: cx(
                   "object-cover flex-grow-[2] w-full sm:w-2/4",
-                  animationClasses["intersect-show-up"],
+                  animationClasses.intersectShowUp,
                 ),
                 style: {
                   // "--duration-multi": "0.5s"
@@ -68,15 +68,15 @@ export default function OurStoryScreen() {
                 height: 600,
                 className: cx(
                   "object-cover flex-grow-[1] w-full sm:w-1/4 hidden sm:block",
-                  animationClasses["intersect-show-up"],
+                  animationClasses.intersectShowUp,
                 ),
               },
             ].map((item) => (
               <IntersectionElement
                 as={CustomNextImage}
                 dataConfig={{
-                  onIntersectionAdd: animationClasses.animate!,
-                  unobserveAfterIntersection: true,
+                  onIntersectAdd: animationClasses.animate!,
+                  unobserveAfterIntersect: true,
                 }}
                 key={item.src}
                 {...item}
@@ -95,12 +95,12 @@ export default function OurStoryScreen() {
             <IntersectionElement
               as="p"
               dataConfig={{
-                onIntersectionAdd: animationClasses.animate!,
-                unobserveAfterIntersection: true,
+                onIntersectAdd: animationClasses.animate!,
+                unobserveAfterIntersect: true,
               }}
               className={cx(
                 "md:w-1/2",
-                animationClasses["intersect-show-up"],
+                animationClasses.intersectShowUp,
                 animationClasses["on-gt-sm"],
               )}
             >
@@ -120,11 +120,11 @@ export default function OurStoryScreen() {
               <IntersectionElement
                 as="p"
                 dataConfig={{
-                  onIntersectionAdd: animationClasses.animate!,
-                  unobserveAfterIntersection: true,
+                  onIntersectAdd: animationClasses.animate!,
+                  unobserveAfterIntersect: true,
                 }}
                 className={cx(
-                  animationClasses["intersect-show-up"],
+                  animationClasses.intersectShowUp,
                   animationClasses["on-gt-sm"],
                 )}
                 style={
@@ -145,15 +145,15 @@ export default function OurStoryScreen() {
               <IntersectionElement
                 as={CustomNextImage}
                 dataConfig={{
-                  onIntersectionAdd: animationClasses.animate!,
-                  unobserveAfterIntersection: true,
+                  onIntersectAdd: animationClasses.animate!,
+                  unobserveAfterIntersect: true,
                 }}
                 src="/images/logo-e3f669f8.webp"
                 width={250}
                 height={250}
                 className={cx(
                   "ms-auto h-16 w-16 sm:h-20 sm:w-20",
-                  animationClasses["intersect-show-up"],
+                  animationClasses.intersectShowUp,
                 )}
                 style={
                   {

@@ -53,11 +53,11 @@ const ContactsData = (props: { showOn?: "gt-sm" | "lt-sm" }) => {
           <IntersectionElement
             as="span"
             dataConfig={{
-              onIntersectionAdd: animationClasses.animate!,
-              unobserveAfterIntersection: true,
+              onIntersectAdd: animationClasses.animate!,
+              unobserveAfterIntersect: true,
             }}
             key={itemIndex}
-            className={cx("block", animationClasses["intersect-show-up"])}
+            className={cx("block", animationClasses.intersectShowUp)}
           >
             {item.children}
           </IntersectionElement>
@@ -74,26 +74,26 @@ const ContactsData = (props: { showOn?: "gt-sm" | "lt-sm" }) => {
         <IntersectionElement
           as="a"
           dataConfig={{
-            onIntersectionAdd: animationClasses.animate!,
-            unobserveAfterIntersection: true,
+            onIntersectAdd: animationClasses.animate!,
+            unobserveAfterIntersect: true,
           }}
           href="tel:+35799829358"
           target="_blank"
           rel="noopener noreferrer"
-          className={cx("block", animationClasses["intersect-show-up"])}
+          className={cx("block", animationClasses.intersectShowUp)}
         >
           Tel.: +357 99829358
         </IntersectionElement>
         <IntersectionElement
           as="a"
           dataConfig={{
-            onIntersectionAdd: animationClasses.animate!,
-            unobserveAfterIntersection: true,
+            onIntersectAdd: animationClasses.animate!,
+            unobserveAfterIntersect: true,
           }}
           href="mailto:info@nabi.com"
           target="_blank"
           rel="noopener noreferrer"
-          className={cx("block", animationClasses["intersect-show-up"])}
+          className={cx("block", animationClasses.intersectShowUp)}
         >
           info@nabi.com
         </IntersectionElement>
@@ -121,8 +121,8 @@ export default function ContactScreen() {
         >
           <IntersectionElement
             dataConfig={{
-              onIntersectionRemove: "opacity-0",
-              unobserveAfterIntersection: true,
+              onIntersectRemove: "opacity-0",
+              unobserveAfterIntersect: true,
             }}
             className={cx(
               "flex flex-col gap-6",
@@ -147,15 +147,15 @@ export default function ContactScreen() {
             <IntersectionElement
               as="form"
               dataConfig={{
-                onIntersectionAdd: animationClasses.animate!,
-                unobserveAfterIntersection: true,
+                onIntersectAdd: animationClasses.animate!,
+                unobserveAfterIntersect: true,
               }}
               className={cx(
                 "flex w-full flex-col bg-special-primary-800 px-8 py-12 md:px-16 lg:px-16 xl:px-20",
                 "text-sm md:text-xl",
                 "text-white",
                 "gap-6 md:gap-12",
-                animationClasses["intersect-show-up"],
+                animationClasses.intersectShowUp,
                 animationClasses["on-gt-sm"],
               )}
             >

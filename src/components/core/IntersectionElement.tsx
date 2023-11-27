@@ -1,5 +1,6 @@
 "use client";
-import { type HTMLAttributes, type FC, useEffect, useRef } from "react";
+import type { HTMLAttributes, FC } from "react";
+import { useEffect, useRef } from "react";
 import { globalStore } from "~/components/utils/store";
 import { useStore } from "zustand";
 import { useState } from "react";
@@ -25,43 +26,47 @@ export function useIntersectionObserver(
 }
 
 export type DataConfig = {
+  state?: "intersct" | "seperate";
   //
-  onIntersectionAdd?: string;
-  onIntersectionRemove?: string;
-  unobserveAfterIntersection?: boolean;
+  onIntersectAdd?: string;
+  onIntersectRemove?: string;
+  unobserveAfterIntersect?: boolean;
   //
-  onSeparationAdd?: string;
-  onSeparationRemove?: string;
-  unobserveAfterSeparation?: boolean;
+  onSeparateAdd?: string;
+  onSeparateRemove?: string;
+  unobserveAfterSeparate?: boolean;
   //
+  intersectCounter?: string | number;
+  separateCounter?: string | number;
 };
 type ExtraDataConfig = {
   //
-  onIntersectionAddAutomatic?: string;
-  onIntersectionRemoveAutomatic?: string;
+  onIntersectAddAutomatic?: string;
+  onIntersectRemoveAutomatic?: string;
   //
-  onSeparationAddAutomatic?: string;
-  onSeparationRemoveAutomatic?: string;
+  onSeparateAddAutomatic?: string;
+  onSeparateRemoveAutomatic?: string;
   //
 };
 type IntersectionObserverConfig2Dataset = {
   [Key in NonNullable<
     keyof DataConfig | keyof ExtraDataConfig
-  >]: `intersectionObserver${Capitalize<Key>}`;
+  >]: `xio${Capitalize<Key>}`;
 };
 
 const dataMap = {
+  state: "xio-state",
   //
-  onIntersectionAdd: "data-intersection-observer-on-intersection-add",
-  onIntersectionRemove: "data-intersection-observer-on-intersection-remove",
-  unobserveAfterIntersection:
-    "data-intersection-observer-unobserve-after-intersection",
+  onIntersectAdd: "xio-on-intersect-add",
+  onIntersectRemove: "xio-on-intersect-remove",
+  unobserveAfterIntersect: "xio-unobserve-after-intersect",
   //
-  onSeparationAdd: "data-intersection-observer-on-separation-add",
-  onSeparationRemove: "data-intersection-observer-on-separation-remove",
-  unobserveAfterSeparation:
-    "data-intersection-observer-unobserve-after-separation",
+  onSeparateAdd: "xio-on-separate-add",
+  onSeparateRemove: "xio-on-separate-remove",
+  unobserveAfterSeparate: "xio-unobserve-after-separate",
   //
+  intersectCounter: "xio-intersect-counter",
+  separateCounter: "xio-separate-counter",
 } as const;
 
 export const intersectionElementsIntersectionObserverCB: IntersectionObserverCallback =
@@ -75,101 +80,101 @@ export const intersectionElementsIntersectionObserverCB: IntersectionObserverCal
       };
 
       if (entry.isIntersecting) {
+        dataset.xioState = "intersect";
+        dataset.xioIntersectCounter = `${
+          (dataset.xioIntersectCounter
+            ? Number.parseInt(dataset.xioIntersectCounter)
+            : 0) + 1
+        }`;
+
         const config = {
           removed: "",
           added: "",
         };
 
-        if (dataset.intersectionObserverOnIntersectionRemove) {
-          config.removed = dataset.intersectionObserverOnIntersectionRemove;
+        if (dataset.xioOnIntersectRemove) {
+          config.removed = dataset.xioOnIntersectRemove;
           entry.target.classList.remove(
-            ...dataset.intersectionObserverOnIntersectionRemove.split(" "),
+            ...dataset.xioOnIntersectRemove.split(" "),
           );
         }
-        if (dataset.intersectionObserverOnIntersectionRemoveAutomatic) {
+        if (dataset.xioOnIntersectRemoveAutomatic) {
           entry.target.classList.remove(
-            ...dataset.intersectionObserverOnIntersectionRemoveAutomatic.split(
-              " ",
-            ),
+            ...dataset.xioOnIntersectRemoveAutomatic.split(" "),
           );
-          dataset.intersectionObserverOnIntersectionRemoveAutomatic = undefined;
+          dataset.xioOnIntersectRemoveAutomatic = undefined;
         }
 
-        if (dataset.intersectionObserverOnIntersectionAdd) {
-          config.added = dataset.intersectionObserverOnIntersectionAdd;
-          entry.target.classList.add(
-            ...dataset.intersectionObserverOnIntersectionAdd.split(" "),
-          );
+        if (dataset.xioOnIntersectAdd) {
+          config.added = dataset.xioOnIntersectAdd;
+          entry.target.classList.add(...dataset.xioOnIntersectAdd.split(" "));
         }
-        if (dataset.intersectionObserverOnIntersectionAddAutomatic) {
+        if (dataset.xioOnIntersectAddAutomatic) {
           entry.target.classList.add(
-            ...dataset.intersectionObserverOnIntersectionAddAutomatic.split(
-              " ",
-            ),
+            ...dataset.xioOnIntersectAddAutomatic.split(" "),
           );
-          dataset.intersectionObserverOnIntersectionAddAutomatic = undefined;
+          dataset.xioOnIntersectAddAutomatic = undefined;
         }
 
-        if (dataset.intersectionObserverUnobserveAfterIntersection) {
+        if (dataset.xioUnobserveAfterIntersect) {
           observer.unobserve(entry.target);
           continue;
         } else {
           if (config.added) {
-            dataset.intersectionObserverOnSeparationRemoveAutomatic =
-              config.added;
+            dataset.xioOnSeparateRemoveAutomatic = config.added;
           }
 
           if (config.removed) {
-            dataset.intersectionObserverOnSeparationAddAutomatic =
-              config.removed;
+            dataset.xioOnSeparateAddAutomatic = config.removed;
           }
         }
       } else {
+        dataset.xioState = "seperate";
+        dataset.xioSeparateCounter = `${
+          (dataset.xioSeparateCounter
+            ? Number.parseInt(dataset.xioSeparateCounter)
+            : 0) + 1
+        }`;
+
         const config = {
           removed: "",
           added: "",
         };
 
-        if (dataset.intersectionObserverOnSeparationRemove) {
-          config.removed = dataset.intersectionObserverOnSeparationRemove;
+        if (dataset.xioOnSeparateRemove) {
+          config.removed = dataset.xioOnSeparateRemove;
           entry.target.classList.remove(
-            ...dataset.intersectionObserverOnSeparationRemove.split(" "),
+            ...dataset.xioOnSeparateRemove.split(" "),
           );
         }
-        if (dataset.intersectionObserverOnSeparationRemoveAutomatic) {
+        if (dataset.xioOnSeparateRemoveAutomatic) {
           entry.target.classList.remove(
-            ...dataset.intersectionObserverOnSeparationRemoveAutomatic.split(
-              " ",
-            ),
+            ...dataset.xioOnSeparateRemoveAutomatic.split(" "),
           );
-          dataset.intersectionObserverOnSeparationRemoveAutomatic = undefined;
+          dataset.xioOnSeparateRemoveAutomatic = undefined;
         }
 
-        if (dataset.intersectionObserverOnSeparationAdd) {
-          config.added = dataset.intersectionObserverOnSeparationAdd;
-          entry.target.classList.add(
-            ...dataset.intersectionObserverOnSeparationAdd.split(" "),
-          );
+        if (dataset.xioOnSeparateAdd) {
+          config.added = dataset.xioOnSeparateAdd;
+          entry.target.classList.add(...dataset.xioOnSeparateAdd.split(" "));
         }
-        if (dataset.intersectionObserverOnSeparationAddAutomatic) {
+        if (dataset.xioOnSeparateAddAutomatic) {
           entry.target.classList.add(
-            ...dataset.intersectionObserverOnSeparationAddAutomatic.split(" "),
+            ...dataset.xioOnSeparateAddAutomatic.split(" "),
           );
-          dataset.intersectionObserverOnSeparationAddAutomatic = undefined;
+          dataset.xioOnSeparateAddAutomatic = undefined;
         }
 
-        if (dataset.intersectionObserverUnobserveAfterSeparation) {
+        if (dataset.xioUnobserveAfterSeparate) {
           observer.unobserve(entry.target);
           continue;
         } else {
           if (config.added) {
-            dataset.intersectionObserverOnIntersectionRemoveAutomatic =
-              config.added;
+            dataset.xioOnIntersectRemoveAutomatic = config.added;
           }
 
           if (config.removed) {
-            dataset.intersectionObserverOnIntersectionAddAutomatic =
-              config.removed;
+            dataset.xioOnIntersectAddAutomatic = config.removed;
           }
         }
       }
@@ -183,7 +188,7 @@ export const useInitIntersectionElementsIntersectionObserver = (
     notHaveSelector?: string;
   },
 ) => {
-  const [intersectionObserver] = useIntersectionObserver(
+  const [xio] = useIntersectionObserver(
     intersectionElementsIntersectionObserverCB,
     options,
   );
@@ -200,7 +205,7 @@ export const useInitIntersectionElementsIntersectionObserver = (
     if (
       !hasIntroAnimationEnded ||
       typeof window === "undefined" ||
-      !intersectionObserver ||
+      !xio ||
       !configRef.current.firstMount
     ) {
       configRef.current.firstMount = true;
@@ -211,9 +216,7 @@ export const useInitIntersectionElementsIntersectionObserver = (
 
     document
       .querySelectorAll(
-        `[data-intersection-observer-element="true"]${
-          selectorOptions?.haveSelector ?? ""
-        }`,
+        `[data-xio-element="true"]${selectorOptions?.haveSelector ?? ""}`,
       )
       .forEach((elem) => {
         if (
@@ -227,15 +230,15 @@ export const useInitIntersectionElementsIntersectionObserver = (
 
     let elem: Element;
     for (elem of intersectElements) {
-      intersectionObserver.observe(elem);
+      xio.observe(elem);
     }
 
     return () => {
-      intersectionObserver?.disconnect();
+      xio?.disconnect();
     };
-  }, [hasIntroAnimationEnded, intersectionObserver, selectorOptions]);
+  }, [hasIntroAnimationEnded, xio, selectorOptions]);
 
-  return intersectionObserver;
+  return xio;
 };
 
 type Props<
@@ -247,22 +250,25 @@ type Props<
     : Omit<HTMLAttributes<HTMLElementTagNameMap["div"]>, "as" | "dataConfig">,
 > = ElementProps & {
   as?: keyof HTMLElementTagNameMap | FC<ElementProps>;
-  dataConfig: DataConfig;
+  dataConfig?: DataConfig;
 };
 
 function createFromDataConfig(params: DataConfig) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data: Record<string, any> = {
-    "data-intersection-observer-element": true,
+    "data-xio-element": true,
   };
 
   let key: keyof DataConfig;
   for (key in params) {
-    if (typeof params[key] !== "undefined") data[dataMap[key]] = params[key]!;
+    if (typeof params[key] !== "undefined")
+      data[`data-${dataMap[key]}`] = params[key]!;
   }
 
   return data;
 }
+
+const baseDataConfig = {};
 
 export default function IntersectionElement<
   As extends keyof HTMLElementTagNameMap | FC,
@@ -272,7 +278,7 @@ export default function IntersectionElement<
     ? Omit<HTMLAttributes<HTMLElementTagNameMap[As]>, "as" | "dataConfig">
     : never,
 >(props: Props<As, ElementProps>) {
-  const { as, dataConfig, ..._props } = props;
+  const { as, dataConfig = baseDataConfig, ..._props } = props;
 
   const Element = typeof as === "undefined" ? "div" : as;
 

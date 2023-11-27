@@ -18,8 +18,8 @@ function AboutProductButton(props: { className?: string }) {
   return (
     <IntersectionElement
       dataConfig={{
-        onIntersectionAdd: animationClasses.animate!,
-        unobserveAfterIntersection: true,
+        onIntersectAdd: animationClasses.animate!,
+        unobserveAfterIntersect: true,
       }}
       className={cx(
         "bg-stone-500 font-semibold uppercase leading-none tracking-wide text-white",
@@ -77,8 +77,8 @@ export default function CollectionScreen() {
             ].map((item, index) => (
               <IntersectionElement
                 dataConfig={{
-                  onIntersectionRemove: "opacity-0",
-                  unobserveAfterIntersection: true,
+                  onIntersectRemove: "opacity-0",
+                  unobserveAfterIntersect: true,
                 }}
                 key={item.title}
                 className={cx(
@@ -110,12 +110,12 @@ export default function CollectionScreen() {
             ))}
           </div>
           <div className="flex flex-col gap-4">
-            <div className="intersect-show-up-container flex flex-wrap overflow-hidden md:flex-nowrap">
+            <div className="intersectShowUp-container flex flex-wrap overflow-hidden md:flex-nowrap">
               <IntersectionElement
                 as={CustomNextImage}
                 dataConfig={{
-                  onIntersectionRemove: "opacity-0",
-                  unobserveAfterIntersection: true,
+                  onIntersectRemove: "opacity-0",
+                  unobserveAfterIntersect: true,
                 }}
                 src="/images/d0b95d5a13d371f41e106dfbfd9de762.jpg"
                 alt=""
@@ -137,13 +137,13 @@ export default function CollectionScreen() {
                 <IntersectionElement
                   as="p"
                   dataConfig={{
-                    onIntersectionAdd: animationClasses.animate!,
-                    unobserveAfterIntersection: true,
+                    onIntersectAdd: animationClasses.animate!,
+                    unobserveAfterIntersect: true,
                   }}
                   className={cx(
                     "font-medium text-gray-800",
                     "leading-relaxed md:leading-10",
-                    animationClasses["intersect-show-up"],
+                    animationClasses.intersectShowUp,
                   )}
                 >
                   Silk has an incredibly soft, smooth, and light <br />
@@ -153,17 +153,17 @@ export default function CollectionScreen() {
                 <AboutProductButton className="sm:hidden" />
               </div>
             </div>
-            <div className="intersect-show-up-container flex flex-col gap-4 text-sm sm:text-xl">
+            <div className="intersectShowUp-container flex flex-col gap-4 text-sm sm:text-xl">
               <IntersectionElement
                 as="p"
                 dataConfig={{
-                  onIntersectionAdd: animationClasses.animate!,
-                  unobserveAfterIntersection: true,
+                  onIntersectAdd: animationClasses.animate!,
+                  unobserveAfterIntersect: true,
                 }}
                 className={cx(
                   "capitalize",
                   "text-sm sm:text-xl",
-                  animationClasses["intersect-show-up"],
+                  animationClasses.intersectShowUp,
                 )}
               >
                 full collection
@@ -171,10 +171,10 @@ export default function CollectionScreen() {
               <IntersectionElement
                 as="small"
                 dataConfig={{
-                  onIntersectionAdd: animationClasses.animate!,
-                  unobserveAfterIntersection: true,
+                  onIntersectAdd: animationClasses.animate!,
+                  unobserveAfterIntersect: true,
                 }}
-                className={cx("-mt-2", animationClasses["intersect-show-up"])}
+                className={cx("-mt-2", animationClasses.intersectShowUp)}
               >
                 €600
               </IntersectionElement>

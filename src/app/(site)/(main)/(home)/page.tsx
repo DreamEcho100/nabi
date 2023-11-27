@@ -53,11 +53,11 @@ export default function HomeScreen() {
         >
           <IntersectionElement
             as="h1"
-            dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
+            dataConfig={{ onIntersectAdd: animationClasses.animate! }}
             className={cx(
               "max-w-[1150px] leading-6 sm:leading-10",
               "text-lg sm:text-3xl",
-              animationClasses["intersect-show-up"],
+              animationClasses.intersectShowUp,
             )}
           >
             Slow fashion for the fastest growing. Dreamed up and hand designed
@@ -65,19 +65,19 @@ export default function HomeScreen() {
             Netherlands, sustainable and organic.
           </IntersectionElement>
           <IntersectionElement
-            dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
+            dataConfig={{ onIntersectAdd: animationClasses.animate! }}
             className={cx(
               "mb-[-0.5rem] h-8 w-[0.0625rem] bg-special-primary-900",
-              animationClasses["intersect-show-up"],
+              animationClasses.intersectShowUp,
             )}
           />
           <IntersectionElement
             as="p"
-            dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
+            dataConfig={{ onIntersectAdd: animationClasses.animate! }}
             className={cx(
               "text-center font-normal leading-tight text-zinc-800",
               "text-[0.6875rem] sm:text-sm",
-              animationClasses["intersect-show-up"],
+              animationClasses.intersectShowUp,
             )}
           >
             Scroll to discover <br />
@@ -85,6 +85,7 @@ export default function HomeScreen() {
           </IntersectionElement>
         </div>
       </section>
+
       <section className="overflow-hidden bg-special-primary-800">
         <div
           className={`${getSectionInnerContainerClassNames({
@@ -98,18 +99,16 @@ export default function HomeScreen() {
               "hidden sm:block",
             )}
           >
-            <div className="w-3/4 sm:w-1/2">
-              <IntersectionElement
-                as={CustomNextImage}
-                dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
-                className={cx("w-full", animationClasses["intersect-show-up"])}
+            <IntersectionElement className="w-3/4 sm:w-1/2">
+              <CustomNextImage
+                className="parent-intersect-show-up w-full"
                 src="/images/WhatsApp Image 2023-10-24 at 12.15.00_d01b03f9.jpg"
                 width={400}
                 height={600}
                 alt=""
                 priority
               />
-            </div>
+            </IntersectionElement>
             <div
               className={cx("flex h-[40rem] max-w-full sm:w-3/4")}
               style={{
@@ -119,50 +118,37 @@ export default function HomeScreen() {
               }}
             >
               <IntersectionElement
-                as={CustomNextImage}
-                dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
-                className={cx(
-                  "h-full w-full flex-grow object-cover sm:pl-20",
-                  animationClasses["intersect-show-up"],
-                )}
                 style={{
                   gridColumn: "1/2",
                   gridRow: "2/3",
                   justifySelf: "end",
                 }}
-                src="/images/eee0eb8f09076922a7b0589c159d306e.jpg"
-                width={400}
-                alt=""
-                height={600}
-              />
+              >
+                <CustomNextImage
+                  className="parent-intersect-show-up h-full w-full flex-grow object-cover sm:pl-20"
+                  src="/images/eee0eb8f09076922a7b0589c159d306e.jpg"
+                  width={400}
+                  alt=""
+                  height={600}
+                />
+              </IntersectionElement>
               <IntersectionElement
-                as={CustomNextImage}
-                dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
-                className={cx(
-                  "h-full w-full flex-grow object-cover",
-                  animationClasses["intersect-show-up"],
-                )}
-                style={{
-                  gridColumn: "2/3",
-                  gridRow: "1/2",
-                }}
-                src="/images/c526acafcc73a8ac425680a2e7b404f9.jpg"
-                width={400}
-                height={600}
-                alt=""
-                priority
-              />
+                style={{ gridColumn: "2/3", gridRow: "1/2" }}
+              >
+                <CustomNextImage
+                  className="parent-intersect-show-up h-full w-full flex-grow object-cover"
+                  src="/images/c526acafcc73a8ac425680a2e7b404f9.jpg"
+                  width={400}
+                  height={600}
+                  // alt=""
+                  priority
+                />
+              </IntersectionElement>
             </div>
-            <IntersectionElement
-              dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
-              className={cx(
-                "flex h-[25rem] object-cover",
-                animationClasses["intersect-show-up"],
-              )}
-            >
+            <IntersectionElement className="flex h-[25rem]">
               <div className="w-1/2" />
               <CustomNextImage
-                className="h-full w-2/5 object-cover"
+                className="parent-intersect-show-up h-full w-2/5 object-cover"
                 src="/images/0a2f04bd01da4575eb635a90c642061b.jpg"
                 width={328}
                 height={328}
@@ -178,11 +164,11 @@ export default function HomeScreen() {
           >
             <IntersectionElement
               as="h2"
-              dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
+              dataConfig={{ onIntersectAdd: animationClasses.animate! }}
               className={cx(
                 "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig font-normal capitalize",
                 "text-sm sm:text-[2.5rem]",
-                animationClasses["intersect-show-up"],
+                animationClasses.intersectShowUp,
               )}
             >
               <span className="leading-relaxed sm:whitespace-nowrap">
@@ -191,20 +177,19 @@ export default function HomeScreen() {
               </span>
             </IntersectionElement>
           </div>
-          <div className={cx("mx-auto w-1/2 pt-10", "sm:hidden")}>
-            <IntersectionElement
-              as={CustomNextImage}
-              dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
-              className={cx("w-full", animationClasses["intersect-show-up"])}
+          <IntersectionElement className="mx-auto w-1/2 pt-10 sm:hidden">
+            <CustomNextImage
+              className="parent-intersect-show-up w-full"
               src="/images/WhatsApp Image 2023-10-24 at 12.15.00_d01b03f9.jpg"
               width={400}
               height={600}
               alt=""
               priority
             />
-          </div>
+          </IntersectionElement>
         </div>
       </section>
+
       <section className="bg-special-primary-200">
         <div
           className={`${getSectionInnerContainerClassNames()} flex flex-col gap-8 px-8 pb-10 pt-4 sm:gap-16`}
@@ -217,7 +202,7 @@ export default function HomeScreen() {
               <div key={item.src} className="w-full flex-grow overflow-hidden">
                 <IntersectionElement
                   as={CustomNextImage}
-                  dataConfig={{ onIntersectionRemove: "scale-150" }}
+                  dataConfig={{ onIntersectRemove: "scale-150" }}
                   src={item.src}
                   width={600}
                   height={800}
@@ -256,6 +241,7 @@ export default function HomeScreen() {
           </div>
         </div>
       </section>
+
       <section className="bg-special-primary-700/40">
         <div
           className={cx(
@@ -265,13 +251,13 @@ export default function HomeScreen() {
             "flex flex-col gap-3 px-8 py-10 sm:gap-8 sm:py-32",
           )}
         >
-          <div className="intersect-show-up-container">
+          <div className="intersectShowUp-container">
             <IntersectionElement
               as="p"
-              dataConfig={{ onIntersectionAdd: animationClasses.animate! }}
+              dataConfig={{ onIntersectAdd: animationClasses.animate! }}
               className={cx(
                 "text-sm font-semibold leading-7 text-white",
-                animationClasses["intersect-show-up"],
+                animationClasses.intersectShowUp,
               )}
             >
               @nabibabystore

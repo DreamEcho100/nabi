@@ -11,14 +11,14 @@ export default function GenericHeroSection(props: Props) {
     <section className="bg-special-primary-400">
       <IntersectionElement
         dataConfig={{
-          onIntersectionAdd: animationClasses.animate!,
-          unobserveAfterIntersection: true,
+          onIntersectAdd: animationClasses.animate!,
+          unobserveAfterIntersect: true,
         }}
         className={cx(
           getSectionInnerContainerClassNames(),
           `flex h-[40rem] max-h-[50vh] flex-col items-center justify-center overflow-hidden sm:max-h-[120vh]`,
           "text-lg sm:text-3xl",
-          animationClasses["intersect-show-up"],
+          animationClasses.intersectShowUp,
         )}
       >
         <h1
