@@ -42,7 +42,7 @@ export default function HomeScreen() {
             height={800}
             playsInline
             src={item.src}
-            type="video/mp4"
+            // type="video/mp4"
           />
         ))}
       </section>
