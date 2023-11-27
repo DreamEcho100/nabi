@@ -41,9 +41,9 @@ export default function HomeScreen() {
             width={500}
             height={800}
             playsInline
-          >
-            <source src={item.src} type="video/mp4" />
-          </video>
+            src={item.src}
+            type="video/mp4"
+          />
         ))}
       </section>
 
