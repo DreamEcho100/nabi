@@ -12,15 +12,18 @@ svg {
     transform: translateY(calc(100% * var(--transform-multi, 1)));
     opacity: 0;
     transition:
-      transform var(--transform-duration, 1.25s) cubic-bezier(0.4, 0, 0.2, 1)
-        var(--transform-delay, 0s),
-      opacity var(--opacity-duration, 0.8s) cubic-bezier(0.4, 0, 0.2, 1)
-        var(--opacity-delay, 0s);
+      transform 0s none 0s,
+      opacity 0s none 0s;
   }
   [data-xio-state="intersect"]
     .parent-intersect-show-up:not(.on-gt-sm, .on-lt-sm) {
     transform: translateY(0);
     opacity: 1;
+    transition:
+      transform var(--transform-duration, 1.25s) cubic-bezier(0.4, 0, 0.2, 1)
+        var(--transform-delay, 0.1s),
+      opacity var(--opacity-duration, 0.8s) cubic-bezier(0.4, 0, 0.2, 1)
+        var(--opacity-delay, 0.1s);
   }
 
   .no-content {

@@ -32,7 +32,7 @@ function AboutProductButton(props: { className?: string }) {
 }
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0.1,
+  threshold: 0,
 };
 
 export default function CollectionScreen() {

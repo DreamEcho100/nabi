@@ -11,7 +11,7 @@ import CustomNextImage from "~/components/common/CustomNextImage";
 import InstagramImagesSlider from "./_components/InstagramImagesSlider";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0.1,
+  threshold: 0,
 };
 
 export default function HomeScreen() {
@@ -165,14 +165,12 @@ export default function HomeScreen() {
           >
             <IntersectionElement
               as="h2"
-              dataConfig={{ onIntersectAdd: animationClasses.animate! }}
               className={cx(
                 "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig font-normal capitalize",
                 "text-sm sm:text-[2.5rem]",
-                animationClasses.intersectShowUp,
               )}
             >
-              <span className="leading-relaxed sm:whitespace-nowrap">
+              <span className="parent-intersect-show-up leading-relaxed sm:whitespace-nowrap">
                 Home to beautiful <br />
                 pieces and delicate <br className="hidden sm:block" /> fabrics
               </span>

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const intersectionObserverOptions: IntersectionObserverInit = {
-  threshold: 0.1,
+  threshold: 0,
 };
 
 export default function OurStoryScreen() {
