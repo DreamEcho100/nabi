@@ -37,8 +37,9 @@ export default function OurStoryScreen() {
           )}
         >
           <div className="flex flex-col sm:flex-row">
-            {[
+            {/* {[
               {
+                "data-type": "image",
                 src: "/images/d6bbcebc00531220f00ff5a40a6af1ad.jpg",
                 width: 450,
                 height: 600,
@@ -47,8 +48,27 @@ export default function OurStoryScreen() {
                   animationClasses.intersectShowUp,
                 ),
               },
+              // {
+              // 	'data-type': 'image',
+              //   src: "/images/a77396da5e6b7b29d69d2aad30bd3e0a.jpg",
+              //   width: 900,
+              //   height: 600,
+              //   className: cx(
+              //     "object-cover flex-grow-[2] w-full sm:w-2/4",
+              //     animationClasses.intersectShowUp,
+              //   ),
+              //   style: {
+              //     // "--duration-multi": "0.5s"
+              //     "--transform-delay": "0.05s",
+              //     "--opacity-delay": "0.05s",
+              //   } as CSSProperties,
+              // },
               {
-                src: "/images/a77396da5e6b7b29d69d2aad30bd3e0a.jpg",
+                "data-type": "video",
+                // src: "/videos/NABI_MOTION_8SN_LOOP_1X1_ALPHA.mov",
+                // src: "/videos/NABI_MOTION_8SN_LOOP_1X1_ALPHA.mp4",
+                // src: "/videos/NABI_MOTION_8SN_LOOP_1X1_ALPHA.webm",
+                src: "/videos/NABI_MOTION_8SN_LOOP_16x9.mp4",
                 width: 900,
                 height: 600,
                 className: cx(
@@ -62,6 +82,7 @@ export default function OurStoryScreen() {
                 } as CSSProperties,
               },
               {
+                "data-type": "image",
                 src: "/images/895cda6c8300cb3d38a0b002fea06b76.jpg",
                 width: 450,
                 height: 600,
@@ -70,17 +91,84 @@ export default function OurStoryScreen() {
                   animationClasses.intersectShowUp,
                 ),
               },
-            ].map((item) => (
-              <IntersectionElement
-                as={CustomNextImage}
-                dataConfig={{
-                  onIntersectAdd: animationClasses.animate!,
-                  unobserveAfterIntersect: true,
-                }}
-                key={item.src}
-                {...item}
+            ].map(({ src, ...item }) =>
+              item["data-type"] === "image" ? (
+                <IntersectionElement
+                  as={CustomNextImage}
+                  dataConfig={{
+                    onIntersectAdd: animationClasses.animate!,
+                    unobserveAfterIntersect: true,
+                  }}
+                  key={src}
+                  src={src}
+                  {...item}
+                />
+              ) : (
+                <IntersectionElement
+                  as="video"
+                  dataConfig={{
+                    onIntersectAdd: animationClasses.animate!,
+                    unobserveAfterIntersect: true,
+                  }}
+                  key={src}
+                  {...item}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  // controls
+                  // preload="auto"
+                  // poster="/images/3eda340496860c533c866c4a3619cc26.jpg"
+                  width={500}
+                  height={800}
+                  // src={src}
+                  // type="video/mp4"
+                >
+                  <source
+                    src={src}
+                    // type="video/quicktime"
+                    // type="video/webm"
+                    type="video/mp4"
+                  />
+                </IntersectionElement>
+              ),
+            )} */}
+
+            <IntersectionElement
+              as="video"
+              dataConfig={{
+                onIntersectAdd: animationClasses.animate!,
+                unobserveAfterIntersect: true,
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+              // controls
+              // preload="auto"
+              // poster="/images/3eda340496860c533c866c4a3619cc26.jpg"
+              width={900}
+              height={600}
+              className={cx(
+                "w-full flex-grow-[2] object-cover sm:w-2/4",
+                animationClasses.intersectShowUp,
+              )}
+              style={
+                {
+                  // "--duration-multi": "0.5s"
+                  "--transform-delay": "0.05s",
+                  "--opacity-delay": "0.05s",
+                } as CSSProperties
+              }
+            >
+              <source
+                src="https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/NABI_MOTION_8SN_LOOP_16x9.mp4"
+                // src="/videos/NABI_MOTION_8SN_LOOP_16x9.mp4"
+                // type="video/quicktime"
+                // type="video/webm"
+                type="video/mp4"
               />
-            ))}
+            </IntersectionElement>
           </div>
           <div
             className={cx(
