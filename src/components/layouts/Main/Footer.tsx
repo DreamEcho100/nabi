@@ -1,8 +1,9 @@
 import { cx } from "class-variance-authority";
 import Link from "next/link";
 import CustomNextImage from "~/components/common/CustomNextImage";
+import PaymentCards from "~/components/core/svgs/PaymentCards";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
-import PaymentCards from "~/svgs/payment-cards.svg";
+// import PaymentCards from "~/svgs/payment-cards.svg";
 // import PaymentCardsAllInline from "~/svgs/payment-cards-all-inline.svg";
 
 type FooterLinksGroup = {
@@ -11,7 +12,7 @@ type FooterLinksGroup = {
   href?: string;
 };
 
-const SubscribeForm = (props: { showOn: "gt-sm" | "lt-sm" }) => {
+function SubscribeForm(props: { showOn: "gt-sm" | "lt-sm" }) {
   return (
     <form
       className={cx(
@@ -37,7 +38,7 @@ const SubscribeForm = (props: { showOn: "gt-sm" | "lt-sm" }) => {
       </div>
     </form>
   );
-};
+}
 
 const footerLinksGroups: [
   FooterLinksGroup,

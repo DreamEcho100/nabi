@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 import { cx } from "class-variance-authority";
