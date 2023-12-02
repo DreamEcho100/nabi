@@ -134,40 +134,37 @@ export default function OurStoryScreen() {
               ),
             )} */}
 
-            <IntersectionElement
-              as="video"
-              dataConfig={{
-                onIntersectAdd: animationClasses.animate!,
-                unobserveAfterIntersect: true,
-              }}
-              autoPlay
-              loop
-              muted
-              playsInline
-              // controls
-              // preload="auto"
-              // poster="/images/3eda340496860c533c866c4a3619cc26.jpg"
-              width={900}
-              height={600}
-              className={cx(
-                "w-full flex-grow-[2] object-cover sm:w-2/4",
-                animationClasses.intersectShowUp,
-              )}
-              style={
-                {
-                  // "--duration-multi": "0.5s"
-                  "--transform-delay": "0.05s",
-                  "--opacity-delay": "0.05s",
-                } as CSSProperties
-              }
-            >
-              <source
-                src="https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/NABI_MOTION_8SN_LOOP_16x9.mp4"
-                // src="/videos/NABI_MOTION_8SN_LOOP_16x9.mp4"
-                // type="video/quicktime"
-                // type="video/webm"
-                type="video/mp4"
-              />
+            <IntersectionElement className="mx-auto sm:w-2/4">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                // controls
+                // preload="auto"
+                poster="/images/356590525_274144968532340_6467254725081644430_n.jpg"
+                width={575}
+                height={320}
+                className={cx(
+                  "aspect-video w-full flex-grow-[2] object-cover",
+                  "parent-intersect-show-up",
+                )}
+                style={
+                  {
+                    // "--duration-multi": "0.5s"
+                    "--transform-delay": "0.05s",
+                    "--opacity-delay": "0.05s",
+                  } as CSSProperties
+                }
+              >
+                <source
+                  src="https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/NABI_MOTION_8SN_LOOP_16x9.mp4"
+                  // src="/videos/NABI_MOTION_8SN_LOOP_16x9.mp4"
+                  // type="video/quicktime"
+                  // type="video/webm"
+                  type="video/mp4"
+                />
+              </video>
             </IntersectionElement>
           </div>
           <div
