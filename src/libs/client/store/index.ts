@@ -1,4 +1,4 @@
-import { type GlobalStore } from "./types";
+import type { GlobalStore } from "./types";
 
 import { createStore } from "zustand";
 

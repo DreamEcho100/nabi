@@ -1,6 +1,7 @@
+import type { EdgesWithPagination, Product } from "../types";
+
 import { gql } from "graphql-request";
 import { z } from "zod";
-import { type EdgesWithPagination, type Product } from "../types";
 import { graphQLClient } from "./_utils";
 import { gqlPriceText, gqlImageText } from "./utils";
 

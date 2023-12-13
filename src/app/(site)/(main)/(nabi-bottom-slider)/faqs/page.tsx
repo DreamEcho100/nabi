@@ -1,8 +1,9 @@
-import GenericHeroSection from "~/components/core/GenericHeroSection";
-
-import QAsSection, { type TQAsList } from "~/components/core/QAsSection";
-import { UseInitIntersectionElementsIntersectionObserver } from "~/components/core/IntersectionElement";
 import type { Metadata } from "next";
+import type { TQAsList } from "~/components/core/qa-section";
+
+import GenericHeroSection from "~/components/core/generic-hero-section";
+import QAsSection from "~/components/core/qa-section";
+import { UseInitIntersectionElementsIntersectionObserver } from "~/components/core/intersection-element";
 
 export const metadata: Metadata = {
   title: "FAQs",

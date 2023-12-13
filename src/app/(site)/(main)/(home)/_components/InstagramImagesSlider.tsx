@@ -2,7 +2,7 @@
 import { useRef, useEffect, useState } from "react";
 import detectMob from "is-mobile";
 import { cx } from "class-variance-authority";
-import CustomNextImage from "~/components/common/CustomNextImage";
+import CustomNextImage from "~/components/common/custom-next-image";
 
 const instagramSectionImages = [
   { src: "/images/78eacc02985eb7a8aa652f499f4754d5.jpg" },

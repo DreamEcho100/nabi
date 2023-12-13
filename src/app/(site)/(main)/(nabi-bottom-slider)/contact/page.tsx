@@ -1,13 +1,13 @@
 import { cx } from "class-variance-authority";
-import CustomNextImage from "~/components/common/CustomNextImage";
+import CustomNextImage from "~/components/common/custom-next-image";
 
 import animationClasses from "~/app/styles/animation.module.css";
 import IntersectionElement, {
   UseInitIntersectionElementsIntersectionObserver,
-} from "~/components/core/IntersectionElement";
+} from "~/components/core/intersection-element";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 import type { Metadata } from "next";
-import GenericHeroSection from "~/components/core/GenericHeroSection";
+import GenericHeroSection from "~/components/core/generic-hero-section";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -146,7 +146,7 @@ export default function ContactScreen() {
             <IntersectionElement dataConfig={{ unobserveAfterIntersect: true }}>
               <form
                 className={cx(
-                  "parent-intersect-show-up flex w-full flex-col bg-special-primary-800 px-8 py-12 md:px-16 lg:px-16 xl:px-20",
+                  "parent-intersect-show-up bg-special-primary-800 flex w-full flex-col px-8 py-12 md:px-16 lg:px-16 xl:px-20",
                   "text-sm md:text-xl",
                   "text-white",
                   "gap-6 md:gap-12",

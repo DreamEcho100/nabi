@@ -1,14 +1,14 @@
 "use client";
+
+import type { PropsWithChildren } from "react";
+
 import { cx } from "class-variance-authority";
 import Image from "next/image";
 import Link from "next/link";
-
 import { PiFacebookLogo, PiInstagramLogo, PiTiktokLogo } from "react-icons/pi";
-
 import MagnifierGlassSvg from "~/svgs/magnifier-glass.svg";
 import HeartSvg from "~/svgs/heart.svg";
 import ShoppingCartSvg from "~/svgs/shopping-cart.svg";
-import { type PropsWithChildren } from "react";
 import { globalStore } from "~/components/utils/store";
 import { useStore } from "zustand";
 
@@ -129,7 +129,7 @@ export function NavMenuOnLtLg() {
   return (
     <div
       className={cx(
-        "fixed inset-0 z-10 bg-special-primary-400",
+        "bg-special-primary-400 fixed inset-0 z-10",
         isHeaderNavOnLtMdOpen
           ? "opacity-1"
           : "pointer-events-none select-none opacity-0",
@@ -242,7 +242,7 @@ function MainHeaderWrapper(props: PropsWithChildren) {
     <header
       id="main-header"
       className={cx(
-        "isolate flex h-main-header-h flex-col backdrop-blur-[1px] transition-all duration-300",
+        "h-main-header-h isolate flex flex-col backdrop-blur-[1px] transition-all duration-300",
         "-mb-main-header-h",
         isHeaderNavOnLtMdOpen ? "sticky top-0 z-[11]" : "relative z-[11]",
       )}
@@ -262,7 +262,7 @@ export default function MainHeader() {
     <MainHeaderWrapper>
       <div
         className={cx(
-          "mx-auto flex h-full w-full max-w-main items-center justify-between text-white",
+          "max-w-main mx-auto flex h-full w-full items-center justify-between text-white",
           "px-8 sm:px-16 xl:px-32",
         )}
       >

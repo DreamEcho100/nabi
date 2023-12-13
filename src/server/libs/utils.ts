@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { env } from "~/libs/env.mjs";
+import { env } from "~/libs/env.js";
 
 export const allowedAdminEmails = z
   .array(z.string().email())

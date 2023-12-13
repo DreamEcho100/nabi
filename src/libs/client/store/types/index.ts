@@ -1,5 +1,5 @@
-import { type Checkout } from "shopify-buy";
-import { type ShopifyCustomer } from "~/libs/shopify/types";
+import type { Checkout } from "shopify-buy";
+import type { ShopifyCustomer } from "~/libs/shopify/types";
 
 type AuthSession = {
   utils: {

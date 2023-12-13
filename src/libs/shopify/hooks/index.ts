@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { type Checkout } from "shopify-buy";
+import type { Checkout } from "shopify-buy";
 import { useStore } from "zustand";
 import { globalStore } from "~/libs/client/store";
 import { trpcApi } from "~/libs/client/trpc/client";
-import { type RouterInputs } from "~/server/api/root";
+import type { RouterInputs } from "~/libs/trpc/shared";
 
 export const useRegisterMutation = ({
   onError,

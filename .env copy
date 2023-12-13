@@ -1,0 +1,16 @@
+# When adding additional environment variables, the schema in "/src/env.mjs"
+# should be updated accordingly.
+
+# Prisma
+# https://www.prisma.io/docs/reference/database-reference/connection-urls#env
+DATABASE_URL="file:./db.sqlite"
+
+# 
+NEXT_PUBLIC_APP_DOMAINE=de100-nabi.vercel.app
+
+SHOPIFY_STORE_FRONT_ACCESS_TOKEN=''
+SHOPIFY_STORE_URL=''
+SHOPIFY_STORE_DOMAIN=''
+SHOPIFY_API_KEY=''
+SHOPIFY_API_SECRET=''
+JWT_TOKEN_KEY=''

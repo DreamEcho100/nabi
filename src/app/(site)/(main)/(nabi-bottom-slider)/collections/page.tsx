@@ -1,11 +1,11 @@
 import { cx } from "class-variance-authority";
-import CustomNextImage from "~/components/common/CustomNextImage";
-import GenericHeroSection from "~/components/core/GenericHeroSection";
+import CustomNextImage from "~/components/common/custom-next-image";
+import GenericHeroSection from "~/components/core/generic-hero-section";
 
 import animationClasses from "~/app/styles/animation.module.css";
 import IntersectionElement, {
   UseInitIntersectionElementsIntersectionObserver,
-} from "~/components/core/IntersectionElement";
+} from "~/components/core/intersection-element";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 import type { Metadata } from "next";
 
@@ -128,7 +128,7 @@ export default function CollectionScreen() {
               />
               <div
                 className={cx(
-                  "flex flex-grow flex-col items-start justify-center gap-4 bg-special-primary-100 p-8 md:gap-8 lg:gap-16",
+                  "bg-special-primary-100 flex flex-grow flex-col items-start justify-center gap-4 p-8 md:gap-8 lg:gap-16",
                   "text-sm sm:text-xl",
                 )}
               >

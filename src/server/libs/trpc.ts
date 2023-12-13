@@ -7,8 +7,9 @@
  * need to use are documented accordingly near the end.
  */
 
+import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
+
 import { initTRPC, TRPCError } from "@trpc/server";
-import { type FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import superjson from "superjson";
 import { ZodError } from "zod";
 import { cookies } from "next/headers";
@@ -19,6 +20,7 @@ import { getDecryptedShopifyUserDataFromAccessToKen } from "./shopify";
 import shopify from "~/libs/shopify/client";
 import { ACCESS_TOKEN_COOKIE_KEY } from "~/libs/shopify";
 import { allowedAdminEmails } from "./utils";
+import { db } from "~/server/libs/drizzle-db";
 
 // export const trpcConfig = {
 
@@ -50,10 +52,9 @@ export const createInnerTRPCContext = () => {
   return {
     // drizzleQueryClient,
     // drizzleSchema,
+    db,
     shopify,
-    getCookieManger: () => {
-      return cookies();
-    },
+    getCookieManger: cookies,
   };
 };
 

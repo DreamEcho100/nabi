@@ -1,6 +1,6 @@
 import { cx } from "class-variance-authority";
 import Link from "next/link";
-import CustomNextImage from "~/components/common/CustomNextImage";
+import CustomNextImage from "~/components/common/custom-next-image";
 import PaymentCards from "~/components/core/svgs/PaymentCards";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 // import PaymentCards from "~/svgs/payment-cards.svg";

@@ -1,9 +1,10 @@
+import type { TRPC_ERROR_CODE_KEY } from "@trpc/server/rpc";
+import type { ShopifyErrorShape } from "../../types/index.js";
+
 import { TRPCError } from "@trpc/server";
-import { type TRPC_ERROR_CODE_KEY } from "@trpc/server/rpc";
 import { GraphQLClient } from "graphql-request";
-import { type ShopifyErrorShape } from "../../types/index.js";
 import Client from "shopify-buy";
-import { env } from "~/libs/env.mjs";
+import { env } from "~/libs/env.js";
 
 export const graphQLClient = new GraphQLClient(env.SHOPIFY_STORE_URL, {
   headers: {

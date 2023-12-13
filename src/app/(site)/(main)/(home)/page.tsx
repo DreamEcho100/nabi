@@ -5,8 +5,8 @@ import animationClasses from "~/app/styles/animation.module.css";
 
 import IntersectionElement, {
   UseInitIntersectionElementsIntersectionObserver,
-} from "~/components/core/IntersectionElement";
-import CustomNextImage from "~/components/common/CustomNextImage";
+} from "~/components/core/intersection-element";
+import CustomNextImage from "~/components/common/custom-next-image";
 import InstagramImagesSlider from "./_components/InstagramImagesSlider";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
@@ -19,7 +19,7 @@ export default function HomeScreen() {
       <UseInitIntersectionElementsIntersectionObserver
         options={intersectionObserverOptions}
       />
-      <section className="h-screen max-h-[100rem] min-h-fit bg-special-primary-500">
+      <section className="bg-special-primary-500 h-screen max-h-[100rem] min-h-fit">
         {[
           {
             src: "https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/Reel_1_v1.mp4 - Review Link - July 17, 2023 - Frame.io.mp4",
@@ -67,7 +67,7 @@ export default function HomeScreen() {
           <IntersectionElement
             dataConfig={{ onIntersectAdd: animationClasses.animate! }}
             className={cx(
-              "mb-[-0.5rem] h-8 w-[0.0625rem] bg-special-primary-900",
+              "bg-special-primary-900 mb-[-0.5rem] h-8 w-[0.0625rem]",
               animationClasses.intersectShowUp,
             )}
           />
@@ -86,7 +86,7 @@ export default function HomeScreen() {
         </div>
       </section>
 
-      <section className="overflow-hidden bg-special-primary-800">
+      <section className="bg-special-primary-800 overflow-hidden">
         <div
           className={`${getSectionInnerContainerClassNames({
             "max-w": "",
@@ -165,7 +165,7 @@ export default function HomeScreen() {
             <IntersectionElement
               as="h2"
               className={cx(
-                "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig font-normal capitalize",
+                "font-all-round-gothic-w01-xlig sticky top-[var(--main-header-h)] flex justify-center font-normal capitalize",
                 "text-sm sm:text-[2.5rem]",
               )}
             >
@@ -206,7 +206,7 @@ export default function HomeScreen() {
                   height={800}
                   alt=""
                   className={cx(
-                    "aspect-[9/16] h-[15rem] w-[12rem] object-cover xl-2-sm:h-[18rem] sm:h-full sm:w-full",
+                    "xl-2-sm:h-[18rem] aspect-[9/16] h-[15rem] w-[12rem] object-cover sm:h-full sm:w-full",
                     "scale-150",
                     "transition-all duration-1000",
                   )}

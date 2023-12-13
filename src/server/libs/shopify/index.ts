@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { z } from "zod";
-import { env } from "~/libs/env.mjs";
+import { env } from "~/libs/env.js";
 
 export type EncryptedUserAccessToKen = {
   payload: {
