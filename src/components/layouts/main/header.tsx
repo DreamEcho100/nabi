@@ -7,9 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { PiFacebookLogo, PiInstagramLogo, PiTiktokLogo } from "react-icons/pi";
 import type { IconType } from "react-icons";
-import MagnifierGlassSvg from "~/svgs/magnifier-glass.svg";
-import HeartSvg from "~/svgs/heart.svg";
-import ShoppingCartSvg from "~/svgs/shopping-cart.svg";
+import MagnifierGlassSvg from "~/components/common/svgs/magnifier-glass";
+import HeartSvg from "~/components/common/svgs/heart";
+import ShoppingCartSvg from "~/components/common/svgs/shopping-cart";
 import { globalStore } from "~/components/utils/store";
 import { useStore } from "zustand";
 
@@ -20,11 +20,7 @@ export const mainAppHeaderLinks = [
   { name: "contact", href: "/contact" },
 ];
 
-export const mainSocialHeaderLinks: {
-  name: string;
-  href: string;
-  Icon: IconType;
-}[] = [
+export const mainSocialHeaderLinks = [
   {
     name: "facebook",
     href: "https://facebook.com/",
