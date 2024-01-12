@@ -6,6 +6,7 @@ import { cx } from "class-variance-authority";
 import Image from "next/image";
 import Link from "next/link";
 import { PiFacebookLogo, PiInstagramLogo, PiTiktokLogo } from "react-icons/pi";
+import type { IconType } from "react-icons";
 import MagnifierGlassSvg from "~/svgs/magnifier-glass.svg";
 import HeartSvg from "~/svgs/heart.svg";
 import ShoppingCartSvg from "~/svgs/shopping-cart.svg";
@@ -19,14 +20,26 @@ export const mainAppHeaderLinks = [
   { name: "contact", href: "/contact" },
 ];
 
-export const mainSocialHeaderLinks = [
-  { name: "facebook", href: "https://facebook.com/", Icon: PiFacebookLogo },
+export const mainSocialHeaderLinks: {
+  name: string;
+  href: string;
+  Icon: IconType;
+}[] = [
+  {
+    name: "facebook",
+    href: "https://facebook.com/",
+    Icon: PiFacebookLogo as IconType,
+  },
   {
     name: "instagram",
     href: "https://instagram.com/",
-    Icon: PiInstagramLogo,
+    Icon: PiInstagramLogo as IconType,
   },
-  { name: "tikTok", href: "https://tiktok.com/", Icon: PiTiktokLogo },
+  {
+    name: "tikTok",
+    href: "https://tiktok.com/",
+    Icon: PiTiktokLogo as IconType,
+  },
 ];
 
 const NavElementsOnGtLgScreens = () => {

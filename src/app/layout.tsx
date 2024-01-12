@@ -7,7 +7,7 @@ import { MontFont, allRoundGothicW01XLigFont } from "~/libs/fonts";
 import "~/app/styles/globals.css";
 import "~/app/styles/swiper.css";
 import "react-toastify/dist/ReactToastify.css";
-import MainLayout from "~/components/layouts/main";
+import MainLayout from "~/components/layouts/Main";
 import BaseProviders from "~/components/layouts/base/providers";
 import { cookies } from "next/headers";
 
