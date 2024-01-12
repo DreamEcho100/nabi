@@ -15,7 +15,7 @@ export const env = createEnv({
     SHOPIFY_STORE_DOMAIN: z.string(),
     SHOPIFY_API_KEY: z.string(),
     SHOPIFY_API_SECRET: z.string(),
-    JWT_TOKEN_KEY: z.string().nonempty(),
+    JWT_TOKEN_KEY: z.string().min(1),
     // MAIL_CHIMP_DC: z.string().nonempty(),
     // MAIL_CHIMP_API_KEY: z.string().nonempty(),
     // MAIL_CHIMP_AUDIENCE_ID: z.string().nonempty(),
@@ -28,7 +28,7 @@ export const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_APP_DOMAINE: z.string().min(1),
-    NEXT_PUBLIC_ALLOWED_ADMIN_EMAILS_STRING: z.string().min(1),
+    // NEXT_PUBLIC_ALLOWED_ADMIN_EMAILS_STRING: z.string().min(1),
   },
 
   /**
@@ -39,8 +39,8 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_APP_DOMAINE: process.env.NEXT_PUBLIC_APP_DOMAINE,
-    NEXT_PUBLIC_ALLOWED_ADMIN_EMAILS_STRING:
-      process.env.NEXT_PUBLIC_ALLOWED_ADMIN_EMAILS_STRING,
+    // NEXT_PUBLIC_ALLOWED_ADMIN_EMAILS_STRING:
+    //   process.env.NEXT_PUBLIC_ALLOWED_ADMIN_EMAILS_STRING,
     //
     SHOPIFY_STORE_FRONT_ACCESS_TOKEN:
       process.env.SHOPIFY_STORE_FRONT_ACCESS_TOKEN,
