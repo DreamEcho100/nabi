@@ -17,13 +17,13 @@ export default function CursorContainer(props: PropsWithChildren) {
       ref={containerElemRef}
       className={cx(
         "main-wrapper",
-        "font-mont flex flex-col",
-        "cursor-none overflow-x-hidden",
+        "flex flex-col font-mont",
+        "overflow-x-hidden",
       )}
       {...containerProps}
     >
       <div
-        className="intro-animation bg-special-primary-400 fixed inset-0 z-[999] flex items-center justify-center"
+        className="intro-animation fixed inset-0 z-[999] flex items-center justify-center bg-special-primary-400"
         onAnimationStartCapture={(event) => {
           event.stopPropagation();
           setTimeout(() => {
@@ -33,13 +33,13 @@ export default function CursorContainer(props: PropsWithChildren) {
       >
         <div
           className={cx(
-            "bg-special-primary-200/80 relative flex items-center justify-center rounded-full p-8",
+            "relative flex items-center justify-center rounded-full bg-special-primary-200/80 p-8",
             "h-44 w-44 md:h-72 md:w-72 lg:h-96 lg:w-96",
             "transition-all duration-300 ease-in-out",
           )}
         >
           <div
-            className="bg-special-primary-200/80 absolute inset-0 -z-[1] animate-ping rounded-full opacity-20"
+            className="absolute inset-0 -z-[1] animate-ping rounded-full bg-special-primary-200/80 opacity-20"
             style={{ animationDuration: "0.75s" }}
           />
           <CustomNextImage

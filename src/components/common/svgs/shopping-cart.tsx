@@ -23,18 +23,18 @@ export default function ShoppingCartSVG(props: SVGProps<SVGSVGElement>) {
         <path
           d="M18.6083 7.79297H1.19165V21.543H18.6083V7.79297Z"
           stroke="#212B39"
-          stroke-width="0.916667"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="0.916667"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M5.7749 5.95898V4.58398C5.7749 2.29232 7.60824 0.458984 9.8999 0.458984C12.1916 0.458984 14.0249 2.29232 14.0249 4.58398V5.95898"
           stroke="#212B39"
-          stroke-width="0.916667"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="0.916667"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
     </svg>

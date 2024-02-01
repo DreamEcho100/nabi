@@ -5,8 +5,8 @@ import { allRoundGothicW01XLigFont } from "~/libs/fonts";
 import classNames from "./index.module.css";
 
 const repeatAmount = 1000;
-const repeatAnimationDurationOnGtSm = repeatAmount * 2.5;
-const repeatAnimationDurationOnLtSm = repeatAnimationDurationOnGtSm * 0.8;
+const repeatAnimationDurationOnGtSm = repeatAmount * 10;
+const repeatAnimationDurationOnLtSm = repeatAnimationDurationOnGtSm * 8;
 
 export default function GenericAboveFooterSliderSection() {
   return (
@@ -14,7 +14,7 @@ export default function GenericAboveFooterSliderSection() {
       <div
         className={cx(
           allRoundGothicW01XLigFont.className,
-          "bg-special-primary-700 font-all-round-gothic-w01-xlig max-w-full justify-start overflow-hidden bg-opacity-[0.3] py-2 text-zinc-700",
+          "max-w-full justify-start overflow-hidden bg-special-primary-700 bg-opacity-[0.3] py-2 font-all-round-gothic-w01-xlig text-zinc-700",
           classNames.slider,
         )}
         style={
@@ -34,7 +34,17 @@ export default function GenericAboveFooterSliderSection() {
             .repeat(repeatAmount)
             .split("_")
             .map((_, index) => (
-              <span key={index}>nabi</span>
+              <span key={index}>
+                First collection dropped April{" "}
+                <span
+                  style={{
+                    fontFamily: "sans-serif",
+                    fontWeight: 100,
+                  }}
+                >
+                  2024
+                </span>
+              </span>
             ))}
         </p>
       </div>

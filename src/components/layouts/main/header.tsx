@@ -24,17 +24,12 @@ export const mainSocialHeaderLinks = [
   {
     name: "facebook",
     href: "https://facebook.com/",
-    Icon: PiFacebookLogo as IconType,
+    Icon: PiFacebookLogo,
   },
   {
     name: "instagram",
-    href: "https://instagram.com/",
-    Icon: PiInstagramLogo as IconType,
-  },
-  {
-    name: "tikTok",
-    href: "https://tiktok.com/",
-    Icon: PiTiktokLogo as IconType,
+    href: "https://www.instagram.com/nabibabystore",
+    Icon: PiInstagramLogo,
   },
 ];
 
@@ -79,7 +74,7 @@ const NavElementsOnGtLgScreens = () => {
         className={cx(
           "flex items-center gap-4 text-gray-800 lg:gap-8",
           isHeaderNavOnLtMdOpen &&
-            "ml-auto rtl:ml-0 rtl:mr-0 sm:ml-0 sm:rtl:mr-0",
+            "ml-auto sm:ml-0 rtl:ml-0 rtl:mr-0 sm:rtl:mr-0",
         )}
       >
         <ul className={cx("gap-4 lg:gap-8", "hidden lg:flex")}>
@@ -138,7 +133,7 @@ export function NavMenuOnLtLg() {
   return (
     <div
       className={cx(
-        "bg-special-primary-400 fixed inset-0 z-10",
+        "fixed inset-0 z-10 bg-special-primary-400",
         isHeaderNavOnLtMdOpen
           ? "opacity-1"
           : "pointer-events-none select-none opacity-0",
@@ -251,7 +246,7 @@ function MainHeaderWrapper(props: PropsWithChildren) {
     <header
       id="main-header"
       className={cx(
-        "h-main-header-h isolate flex flex-col backdrop-blur-[1px] transition-all duration-300",
+        "isolate flex h-main-header-h flex-col backdrop-blur-[1px] transition-all duration-300",
         "-mb-main-header-h",
         isHeaderNavOnLtMdOpen ? "sticky top-0 z-[11]" : "relative z-[11]",
       )}
@@ -271,7 +266,7 @@ export default function MainHeader() {
     <MainHeaderWrapper>
       <div
         className={cx(
-          "max-w-main mx-auto flex h-full w-full items-center justify-between text-white",
+          "mx-auto flex h-full w-full max-w-main items-center justify-between text-white",
           "px-8 sm:px-16 xl:px-32",
         )}
       >

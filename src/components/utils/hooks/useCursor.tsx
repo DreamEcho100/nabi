@@ -5,6 +5,7 @@ import {
   useState,
   type PointerEvent,
 } from "react";
+import { isMobile, isTablet } from "mobile-device-detect";
 
 function activeCursor(
   event: PointerEvent<HTMLElement>,
@@ -44,6 +45,7 @@ export default function useCursor<
   ContainerElem extends HTMLElement,
   CursorElem extends HTMLElement,
 >() {
+  const isMobileOrTabletRef = useRef(isMobile || isTablet);
   const containerElemRef = useRef<ContainerElem>(null);
   const cursorElemRef = useRef<CursorElem>(null);
 
@@ -61,11 +63,13 @@ export default function useCursor<
   );
 
   const [resizeObserver, setResizeObserver] = useState(
-    typeof window === "undefined"
+    typeof window === "undefined" && !isMobileOrTabletRef.current
       ? undefined
       : new ResizeObserver(resizeObserverCallback),
   );
   useEffect(() => {
+    if (isMobileOrTabletRef.current) return;
+
     if (typeof window !== "undefined" && !resizeObserver)
       setResizeObserver(new ResizeObserver(resizeObserverCallback));
 
@@ -77,12 +81,31 @@ export default function useCursor<
     };
   }, [resizeObserver, resizeObserverCallback]);
 
+  useEffect(() => {
+    if (isMobileOrTabletRef.current) {
+      cursorElemRef.current?.classList.add("hidden");
+      return;
+    }
+
+    const timeoutId = setTimeout(() => {
+      containerElemRef.current?.classList.add("cursor-none");
+    }, 0);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
   return {
     containerProps: {
-      onPointerMove: (event: PointerEvent<ContainerElem>) =>
-        cursor(event, cursorElemRef.current!),
-      onPointerOver: (event: PointerEvent<ContainerElem>) =>
-        activeCursor(event, cursorElemRef.current!),
+      onPointerMove: isMobileOrTabletRef.current
+        ? undefined
+        : (event: PointerEvent<ContainerElem>) =>
+            cursor(event, cursorElemRef.current!),
+      onPointerOver: isMobileOrTabletRef.current
+        ? undefined
+        : (event: PointerEvent<ContainerElem>) =>
+            activeCursor(event, cursorElemRef.current!),
       id: "app-container",
     },
     cursorElemRef,

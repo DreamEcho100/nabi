@@ -8,6 +8,7 @@ import IntersectionElement, {
 } from "~/components/core/intersection-element";
 import CustomNextImage from "~/components/common/custom-next-image";
 import InstagramImagesSlider from "./_components/InstagramImagesSlider";
+import InstagramPosts from "./_components/InstagramPosts";
 
 const intersectionObserverOptions: IntersectionObserverInit = {
   threshold: 0,
@@ -19,7 +20,7 @@ export default function HomeScreen() {
       <UseInitIntersectionElementsIntersectionObserver
         options={intersectionObserverOptions}
       />
-      <section className="bg-special-primary-500 h-screen max-h-[100rem] min-h-fit">
+      <section className="h-screen max-h-[100rem] min-h-fit bg-special-primary-500">
         {[
           {
             src: "https://pub-e64c0d41da1941878cb722e3371ce7a2.r2.dev/Reel_1_v1.mp4 - Review Link - July 17, 2023 - Frame.io.mp4",
@@ -67,7 +68,7 @@ export default function HomeScreen() {
           <IntersectionElement
             dataConfig={{ onIntersectAdd: animationClasses.animate! }}
             className={cx(
-              "bg-special-primary-900 mb-[-0.5rem] h-8 w-[0.0625rem]",
+              "mb-[-0.5rem] h-8 w-[0.0625rem] bg-special-primary-900",
               animationClasses.intersectShowUp,
             )}
           />
@@ -86,7 +87,7 @@ export default function HomeScreen() {
         </div>
       </section>
 
-      <section className="bg-special-primary-800 overflow-hidden">
+      <section className="overflow-hidden bg-special-primary-800">
         <div
           className={`${getSectionInnerContainerClassNames({
             "max-w": "",
@@ -165,7 +166,7 @@ export default function HomeScreen() {
             <IntersectionElement
               as="h2"
               className={cx(
-                "font-all-round-gothic-w01-xlig sticky top-[var(--main-header-h)] flex justify-center font-normal capitalize",
+                "sticky top-[var(--main-header-h)] flex justify-center font-all-round-gothic-w01-xlig font-normal capitalize",
                 "text-sm sm:text-[2.5rem]",
               )}
             >
@@ -206,7 +207,7 @@ export default function HomeScreen() {
                   height={800}
                   alt=""
                   className={cx(
-                    "xl-2-sm:h-[18rem] aspect-[9/16] h-[15rem] w-[12rem] object-cover sm:h-full sm:w-full",
+                    "aspect-[9/16] h-[15rem] w-[12rem] object-cover xl-2-sm:h-[18rem] sm:h-full sm:w-full",
                     "scale-150",
                     "transition-all duration-1000",
                   )}
@@ -251,7 +252,10 @@ export default function HomeScreen() {
         >
           <div className="intersectShowUp-container">
             <IntersectionElement
-              as="p"
+              as="a"
+              href="https://www.instagram.com/nabibabystore"
+              target="_blank"
+              rel="noopener noreferrer"
               dataConfig={{ onIntersectAdd: animationClasses.animate! }}
               className={cx(
                 "text-sm font-semibold leading-7 text-white",
@@ -262,15 +266,23 @@ export default function HomeScreen() {
             </IntersectionElement>
           </div>
           <div className="flex flex-col gap-8">
-            <CustomNextImage
-              src="/svgs/instagram.svg"
-              width={980}
-              height={135}
-              alt=""
-              priority
-              className="mx-auto object-cover"
-            />
+            <a
+              href="https://www.instagram.com/nabibabystore"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="nabibabystore"
+            >
+              <CustomNextImage
+                src="/svgs/instagram.svg"
+                width={980}
+                height={135}
+                alt=""
+                priority
+                className="mx-auto object-cover"
+              />
+            </a>
             <InstagramImagesSlider />
+            <InstagramPosts />
           </div>
         </div>
       </section>

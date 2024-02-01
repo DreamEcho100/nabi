@@ -8,7 +8,7 @@ import { getSectionInnerContainerClassNames } from "~/components/utils";
 
 type FooterLinksGroup = {
   name: string;
-  links: { name: string; href: string }[];
+  links: { children: string; href: string; rel?: string; target?: string }[];
   href?: string;
 };
 
@@ -49,34 +49,54 @@ const footerLinksGroups: [
   {
     name: "corporate",
     links: [
-      { name: "about us", href: "#" },
-      { name: "collections", href: "/collections" },
-      { name: "contact", href: "/contact" },
+      { children: "about us", href: "#" },
+      { children: "collections", href: "/collections" },
+      { children: "contact", href: "/contact" },
     ],
   },
   {
     name: "customer service",
     links: [
-      { name: "privacy policy", href: "#" },
-      { name: "return & exchange", href: "/policies/return" },
-      { name: "FAQs", href: "/faqs" },
+      { children: "privacy policy", href: "#" },
+      { children: "return & exchange", href: "/policies/return" },
+      { children: "FAQs", href: "/faqs" },
     ],
   },
   {
     name: "collections",
     href: "/collections",
     links: [
-      { name: "rompers", href: "#" },
-      { name: "onesies", href: "#" },
+      { children: "rompers", href: "#" },
+      { children: "onesies", href: "#" },
     ],
   },
   {
     name: "social media",
     links: [
-      { name: "instagram", href: "#" },
-      { name: "facebook", href: "#" },
-      { name: "twitter", href: "#" },
-      { name: "youTube", href: "#" },
+      {
+        children: "instagram",
+        href: "https://www.instagram.com/nabibabystore",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      {
+        children: "facebook",
+        href: "#",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      {
+        children: "twitter",
+        href: "#",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      {
+        children: "youTube",
+        href: "#",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
     ],
   },
 ];
@@ -109,14 +129,14 @@ export default function MainFooter() {
                 <p>Gökçe Han No: 16 Kat: 4 Beyoğlu</p>
               </div>
               <div>
-                <a
+                {/* <a
                   target="_blank"
                   rel="noopener noreferrer"
                   href="tel:+905347990864"
                 >
                   +90 534 799 0864
                 </a>
-                <br />
+                <br /> */}
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -147,10 +167,8 @@ export default function MainFooter() {
                   <li>
                     <ul className="flex flex-col gap-1 capitalize">
                       {linksGroup.links.map((link) => (
-                        <li key={link.name}>
-                          <Link className="explore" href={link.href}>
-                            {link.name}
-                          </Link>
+                        <li key={link.children}>
+                          <Link className="explore" {...link} />
                         </li>
                       ))}
                     </ul>
@@ -176,9 +194,9 @@ export default function MainFooter() {
                   <li>
                     <ul className="flex flex-col gap-1 capitalize">
                       {linksGroup.links.map((link) => (
-                        <li key={link.name}>
+                        <li key={link.children}>
                           <Link className="explore" href={link.href}>
-                            {link.name}
+                            {link.children}
                           </Link>
                         </li>
                       ))}
@@ -200,7 +218,9 @@ export default function MainFooter() {
           </div>
         </div>
         <small className="sm:text-align-initial mt-8 text-center text-sm sm:mt-4">
-          Nabi &copy; 2023 | All Rights Reserved.
+          Nabi &copy;{" "}
+          <span suppressHydrationWarning>{new Date().getFullYear()}</span> | All
+          Rights Reserved.
         </small>
       </div>
     </footer>

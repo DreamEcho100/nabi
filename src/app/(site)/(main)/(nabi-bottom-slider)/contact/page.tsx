@@ -45,9 +45,9 @@ const ContactsData = (props: { showOn?: "gt-sm" | "lt-sm" }) => {
       >
         {[
           { children: "Nabi is the trade mark of A.K. Nabi Ltd" },
-          { children: "HE406533" },
-          { children: "Georgiou A&apos; 9, SOFIRINI COURT 1, SHOP 1-3," },
-          { children: "4040, Germasogeia, Limassol, Cyprus" },
+          // { children: "HE406533" },
+          { children: "Frans Halsstraat 22 ZW, 2021 EK," },
+          { children: "Haarlem, The Netherlands" },
         ].map((item, itemIndex) => (
           <IntersectionElement
             as="span"
@@ -146,7 +146,7 @@ export default function ContactScreen() {
             <IntersectionElement dataConfig={{ unobserveAfterIntersect: true }}>
               <form
                 className={cx(
-                  "parent-intersect-show-up bg-special-primary-800 flex w-full flex-col px-8 py-12 md:px-16 lg:px-16 xl:px-20",
+                  "parent-intersect-show-up flex w-full flex-col bg-special-primary-800 px-8 py-12 md:px-16 lg:px-16 xl:px-20",
                   "text-sm md:text-xl",
                   "text-white",
                   "gap-6 md:gap-12",

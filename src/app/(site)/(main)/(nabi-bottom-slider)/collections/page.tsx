@@ -8,6 +8,8 @@ import IntersectionElement, {
 } from "~/components/core/intersection-element";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 import type { Metadata } from "next";
+import NabiMotionVideo from "~/components/core/NabiMotionVideo";
+import { CSSProperties } from "react";
 
 export const metadata: Metadata = {
   title: "Collections",
@@ -51,6 +53,18 @@ export default function CollectionScreen() {
             "px-8 sm:px-16 md:px-20 xl:px-36",
           )}
         >
+          <IntersectionElement className="mx-auto sm:w-3/4">
+            <NabiMotionVideo
+              className="parent-intersect-show-up aspect-video w-full flex-grow-[2]"
+              style={
+                {
+                  // "--duration-multi": "0.5s"
+                  "--transform-delay": "0.05s",
+                  "--opacity-delay": "0.05s",
+                } as CSSProperties
+              }
+            />
+          </IntersectionElement>
           <div className={cx("flex gap-6 md:justify-start md:gap-16")}>
             {[
               {
@@ -128,7 +142,7 @@ export default function CollectionScreen() {
               />
               <div
                 className={cx(
-                  "bg-special-primary-100 flex flex-grow flex-col items-start justify-center gap-4 p-8 md:gap-8 lg:gap-16",
+                  "flex flex-grow flex-col items-start justify-center gap-4 bg-special-primary-100 p-8 md:gap-8 lg:gap-16",
                   "text-sm sm:text-xl",
                 )}
               >
