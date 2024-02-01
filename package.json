@@ -10,7 +10,7 @@
     "dev": "next dev --turbo",
     "lint": "next lint",
     "start": "next start",
-    "typechecking": "tsc --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@de100/form-echo": "0.0.13-canary-3",

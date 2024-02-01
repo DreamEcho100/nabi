@@ -7,7 +7,12 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    DATABASE_URL: z.string().url().optional().default("https://example.com"),
+    // DATABASE_URL: z.string().url().optional().default("https://example.com"),
+    DB_HOST: z.string(),
+    DB_NAME: z.string(),
+    DB_PASSWORD: z.string(),
+    DB_USERNAME: z.string(),
+
     NODE_ENV: z.enum(["development", "test", "production"]),
     // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
     SHOPIFY_STORE_FRONT_ACCESS_TOKEN: z.string(),
@@ -36,7 +41,11 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
-    DATABASE_URL: process.env.DATABASE_URL,
+    DB_HOST: process.env.DB_HOST,
+    DB_NAME: process.env.DB_NAME,
+    DB_PASSWORD: process.env.DB_PASSWORD,
+    DB_USERNAME: process.env.DB_USERNAME,
+
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_APP_DOMAINE: process.env.NEXT_PUBLIC_APP_DOMAINE,
     NEXT_PUBLIC_ALLOWED_ADMIN_EMAILS_STRING:
