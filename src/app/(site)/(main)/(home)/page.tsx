@@ -282,7 +282,7 @@ export default function HomeScreen() {
               />
             </a>
             <InstagramImagesSlider />
-            <InstagramPosts />
+            {/* <InstagramPosts /> */}
           </div>
         </div>
       </section>
