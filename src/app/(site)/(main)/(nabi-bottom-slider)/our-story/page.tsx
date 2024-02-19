@@ -135,18 +135,7 @@ export default function OurStoryScreen() {
               ),
             )} */}
 
-            <IntersectionElement className="mx-auto sm:w-2/4">
-              <NabiMotionVideo
-                className="parent-intersect-show-up aspect-video w-full flex-grow-[2]"
-                style={
-                  {
-                    // "--duration-multi": "0.5s"
-                    "--transform-delay": "0.05s",
-                    "--opacity-delay": "0.05s",
-                  } as CSSProperties
-                }
-              />
-            </IntersectionElement>
+            <NabiMotionVideo className="aspect-video w-full flex-grow-[2]" />
           </div>
           <div
             className={cx(
