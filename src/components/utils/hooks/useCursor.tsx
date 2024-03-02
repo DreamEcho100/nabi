@@ -1,3 +1,4 @@
+"use client";
 import {
   useCallback,
   useEffect,
@@ -6,6 +7,7 @@ import {
   type PointerEvent,
 } from "react";
 import { isMobile, isTablet } from "mobile-device-detect";
+import { useIsMounted } from "~/libs/client/hooks";
 
 function activeCursor(
   event: PointerEvent<HTMLElement>,
@@ -45,14 +47,18 @@ export default function useCursor<
   ContainerElem extends HTMLElement,
   CursorElem extends HTMLElement,
 >() {
-  const isMobileOrTabletRef = useRef(isMobile || isTablet);
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
   const containerElemRef = useRef<ContainerElem>(null);
   const cursorElemRef = useRef<CursorElem>(null);
+  const isMounted = useIsMounted();
 
   const resizeObserverCallback: ResizeObserverCallback = useCallback(
     (entries: ResizeObserverEntry[]) => {
       for (const entry of entries) {
-        if (entry.target.id === "app-container" && cursorElemRef.current) {
+        if (
+          entry.target.id === "app-cursor-container" &&
+          cursorElemRef.current
+        ) {
           cursorElemRef.current.style.top = "0px";
           cursorElemRef.current.style.left = "0px";
         }
@@ -62,60 +68,79 @@ export default function useCursor<
     [],
   );
 
-  const [resizeObserver, setResizeObserver] = useState(
-    typeof window === "undefined" && !isMobileOrTabletRef.current
-      ? undefined
-      : new ResizeObserver(resizeObserverCallback),
-  );
+  const resizeObserverRef = useRef<ResizeObserver | undefined>(undefined);
+
   useEffect(() => {
-    if (isMobileOrTabletRef.current) return;
+    if (!isMounted) return;
+    const isMobileOrTablet = isMobile || isTablet;
+    setIsMobileOrTablet(isMobileOrTablet);
+  }, [isMounted]);
 
-    if (typeof window !== "undefined" && !resizeObserver)
-      setResizeObserver(new ResizeObserver(resizeObserverCallback));
+  useEffect(() => {
+    if (!isMounted || !containerElemRef.current) {
+      return;
+    }
 
-    if (containerElemRef.current)
-      resizeObserver?.observe(containerElemRef.current);
+    let resizeObserver: ResizeObserver | undefined = undefined;
+    if (!resizeObserver) {
+      resizeObserver = new ResizeObserver(resizeObserverCallback);
+      resizeObserverRef.current = resizeObserver;
+    }
+
+    console.log("___ 0 resizeObserver", resizeObserver);
+    if (resizeObserver) {
+      console.log("___ 1 isMobileOrTablet", isMobileOrTablet);
+      resizeObserver.observe(containerElemRef.current);
+    }
 
     return () => {
       resizeObserver?.disconnect();
     };
-  }, [resizeObserver, resizeObserverCallback]);
+  }, [isMounted, isMobileOrTablet, resizeObserverCallback]);
 
   useEffect(() => {
-    if (isMobileOrTabletRef.current) {
+    if (!isMounted) return;
+
+    if (isMobileOrTablet) {
       cursorElemRef.current?.classList.add("hidden");
+      containerElemRef.current?.classList.remove("cursor-none");
       return;
     }
 
     const timeoutId = setTimeout(() => {
       containerElemRef.current?.classList.add("cursor-none");
+      cursorElemRef.current?.classList.remove("hidden");
     }, 0);
 
     return () => {
       clearTimeout(timeoutId);
     };
-  }, []);
+  }, [isMounted]);
 
-  return {
-    containerProps: {
-      onPointerMove: isMobileOrTabletRef.current
-        ? undefined
-        : (event: PointerEvent<ContainerElem>) =>
+  return isMobileOrTablet
+    ? {
+        isMobileOrTablet,
+        cursorElemRef,
+        containerElemRef,
+        containerProps: {},
+      }
+    : {
+        isMobileOrTablet,
+        containerProps: {
+          onPointerMove: (event: PointerEvent<ContainerElem>) =>
             cursor(event, cursorElemRef.current!),
-      onPointerOver: isMobileOrTabletRef.current
-        ? undefined
-        : (event: PointerEvent<ContainerElem>) =>
+          onPointerOver: (event: PointerEvent<ContainerElem>) =>
             activeCursor(event, cursorElemRef.current!),
-      id: "app-container",
-    },
-    cursorElemRef,
-    containerElemRef,
-    defaultCursorElement: (
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      <div id="cursor" ref={cursorElemRef}>
-        <span className="cursor-txt"></span>
-      </div>
-    ),
-  };
+          id: "app-cursor-container",
+        },
+        cursorElemRef,
+        containerElemRef,
+        defaultCursorElement: (
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          <div id="cursor" ref={cursorElemRef}>
+            <span className="cursor-txt"></span>
+          </div>
+        ),
+      };
 }

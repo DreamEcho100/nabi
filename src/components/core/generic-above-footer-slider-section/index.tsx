@@ -26,7 +26,7 @@ export default function GenericAboveFooterSliderSection() {
       >
         <p
           className={cx(
-            "flex min-w-fit gap-4 whitespace-nowrap text-5xl md:text-6xl lg:text-7xl",
+            "flex min-w-fit gap-8 whitespace-nowrap text-5xl md:text-6xl lg:text-7xl",
             classNames.container,
           )}
         >

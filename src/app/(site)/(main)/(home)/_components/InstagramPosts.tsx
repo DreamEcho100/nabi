@@ -333,7 +333,7 @@ export default function InstagramPosts() {
         "https://www.instagram.com/p/Cu1bkdiN5Ia/?utm_source=ig_embed&amp;utm_campaign=loading",
         // "https://www.instagram.com/p/C2RxwNuxrr8/?utm_source=ig_embed&amp;utm_campaign=loading",
       ].map((url) => (
-        <InstagramPost url={url} />
+        <InstagramPost key={url} url={url} />
       ))}
       <Script strategy="lazyOnload" async src="//www.instagram.com/embed.js" />
     </div>

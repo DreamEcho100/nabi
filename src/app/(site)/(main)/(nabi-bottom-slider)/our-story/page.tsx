@@ -4,10 +4,7 @@ import type { Metadata } from "next";
 import { cx } from "class-variance-authority";
 import CustomNextImage from "~/components/common/custom-next-image";
 import GenericHeroSection from "~/components/core/generic-hero-section";
-import animationClasses from "~/app/styles/animation.module.css";
-import IntersectionElement, {
-  UseInitIntersectionElementsIntersectionObserver,
-} from "~/components/core/intersection-element";
+import { UseInitIntersectionElementsIntersectionObserver } from "~/components/core/intersection-element";
 import { getSectionInnerContainerClassNames } from "~/components/utils";
 import NabiMotionVideo from "~/components/core/NabiMotionVideo";
 
@@ -25,7 +22,7 @@ export default function OurStoryScreen() {
       <UseInitIntersectionElementsIntersectionObserver
         options={intersectionObserverOptions}
       />
-      <GenericHeroSection headerText="our story" />
+      <GenericHeroSection headerText="our story" removeDefaultEntryAnimation />
       <section className="bg-special-primary-100 text-zinc-700">
         <div
           className={cx(
@@ -146,11 +143,8 @@ export default function OurStoryScreen() {
               "leading-6 sm:leading-10",
             )}
           >
-            <IntersectionElement
-              dataConfig={{ unobserveAfterIntersect: true }}
-              className="md:w-1/2"
-            >
-              <p className="parent-intersect-show-up">
+            <div className="md:w-1/2">
+              <p>
                 Nabi is a luxury brand for babies and toddlers. We only use
                 organic Merino wool and fine silk for our products. Merino wool
                 has the ability to create a microclimate around your baby.
@@ -162,14 +156,10 @@ export default function OurStoryScreen() {
                 is also naturally hypoallergenic. Together, silk and Merino wool
                 are just a dream. Like a little sheep with butterfly wings.
               </p>
-            </IntersectionElement>
+            </div>
 
-            <IntersectionElement
-              dataConfig={{ unobserveAfterIntersect: true }}
-              className="flex flex-col gap-4 md:w-1/2"
-            >
+            <div className="flex flex-col gap-4 md:w-1/2">
               <p
-                className="parent-intersect-show-up"
                 style={
                   {
                     "--transform-duration": "1.5s",
@@ -184,19 +174,11 @@ export default function OurStoryScreen() {
                 by people that receive fair treatment and no hazardous chemicals
                 have been used throughout the entire production process.
               </p>
-              <IntersectionElement
-                as={CustomNextImage}
-                dataConfig={{
-                  onIntersectAdd: animationClasses.animate!,
-                  unobserveAfterIntersect: true,
-                }}
+              <CustomNextImage
                 src="/images/logo-e3f669f8.webp"
                 width={250}
                 height={250}
-                className={cx(
-                  "ms-auto h-16 w-16 sm:h-20 sm:w-20",
-                  animationClasses.intersectShowUp,
-                )}
+                className="ms-auto h-16 w-16 sm:h-20 sm:w-20"
                 style={
                   {
                     // "--duration-multi": "0.5s"
@@ -205,7 +187,7 @@ export default function OurStoryScreen() {
                   } as CSSProperties
                 }
               />
-            </IntersectionElement>
+            </div>
           </div>
         </div>
       </section>
