@@ -87,9 +87,7 @@ export default function useCursor<
       resizeObserverRef.current = resizeObserver;
     }
 
-    console.log("___ 0 resizeObserver", resizeObserver);
     if (resizeObserver) {
-      console.log("___ 1 isMobileOrTablet", isMobileOrTablet);
       resizeObserver.observe(containerElemRef.current);
     }
 
