@@ -124,9 +124,11 @@ export default function MainFooter() {
             </Link>
             <h2 className="text-sm font-semibold">Contact</h2>
             <div className="flex flex-col gap-4 text-sm">
-              <div>
-                <p>Kemankeş Karamustafa Mah. Necatibey Cad.</p>
-                <p>Gökçe Han No: 16 Kat: 4 Beyoğlu</p>
+              <div className="not-italic" style={{ fontFamily: "inherit" }}>
+                <p>Frans Halsstraat 22 ZW</p>
+                <p>2021 EK</p>
+                <p>Haarlem</p>
+                <p>The Netherlands</p>
               </div>
               <div>
                 {/* <a
